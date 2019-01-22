@@ -38,6 +38,8 @@
     <BatchTimeModifier>0.7</BatchTimeModifier>
     <Entities datatype="tokens">
       units/{civ}_hero_hercules
+      units/{civ}_hero_jason
+      units/{civ}_hero_perseus
     </Entities>
     <Technologies datatype="tokens">
       hellenes/special_long_walls
