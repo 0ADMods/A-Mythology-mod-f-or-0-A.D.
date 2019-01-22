@@ -5,8 +5,6 @@
 	"Emblem": "",
 	"History": " Fertile land around the delta Nile is home to people that believe in part in egyptian gods and greek gods.",
 	"Music":[
-			{"File":"", "Type":"peace"},
-			
 		],
 	"Factions":
 	[
@@ -99,8 +97,6 @@
 	],
 	"AINames":
 	[
-		"",
-		
 	],
 	"SkirmishReplacements":
 	{

@@ -2,11 +2,9 @@
 	"Code": "norse",
 	"Culture": "norse",
 	"Name": "Norse",
-	"Emblem": "",
+	"Emblem":"session/portraits/emblems/emblem_athenians.png",
 	"History": "The norse believe in Aesir Gods (Odin, Thor...) just like their forefathers for which they would sacrifice anything even going to Valhala.",
 	"Music":[
-			{"File":"", "Type":"peace"},
-			
 		],
 	"Factions":
 	[
@@ -15,42 +13,14 @@
 			"Description": "N/A",
 			"Technologies":
 			[
-				{
-					"Name":"",
-					"History":"?",
-					"Description":"?"
-				}
 			],
 			"Heroes":
 			[
-
-				{
-					"Name": "",
-					"Class": "",
-					"Armament": "",
-					"Emblem": "",
-					"History": "?" 
-				}
 			] 
 		} 
 	],
 	"CivBonuses":
 	[
-		{
-			"Name": "",
-			"History": "N/A",
-			"Description": "" 
-		},
-		{
-			"Name": "",
-			"History": "N/A",
-			"Description": "" 
-		},
-		{
-			"Name": "",
-			"History": "N/A",
-			"Description": "" 
-		}
 	],
 	"TeamBonuses":
 	[
@@ -61,28 +31,9 @@
 	"WallSets":
 	[
 		"other/wallset_palisade",
-		""
 	],
 	"StartEntities":
 	[
-		{
-			"Template": "" 
-		},
-		{
-			"Template": "",
-			"Count": 4
-		},
-		{
-			"Template": "",
-			"Count": 2 
-		},
-		{
-			"Template": "",
-			"Count": 2 
-		},
-		{
-			"Template": "" 
-		}
 	],
 	"Formations":
 	[
@@ -100,14 +51,10 @@
 	],
 	"AINames":
 	[
-		"",
-	
 	],
 	"SkirmishReplacements":
 	{
-		"skirmish/structures/default_house_5": "structures/{civ}_house",
-		"skirmish/units/default_cavalry": "units/{civ}_cavalry_spearman_b",
-		"skirmish/units/default_infantry_ranged_b": ""
+		"skirmish/structures/default_house_5": "structures/{civ}_house"
 	},
 	"SelectableInGameSetup": true
 }

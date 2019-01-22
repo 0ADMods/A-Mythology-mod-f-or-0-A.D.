@@ -1,56 +1,26 @@
 {
-	"Code": "athens",
-	"Culture": "athens",
-	"Name": "Athens",
+	"Code": "spart",
+	"Culture": "sparta",
+	"Name": "Sparta",
 	"Emblem": "",
-	"History": "Under the protection of goddess Athena Athens live in Golden Age.",
+	"History": "Spartans were raised under the guidance of god of war Ares and it said that they newer sleep because they dream of conquest.",
 	"Music":[
-			{"File":"", "Type":"peace"},
-			
 		],
 	"Factions":
 	[
 		{
-			"Name": "Athens",
+			"Name": "Sparta",
 			"Description": "N/A",
 			"Technologies":
 			[
-				{
-					"Name":"",
-					"History":"?",
-					"Description":"?"
-				}
 			],
 			"Heroes":
 			[
-
-				{
-					"Name": "Alfred the Great",
-					"Class": "",
-					"Armament": "",
-					"Emblem": "",
-					"History": "?" 
-				}
 			] 
 		} 
 	],
 	"CivBonuses":
 	[
-		{
-			"Name": "",
-			"History": "N/A",
-			"Description": "" 
-		},
-		{
-			"Name": "",
-			"History": "N/A",
-			"Description": "" 
-		},
-		{
-			"Name": "",
-			"History": "N/A",
-			"Description": "" 
-		}
 	],
 	"TeamBonuses":
 	[
@@ -61,7 +31,6 @@
 	"WallSets":
 	[
 		"other/wallset_palisade",
-		""
 	],
 	"StartEntities":
 	[
@@ -100,14 +69,10 @@
 	],
 	"AINames":
 	[
-		"",
-
 	],
 	"SkirmishReplacements":
 	{
-		"skirmish/structures/default_house_5": "structures/{civ}_house",
-		"skirmish/units/default_cavalry": "units/{civ}_cavalry_spearman_b",
-		"skirmish/units/default_infantry_ranged_b": ""
+		"skirmish/structures/default_house_5": "structures/{civ}_house"
 	},
 	"SelectableInGameSetup": true
 }

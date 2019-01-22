@@ -1,0 +1,59 @@
+{
+	"Code": "athen",
+	"Culture": "athens",
+	"Name": "Athens",
+	"Emblem":"session/portraits/emblems/emblem_athenians.png",
+	"History": "Under the protection of goddess Athena Athens live in Golden Age.",
+	"Music":[
+		],
+	"Factions":
+	[
+		{
+			"Name": "Athens",
+			"Description": "N/A",
+			"Technologies":
+			[
+			],
+			"Heroes":
+			[
+			] 
+		} 
+	],
+	"CivBonuses":
+	[
+	],
+	"TeamBonuses":
+	[
+	],
+	"Structures":
+	[
+	],
+	"WallSets":
+	[
+		"other/wallset_palisade"
+	],
+	"StartEntities":
+	[
+	],
+	"Formations":
+	[
+		"special/formations/null",
+		"special/formations/box",
+		"special/formations/column_closed",
+		"special/formations/line_closed",
+		"special/formations/column_open",
+		"special/formations/line_open",
+		"special/formations/flank",
+		"special/formations/skirmish",
+		"special/formations/wedge",
+		"special/formations/battle_line"
+	],
+	"AINames":
+	[
+	],
+	"SkirmishReplacements":
+	{
+		"skirmish/structures/default_house_5": "structures/{civ}_house"
+	},
+	"SelectableInGameSetup": true
+}
