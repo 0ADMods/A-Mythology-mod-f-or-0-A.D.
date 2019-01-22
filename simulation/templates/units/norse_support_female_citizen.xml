@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_support_female_citizen">
+  <Attack>
+    <Melee>
+      <Hack>10.0</Hack>
+    </Melee>
+  </Attack>
+  <Builder>
+    <Entities datatype="tokens">
+    -structures/{civ}_corral
+    -structures/{civ}_wonder
+	  </Entities>
+  </Builder>
+  <Health>
+    <Max>75</Max>
+  </Health>
+  <Identity>
+    <Civ>norse</Civ>
+    <SpecificName>Fljóð</SpecificName>
+    <GenericName>Woman</GenericName>
+    <Icon>units/celt_support_female_citizen.png</Icon>
+  </Identity>
+  <VisualActor>
+    <Actor>units/norse/female_citizen.xml</Actor>
+  </VisualActor>
+</Entity>

@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Entity parent="template_unit_hero_infantry_spearman_hoplite">
+<Entity parent="template_unit_hero_hercules">
   <Identity>
     <Civ>athen</Civ>
-    <Lang>greek</Lang>
-    <GenericName>Hercules</GenericName>
-    <SpecificName>Hercules</SpecificName>
-    <Icon>units/athen_hero_pericles.png</Icon>
   </Identity>
-  <Cost>
-    <BuildTime>200</BuildTime>
-    <Population>1</Population>
-    <Resources>
-      <food>0</food>
-      <wood>0</wood>
-      <stone>0</stone>
-      <metal>0</metal>
-	  <glory>100</glory>
-    </Resources>
-  </Cost>
-  <VisualActor>
-    <Actor>units/athenians/hero_infantry_spearman_pericles.xml</Actor>
-  </VisualActor>
 </Entity>

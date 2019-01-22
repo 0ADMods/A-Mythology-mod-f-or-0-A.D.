@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant file="biped/base_trader.xml">
+      <mesh>skeletal/new/m_tunic_long.dae</mesh>
+      <props>
+        <prop actor="props/units/heads/new/head_celt.xml" attachpoint="head"/>
+        <prop actor="props/units/weapons/trader_staff.xml" attachpoint="weapon_L"/>
+        <prop actor="props/units/weapons/norse_sword_sheath.xml" attachpoint="sheath_L"/>
+      </props>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="transparent_shirt1">
+      <textures>
+        <texture file="skeletal/norse/advanced/transparent_shirt1.png" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="transparent_shirt2">
+      <textures>
+        <texture file="skeletal/norse/advanced/transparent_shirt2.png" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="transparent_shirt3">
+      <textures>
+        <texture file="skeletal/norse/advanced/transparent_shirt3.png" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Idle"/>
+    <variant file="biped/death_infantry.xml"/>
+  </group>
+  <material>player_trans.xml</material>
+</actor>
