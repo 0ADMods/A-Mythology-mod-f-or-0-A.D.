@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_hero_infantry_swordsman">
+  <Auras datatype="tokens">
+    units/heroes/norse_hero_erik_the_red
+  </Auras>
+  <Identity>
+    <Civ>norse</Civ>
+	<GenericName>Erik the Red</GenericName>
+    <SpecificName>Eiríkr hinn rauði</SpecificName>
+    <Icon>units/norse_erik_the_red.png</Icon>
+    <RequiredTechnology>germanic_thingstead</RequiredTechnology>
+  </Identity>
+  <Vision>
+    <Range>120</Range>
+  </Vision>
+  <UnitMotion>
+    <WalkSpeed>14.0</WalkSpeed>
+    <Run>
+      <Speed>18.0</Speed>
+    </Run>
+  </UnitMotion>
+  <VisualActor>
+    <Actor>units/norse/erik_the_red.xml</Actor>
+  </VisualActor>
+</Entity>

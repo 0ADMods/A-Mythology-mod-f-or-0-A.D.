@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant>
+      <mesh>skeletal/new/f_dress.dae</mesh>
+      <props>
+        <prop actor="props/units/heads/new/head_female_celt.xml" attachpoint="head"/>
+      </props>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="A">
+      <textures>
+        <texture file="skeletal/norse/female/norse_female01.png" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="B">
+      <textures>
+        <texture file="skeletal/norse/female/norse_female02.png" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="C">
+      <textures>
+        <texture file="skeletal/norse/female/norse_female03.png" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="D">
+      <textures>
+        <texture file="skeletal/norse/female/norse_female04.png" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="E">
+      <textures>
+        <texture file="skeletal/norse/female/norse_female05.png" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="F">
+      <textures>
+        <texture file="skeletal/norse/female/norse_female06.png" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant file="biped/female_base_walk.xml"/>
+    <variant file="biped/female_carry_food.xml"/>
+    <variant file="biped/female_carry_meat.xml"/>
+    <variant file="biped/female_carry_wood.xml"/>
+    <variant file="biped/female_carry_stone.xml"/>
+    <variant file="biped/female_carry_metal.xml"/>
+  </group>
+  <group>
+    <variant frequency="1" name="Idle"/>
+    <variant file="biped/attack_melee_female.xml"/>
+    <variant file="biped/attack_slaughter.xml"/>
+    <variant file="biped/female_death.xml"/>
+    <variant file="biped/female_gather_tree.xml"/>
+    <variant file="biped/female_gather_grain.xml"/>
+    <variant file="biped/female_gather_fruit.xml"/>
+    <variant file="biped/female_gather_meat.xml"/>
+    <variant file="biped/female_gather_rock.xml"/>
+    <variant file="biped/female_gather_ore.xml"/>
+    <variant file="biped/female_gather_ruins.xml"/>
+    <variant file="biped/gather_praise.xml"/>
+    <variant file="biped/female_build.xml"/>
+    <variant file="biped/female_build_farm.xml"/>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

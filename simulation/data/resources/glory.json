@@ -1,0 +1,11 @@
+{
+	"code": "glory",
+	"name": "Glory",
+	"description": "Gather by praising Cult Statues or by combating your enemies.",
+	"order": 5,
+	"subtypes": {
+		"praise": "Praise"
+	},
+	"truePrice": 100,
+	"aiAnalysisInfluenceGroup": "ignore"
+}

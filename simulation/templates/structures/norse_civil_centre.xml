@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_civic_civil_centre">
+  <Armour>
+    <Pierce op="add">5</Pierce>
+    <Crush op="add">3</Crush>
+  </Armour>
+  <Attack>
+    <Ranged>
+      <Pierce op="add">4.0</Pierce>
+      <PreferredClasses datatype="tokens">Organic</PreferredClasses>
+    </Ranged>
+  </Attack>
+  <BuildRestrictions>
+    <Territory>own neutral</Territory>
+    <Category>CivilCentre</Category>
+    <Distance>
+      <FromClass>CivilCentre</FromClass>
+      <MinDistance>200</MinDistance>
+    </Distance>
+  </BuildRestrictions>
+  <Capturable>
+    <CapturePoints op="mul">1.5</CapturePoints>
+    <RegenRate op="mul">2.0</RegenRate>
+  </Capturable>
+  <Footprint>
+    <Square width="32.0" depth="24.0"/>
+    <Height>8.0</Height>
+  </Footprint>
+  <Health>
+    <Max>3750</Max>
+    <SpawnEntityOnDeath>decay|rubble/rubble_stone_6x6</SpawnEntityOnDeath>
+  </Health>
+  <Identity>
+    <Civ>norse</Civ>
+    <SpecificName>Jarl's Hold</SpecificName>
+    <History>This was be the center of the town, a great hall where the clan leader resided. All political matters were probably performed inside such a structure.</History>
+  	<Icon>structures/fortress.png</Icon>
+    <Classes datatype="tokens">GarrisonFortress</Classes>
+    <VisibleClasses datatype="tokens">
+      Defensive
+      City
+      Fortress
+    </VisibleClasses>
+  </Identity>
+  <Obstruction>
+    <Static width="30.0" depth="16.0"/>
+  </Obstruction>
+  <ProductionQueue>
+    <BatchTimeModifier>0.8</BatchTimeModifier>
+    <Entities datatype="tokens">
+      units/{civ}_infantry_swordsman_b
+      units/{civ}_infantry_spearman_b
+      units/{civ}_infantry_archer_b
+      units/{civ}_champion_berserker
+      units/{civ}_champion_huscarl
+      units/{civ}_mechanical_siege_ram
+      units/{civ}_hero_erik_the_red
+      units/{civ}_hero_ivar_the_boneless
+      units/{civ}_hero_hastein
+    </Entities>
+    <Technologies datatype="tokens">
+      attack_soldiers_will
+      germanic_thingstead
+      unlock_champion_units_modded
+    </Technologies>
+  </ProductionQueue>
+  <VisualActor>
+    <Actor>structures/norse/jarls_hold.xml</Actor>
+  </VisualActor>
+</Entity>

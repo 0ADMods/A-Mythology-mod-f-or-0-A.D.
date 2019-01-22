@@ -2,11 +2,9 @@
 	"Code": "norse",
 	"Culture": "norse",
 	"Name": "Norse",
-	"Emblem": "",
+	"Emblem": "session/portraits/emblems/emblem_norse.png",
 	"History": "The norse believe in Aesir Gods (Odin, Thor...) just like their forefathers for which they would sacrifice anything even going to Valhala.",
 	"Music":[
-			{"File":"", "Type":"peace"},
-			
 		],
 	"Factions":
 	[
@@ -15,42 +13,14 @@
 			"Description": "N/A",
 			"Technologies":
 			[
-				{
-					"Name":"",
-					"History":"?",
-					"Description":"?"
-				}
 			],
 			"Heroes":
 			[
-
-				{
-					"Name": "",
-					"Class": "",
-					"Armament": "",
-					"Emblem": "",
-					"History": "?" 
-				}
 			] 
 		} 
 	],
 	"CivBonuses":
 	[
-		{
-			"Name": "",
-			"History": "N/A",
-			"Description": "" 
-		},
-		{
-			"Name": "",
-			"History": "N/A",
-			"Description": "" 
-		},
-		{
-			"Name": "",
-			"History": "N/A",
-			"Description": "" 
-		}
 	],
 	"TeamBonuses":
 	[
@@ -61,27 +31,27 @@
 	"WallSets":
 	[
 		"other/wallset_palisade",
-		""
+		"structures/norse_wallset_stone"
 	],
 	"StartEntities":
 	[
 		{
-			"Template": "" 
+			"Template": "structures/norse_civil_centre" 
 		},
 		{
-			"Template": "",
+			"Template": "units/norse_support_female_citizen",
 			"Count": 4
 		},
 		{
-			"Template": "",
+			"Template": "units/norse_infantry_spearman_b",
 			"Count": 2 
 		},
 		{
-			"Template": "",
+			"Template": "units/norse_infantry_archer_b",
 			"Count": 2 
 		},
 		{
-			"Template": "" 
+			"Template": "units/norse_infantry_swordsman_b" 
 		}
 	],
 	"Formations":
@@ -100,14 +70,20 @@
 	],
 	"AINames":
 	[
-		"",
-	
 	],
 	"SkirmishReplacements":
 	{
-		"skirmish/structures/default_house_5": "structures/{civ}_house",
-		"skirmish/units/default_cavalry": "units/{civ}_cavalry_spearman_b",
-		"skirmish/units/default_infantry_ranged_b": ""
+		"skirmish/units/default_cavalry": "units/norse_infantry_swordsman_b",
+		"skirmish/units/default_infantry_ranged_b": "units/norse_infantry_archer_b",
+		"skirmish/structures/default_corral": "structures/norse_farmstead",
+		"skirmish/structures/default_defense_tower": "structures/norse_wooden_tower",
+		"skirmish/structures/default_fortress": "structures/norse_civil_centre",
+		"skirmish/structures/default_house_10": "structures/{civ}_house",
+		"skirmish/structures/default_wall_tower": "",
+		"skirmish/structures/default_wall_gate": "",
+		"skirmish/structures/default_wall_short": "",
+		"skirmish/structures/default_wall_medium": "",
+		"skirmish/structures/default_wall_long": ""
 	},
 	"SelectableInGameSetup": true
 }
