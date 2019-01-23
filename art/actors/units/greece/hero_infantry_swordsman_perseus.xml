@@ -3,14 +3,13 @@
   <castshadow/>
   <group>
     <variant file="biped/base_swordsman_shieldarm.xml">
-      <mesh>skeletal/new/m_armor_tunic_long.dae</mesh>
+      <mesh>skeletal/new/m_armor_tunic_short.dae</mesh>
       <props>
-        <prop actor="props/units/heads/new/head_beard_longhair.xml" attachpoint="head"/>
+        <prop actor="props/units/heads/new/head_corinthian.xml" attachpoint="head"/>
         <prop actor="props/units/weapons/xiphos_alexander.xml" attachpoint="weapon_R"/>
-        <prop actor="props/units/weapons/xiphos_alexander.xml" attachpoint="weapon_L"/>
       </props>
       <textures>
-        <texture file="skeletal/hele_themistocles.dds" name="baseTex"/>
+        <texture file="skeletal/hele_spartitiate_a.dds" name="baseTex"/>
       </textures>
     </variant>
   </group>
