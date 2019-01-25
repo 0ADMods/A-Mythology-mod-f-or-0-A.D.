@@ -1,0 +1,10 @@
+{
+	"genericName": "Improved glory loot",
+	"autoResearch": true,
+	"description": "Norse are great fighters and they fight for glory.",
+	"requirements": {"civ" : "norse"},
+	"modifications": [
+		{"value": "Looter/Resource/glory", "multiply": 2.0}
+	],
+	"affects": ["Unit Structure Siege"]
+}
