@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<object name="deity_selection"
+	size="50%-400 10% 50%+400 72%"
+	type="image"
+	sprite="ModernDialog"
+>
+	<object type="text" style="TitleText" size="50%-96 -15 50%+96 10">
+		<translatableAttribute id="caption">Choose your major deity!</translatableAttribute>
+	</object>
+
+	<object size="10 20 100%-10 100%-10">
+		<repeat count="3" var="n">
+
+			<object name="deity_container[n]" type="image" sprite="genericPanel">
+
+				<object name="deity_title[n]" type="text" style="DeityTitleText" size="0 4 100% 16"/>
+
+				<object name="deity_button[n]" type="button" size="15% 30 85% 50%">
+					<!-- this is needed for adding a glow or whatever to the hovered deity portrait easily -->
+					<object name="deity_portrait[n]" type="image" size="0 0 100% 100%" ghost="true"/>
+				</object>
+
+				<object name="deity_infobox[n]" type="text" style="DeityDescriptionText" size="0+10 50%+5 100%-10 100%-10"/>
+
+			</object>
+
+		</repeat>
+	</object>
+
+</object>

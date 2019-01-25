@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<objects>
+
+<script directory="gui/common/"/>
+<script directory="gui/session/"/>
+
+<object name="session">
+
+	<action on="Tick">
+		onTick();
+	</action>
+
+	<action on="WindowResized">
+		onWindowResized();
+	</action>
+
+	<action on="SimulationUpdate">
+		onSimulationUpdate();
+	</action>
+
+	<action on="ReplayFinished">
+		onReplayFinished();
+	</action>
+
+	<action on="ReplayOutOfSync">
+		onReplayOutOfSync();
+	</action>
+
+	<!-- Hotkeys won't work properly unless outside menu -->
+	<include directory="gui/session/hotkeys/"/>
+
+	<!-- Time elapsed counter -->
+	<object size="100%-250 45 100%-140 65" type="text" name="timeElapsedCounter" style="SettingsText" hotkey="timeelapsedcounter.toggle" hidden="true">
+		<action on="Press">
+			Engine.ConfigDB_CreateValue("user", "gui.session.timeelapsedcounter", String(Engine.ConfigDB_GetValue("user", "gui.session.timeelapsedcounter") != "true"));
+		</action>
+	</object>
+
+	<!-- Ceasefire counter -->
+	<object size="100%-250 80 100%-140 100" type="text" name="ceasefireCounter" style="SettingsText" hotkey="ceasefirecounter.toggle" hidden="true">
+		<action on="Press">
+			Engine.ConfigDB_CreateValue("user", "gui.session.ceasefirecounter", String(Engine.ConfigDB_GetValue("user", "gui.session.ceasefirecounter") != "true"));
+		</action>
+	</object>
+
+	<!-- Network status -->
+	<object name="netStatus" type="text" style="netStatus" z="0" hidden="true">
+		<object type="button"
+			name="disconnectedExitButton"
+			style="StoneButton"
+			size="50%-84 50%+128 50%+84 50%+160"
+			tooltip_style="sessionToolTip"
+			z="0"
+		>
+			<translatableAttribute id="caption">Exit</translatableAttribute>
+			<action on="Press">leaveGame();</action>
+		</object>
+		<object name="loadingClientsText" size="50%-300 50%+60 50%+300 50%+110" type="text" style="netStatusPlayersText" hidden="true" z="0"/>
+	</object>
+
+	<!-- Pause Overlay -->
+	<object type="button" name="pauseOverlay" size="0 0 100% 100%" tooltip_style="sessionToolTip" hidden="true" z="0">
+		<object size="0 0 100% 100%" type="image" sprite="sessionOverlayBackground" ghost="true" z="0"/>
+		<object size="50%-128 40%-20 50%+128 40%+20" type="text" style="PauseText" ghost="true" z="0">
+			<translatableAttribute id="caption">Game Paused</translatableAttribute>
+		</object>
+		<object name="resumeMessage" size="50%-128 40%+20 50%+128 40%+40" type="text" style="ResumeMessageText" ghost="true" z="0">
+			<translatableAttribute id="caption">Click to Resume Game</translatableAttribute>
+		</object>
+		<object name="pausedByText" size="30% 40%+50 70% 100%" type="text" style="netStatusPlayersText" ghost="true" hidden="true" z="0"/>
+		<action on="Press">togglePause();</action>
+	</object>
+
+	<!-- Notification Area -->
+	<object name="notificationPanel" type="image" size="50%-300 60 50%+300 120" ghost="true">
+		<object name="notificationText" size="0 0 100% 100%" type="text" style="notificationPanel" ghost="true"/>
+	</object>
+
+	<!-- Chat messages -->
+	<object name="chatPanel" size="0 130 100% 100%-240" type="image" ghost="true" z="0" absolute="true">
+		<object name="chatText" size="3 1 100%-1 100%-1" type="text" style="chatPanelOverlay" ghost="true"/>
+	</object>
+
+	<!-- Entity selection state text -->
+	<object name="debugEntityState"
+		type="text"
+		size="0 70 80% 100%"
+		ghost="true"
+		textcolor="yellow"
+		font="mono-stroke-10"
+	/>
+
+	<include directory="gui/session/dialogs/"/>
+	<include file="gui/session/chat_window.xml"/>
+	<include file="gui/session/developer_overlay.xml"/>
+	<include file="gui/session/deity_selection.xml"/>
+	<include file="gui/session/diplomacy_window.xml"/>
+	<include file="gui/session/objectives_window.xml"/>
+	<include file="gui/session/top_panel.xml"/>
+	<include file="gui/session/trade_window.xml"/>
+	<include file="gui/session/tutorial_panel.xml"/>
+	<include file="gui/session/menu.xml"/>
+
+	<!-- Contains miscellanious objects s.a.: the technology research -->
+	<!-- progress, group selection icons, and the hero selection icon -->
+	<include directory="gui/session/session_objects/"/>
+
+	<!-- Information tooltip -->
+	<!-- Follows the mouse around if 'independent' is set to 'true'. -->
+	<object name="informationTooltip" type="tooltip" independent="true" style="informationTooltip"/>
+
+	<!-- Building placement info tooltip -->
+	<object name="placementTooltip" type="tooltip" independent="true" style="informationTooltip"/>
+
+	<!-- START of BOTTOM PANEL -->
+	<!-- limit to the minimal supported width of 1024px -->
+	<object size="50%-512 0 50%+512 100%">
+
+		<include file="gui/session/minimap_panel.xml"/>
+
+		<!-- Supplemental Details Panel (Left of Selection Details) -->
+		<object
+			size="50%-304 100%-170 50%-110 100%"
+			name="supplementalSelectionDetails"
+			type="image"
+			sprite="supplementalDetailsPanel"
+			z="20"
+		>
+			<include directory="gui/session/selection_panels_left/"/>
+		</object>
+
+		<!-- Selection Details Panel (Middle) -->
+		<object name="selectionDetails"
+			type="image"
+			sprite="selectionDetailsPanel"
+			size="50%-114 100%-205 50%+114 100%"
+			hidden="false"
+		>
+			<include directory="gui/session/selection_panels_middle/"/>
+		</object>
+
+		<!-- Commands Panel (Right of Selection Details) -->
+		<object name="unitCommands"
+			type="image"
+			sprite="unitCommandsPanel"
+			size="50%+110 100%-170 50%+512 100%"
+			hidden="false"
+			z="20"
+		>
+			<include directory="gui/session/selection_panels_right/"/>
+		</object>
+	</object><!-- END OF BOTTOM PANEL -->
+</object> <!-- END OF SESSION OBJECT -->
+
+<!-- Selection bandbox -->
+<object name="bandbox" type="image" sprite="bandbox" ghost="true" hidden="true" z="200"/>
+
+</objects>
