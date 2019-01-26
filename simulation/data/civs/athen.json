@@ -68,6 +68,33 @@
 		"special/formations/battle_line",
 		"special/formations/phalanx"
 	],
+	"Deities":
+	[
+		{
+			"name": "Zeus",
+			"description": "Greek god of lightning",
+			"godPowers": [{"name": "Lightning", "description": "Bolts of lightning struct to the chosen target", "power": "either a power ability or temporary aura or something"}],
+			"Bonuses": [{"name": "Endurance/Powerful blow", "description": "Increased armor for combat units or increased damage", "tech": "path/to/pairedtech"}],
+			"mythUnits": ["Cyclops"],
+			"hero": "Jason"
+		},
+		{
+			"name": "Poseidon",
+			"description": "Greek god of the oceans",
+			"godPowers": [{"name": "Tsunami", "description": "Placeholder Tsunami wave power", "power": "either a power ability or temporary aura or something"}],
+			"Bonuses": [{"name": "King of the oceans/Fish harvest", "description": "Increased fishing or armor and damage for all combat ships", "tech/aura": "path/to/pairedtech"}],
+			"mythUnits": ["Trojan cetus", "Chimera"],
+			"hero": "Hercules"
+		},
+		{
+			"name": "Hades",
+			"description": "Greek god of the Underworld",
+			"godPowers": [{"name": "Not sure", "description": "not sure about this one", "power": "either a power ability or temporary aura or something"}],
+			"Bonuses": [{"name": "Strength/Slave labour", "description": "Increased health for combat units or increased mining rate", "tech": "path/to/pairedtech"}],
+			"mythUnits": ["Cerberus"],
+			"hero": "Perseus"
+		}
+	],
 	"AINames":
 	[
 	],
