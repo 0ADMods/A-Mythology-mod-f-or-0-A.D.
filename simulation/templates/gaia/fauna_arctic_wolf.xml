@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_fauna_wild_aggressive_wolf">
+  <Identity>
+    <SpecificName>Arctic Wolf</SpecificName>
+    <Icon>gaia/fauna_arctic_wolf.png</Icon>
+  </Identity>
+  <Loot>
+    <glory>2</glory>
+  </Loot>
+  <VisualActor>
+    <Actor>fauna/arctic_wolf.xml</Actor>
+  </VisualActor>
+</Entity>
