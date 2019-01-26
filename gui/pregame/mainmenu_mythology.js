@@ -10,7 +10,7 @@ init = function(initData, hotloadData)
 			"title": translate("Mythology Mod"),
 			"subtitle": translate("Demo")
 		}), { "font": "sans-bold-16" }),
-		"version": translate("0 A.D. Alpha XXIII"), 
+		"version": translate("0 A.D. Alpha XXIV"), 
 		"warning": translate("WARNING: This is an early development version of the game. Many features have not been added yet.")
 	});
 }
