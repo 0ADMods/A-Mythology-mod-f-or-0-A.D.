@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant file="quadraped/base_centaur_spearman.xml">
+      <mesh>skeletal/centaur.dae</mesh>
+      <props>
+        <prop actor="props/units/heads/new/head_hele_b.xml" attachpoint="head"/>
+        <prop actor="props/units/shields/hele_round_b.xml" attachpoint="shield_arm"/>
+        <prop actor="props/units/weapons/spear.xml" attachpoint="weapon_R"/>
+        <prop actor="props/units/helmets/hele_pilos.xml" attachpoint="helmet"/>
+      </props>
+      <textures>
+        <texture file="skeletal/hele_spartitiate_a.dds" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Idle"/>
+    <variant file="quadraped/base_centaur_death.xml"/>
+    <variant file="quadraped/base_centaur_run.xml"/>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

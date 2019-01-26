@@ -1,0 +1,405 @@
+<?xml version='1.0' encoding='utf-8'?>
+<skeletons>
+  <standard_skeleton id="Centaur_Armature" title="Centaur Armature">
+    <bone name="Centaur_root">
+      <bone name="Centaur_Spine">
+        <bone name="Centaur_Spine_1">
+          <bone name="Centaur_Spine_2">
+            <bone name="Centaur_Neck">
+              <bone name="Centaur_Neck_1">
+                <bone name="Centaur_hip">
+                  <bone name="Centaur_spine">
+                    <bone name="Centaur_spine1">
+                      <bone name="Centaur_chest">
+                        <bone name="Centaur_upper_shoulder_L">
+                          <bone name="Centaur_arm_L">
+                            <bone name="Centaur_forearm_L">
+                              <bone name="Centaur_hand_L">
+                                <bone name="Centaur_finger_L">
+                                  <bone name="Centaur_fingertip_L" />
+                                </bone>
+                                <bone name="Centaur_shield" />
+                                <bone name="Centaur_weapon_bow" />
+                                <bone name="Centaur_ammo" />
+                                <bone name="Centaur_weapon_L" />
+                              </bone>
+                              <bone name="Centaur_shield_arm" />
+                            </bone>
+                          </bone>
+                        </bone>
+                        <bone name="Centaur_neck">
+                          <bone name="Centaur_head">
+                            <bone name="Centaur_helmet" />
+                          </bone>
+                          <bone name="Centaur_neck_guard" />
+                        </bone>
+                        <bone name="Centaur_upper_shoulder_R">
+                          <bone name="Centaur_arm_R">
+                            <bone name="Centaur_forearm_R">
+                              <bone name="Centaur_hand_R">
+                                <bone name="Centaur_finger_R">
+                                  <bone name="Centaur_fingertip_R" />
+                                </bone>
+                                <bone name="Centaur_weapon_R" />
+                                <bone name="Centaur_projectile" />
+                              </bone>
+                            </bone>
+                          </bone>
+                        </bone>
+                        <bone name="Centaur_cape" />
+                        <bone name="Centaur_cape1">
+                          <bone name="Centaur_cape2">
+                            <bone name="Centaur_cape3" />
+                          </bone>
+                        </bone>
+                      </bone>
+                    </bone>
+                  </bone>
+                </bone>
+              </bone>
+            </bone>
+            <bone name="Centaur_shoulder_R">
+              <bone name="Centaur_upperarm_R">
+                <bone name="Centaur_Arm_R">
+                  <bone name="Centaur_Forearm_R">
+                    <bone name="Centaur_Hand_R">
+                      <bone name="Centaur_Hoof_R" />
+                    </bone>
+                  </bone>
+                  <bone name="Knee_Stretch_R" />
+                </bone>
+              </bone>
+            </bone>
+            <bone name="Centaur_shoulder_L">
+              <bone name="Centaur_upperarm_L">
+                <bone name="Centaur_Arm_L">
+                  <bone name="Centaur_Forearm_L">
+                    <bone name="Centaur_Hand_L">
+                      <bone name="Centaur_Hoof_L" />
+                    </bone>
+                  </bone>
+                  <bone name="Knee_Stretch_L" />
+                </bone>
+              </bone>
+            </bone>
+          </bone>
+          <bone name="Centaur_Belly" />
+        </bone>
+        <bone name="Centaur_Femur_L">
+          <bone name="Centaur_Thigh_L">
+            <bone name="Centaur_Leg_L">
+              <bone name="Centaur_Shin_L">
+                <bone name="Centaur_Foot_L">
+                  <bone name="Centaur_Hoof_back_L" />
+                </bone>
+              </bone>
+              <bone name="Knee_Stretch_B_L" />
+            </bone>
+            <bone name="Leg_Stretch_L" />
+          </bone>
+        </bone>
+        <bone name="Centaur_Femur_R">
+          <bone name="Centaur_Thigh_R">
+            <bone name="Centaur_Leg_R">
+              <bone name="Centaur_Shin_R">
+                <bone name="Centaur_Foot_R">
+                  <bone name="Centaur_Hoof_back_R" />
+                </bone>
+              </bone>
+              <bone name="Knee_Stretch_B_R" />
+            </bone>
+            <bone name="Leg_Stretch_R" />
+          </bone>
+        </bone>
+        <bone name="Centaur_Tail_base">
+          <bone name="Centaur_Tail">
+            <bone name="Centaur_Tail_2">
+              <bone name="Centaur_Tail_3">
+                <bone name="Centaur_Tail_4">
+                  <bone name="Centaur_Tail_5">
+                    <bone name="Centaur_Tail_6">
+                      <bone name="Centaur_Tail_7" />
+                    </bone>
+                  </bone>
+                </bone>
+              </bone>
+            </bone>
+          </bone>
+        </bone>
+      </bone>
+      <bone name="Leg_target_L" />
+      <bone name="Leg_target_R" />
+      <bone name="Knee_F_L" />
+      <bone name="Knee_F_R" />
+      <bone name="Shoulder_Target_R" />
+      <bone name="Shoulder_Target_L" />
+      <bone name="Knee_B_L" />
+      <bone name="Knee_B_R" />
+    </bone>
+    <bone name="Centaur_elbow_L" />
+    <bone name="Centaur_elbow_R" />
+  </standard_skeleton>
+  <skeleton target="Centaur_Armature" title="Centaur Armature">
+    <identifier>
+      <root>Centaur_root</root>
+    </identifier>
+    <bone name="Centaur_root">
+      <target>Centaur_root</target>
+      <bone name="Centaur_Spine">
+        <target>Centaur_Spine</target>
+        <bone name="Centaur_Spine_1">
+          <target>Centaur_Spine_1</target>
+          <bone name="Centaur_Spine_2">
+            <target>Centaur_Spine_2</target>
+            <bone name="Centaur_Neck">
+              <target>Centaur_Neck</target>
+              <bone name="Centaur_Neck_1">
+                <target>Centaur_Neck_1</target>
+                <bone name="Centaur_hip">
+                  <target>Centaur_hip</target>
+                  <bone name="Centaur_spine">
+                    <target>Centaur_spine</target>
+                    <bone name="Centaur_spine1">
+                      <target>Centaur_spine1</target>
+                      <bone name="Centaur_chest">
+                        <target>Centaur_chest</target>
+                        <bone name="Centaur_upper_shoulder_L">
+                          <target>Centaur_upper_shoulder_L</target>
+                          <bone name="Centaur_arm_L">
+                            <target>Centaur_arm_L</target>
+                            <bone name="Centaur_forearm_L">
+                              <target>Centaur_forearm_L</target>
+                              <bone name="Centaur_hand_L">
+                                <target>Centaur_hand_L</target>
+                                <bone name="Centaur_finger_L">
+                                  <target>Centaur_finger_L</target>
+                                  <bone name="Centaur_fingertip_L">
+                                    <target>Centaur_fingertip_L</target>
+                                  </bone>
+                                </bone>
+                                <bone name="Centaur_shield">
+                                  <target>Centaur_shield</target>
+                                </bone>
+                                <bone name="Centaur_weapon_bow">
+                                  <target>Centaur_weapon_bow</target>
+                                </bone>
+                                <bone name="Centaur_ammo">
+                                  <target>Centaur_ammo</target>
+                                </bone>
+                                <bone name="Centaur_weapon_L">
+                                  <target>Centaur_weapon_L</target>
+                                </bone>
+                              </bone>
+                              <bone name="Centaur_shield_arm">
+                                <target>Centaur_shield_arm</target>
+                              </bone>
+                            </bone>
+                          </bone>
+                        </bone>
+                        <bone name="Centaur_neck">
+                          <target>Centaur_neck</target>
+                          <bone name="Centaur_head">
+                            <target>Centaur_head</target>
+                            <bone name="Centaur_helmet">
+                              <target>Centaur_helmet</target>
+                            </bone>
+                          </bone>
+                          <bone name="Centaur_neck_guard">
+                            <target>Centaur_neck_guard</target>
+                          </bone>
+                        </bone>
+                        <bone name="Centaur_upper_shoulder_R">
+                          <target>Centaur_upper_shoulder_R</target>
+                          <bone name="Centaur_arm_R">
+                            <target>Centaur_arm_R</target>
+                            <bone name="Centaur_forearm_R">
+                              <target>Centaur_forearm_R</target>
+                              <bone name="Centaur_hand_R">
+                                <target>Centaur_hand_R</target>
+                                <bone name="Centaur_finger_R">
+                                  <target>Centaur_finger_R</target>
+                                  <bone name="Centaur_fingertip_R">
+                                    <target>Centaur_fingertip_R</target>
+                                  </bone>
+                                </bone>
+                                <bone name="Centaur_weapon_R">
+                                  <target>Centaur_weapon_R</target>
+                                </bone>
+                                <bone name="Centaur_projectile">
+                                  <target>Centaur_projectile</target>
+                                </bone>
+                              </bone>
+                            </bone>
+                          </bone>
+                        </bone>
+                        <bone name="Centaur_cape">
+                          <target>Centaur_cape</target>
+                        </bone>
+                        <bone name="Centaur_cape1">
+                          <target>Centaur_cape1</target>
+                          <bone name="Centaur_cape2">
+                            <target>Centaur_cape2</target>
+                            <bone name="Centaur_cape3">
+                              <target>Centaur_cape3</target>
+                            </bone>
+                          </bone>
+                        </bone>
+                      </bone>
+                    </bone>
+                  </bone>
+                </bone>
+              </bone>
+            </bone>
+            <bone name="Centaur_shoulder_R">
+              <target>Centaur_shoulder_R</target>
+              <bone name="Centaur_upperarm_R">
+                <target>Centaur_upperarm_R</target>
+                <bone name="Centaur_Arm_R">
+                  <target>Centaur_Arm_R</target>
+                  <bone name="Centaur_Forearm_R">
+                    <target>Centaur_Forearm_R</target>
+                    <bone name="Centaur_Hand_R">
+                      <target>Centaur_Hand_R</target>
+                      <bone name="Centaur_Hoof_R">
+                        <target>Centaur_Hoof_R</target>
+                      </bone>
+                    </bone>
+                  </bone>
+                  <bone name="Knee_Stretch_R">
+                    <target>Knee_Stretch_R</target>
+                  </bone>
+                </bone>
+              </bone>
+            </bone>
+            <bone name="Centaur_shoulder_L">
+              <target>Centaur_shoulder_L</target>
+              <bone name="Centaur_upperarm_L">
+                <target>Centaur_upperarm_L</target>
+                <bone name="Centaur_Arm_L">
+                  <target>Centaur_Arm_L</target>
+                  <bone name="Centaur_Forearm_L">
+                    <target>Centaur_Forearm_L</target>
+                    <bone name="Centaur_Hand_L">
+                      <target>Centaur_Hand_L</target>
+                      <bone name="Centaur_Hoof_L">
+                        <target>Centaur_Hoof_L</target>
+                      </bone>
+                    </bone>
+                  </bone>
+                  <bone name="Knee_Stretch_L">
+                    <target>Knee_Stretch_L</target>
+                  </bone>
+                </bone>
+              </bone>
+            </bone>
+          </bone>
+          <bone name="Centaur_Belly">
+            <target>Centaur_Belly</target>
+          </bone>
+        </bone>
+        <bone name="Centaur_Femur_L">
+          <target>Centaur_Femur_L</target>
+          <bone name="Centaur_Thigh_L">
+            <target>Centaur_Thigh_L</target>
+            <bone name="Centaur_Leg_L">
+              <target>Centaur_Leg_L</target>
+              <bone name="Centaur_Shin_L">
+                <target>Centaur_Shin_L</target>
+                <bone name="Centaur_Foot_L">
+                  <target>Centaur_Foot_L</target>
+                  <bone name="Centaur_Hoof_back_L">
+                    <target>Centaur_Hoof_back_L</target>
+                  </bone>
+                </bone>
+              </bone>
+              <bone name="Knee_Stretch_B_L">
+                <target>Knee_Stretch_B_L</target>
+              </bone>
+            </bone>
+            <bone name="Leg_Stretch_L">
+              <target>Leg_Stretch_L</target>
+            </bone>
+          </bone>
+        </bone>
+        <bone name="Centaur_Femur_R">
+          <target>Centaur_Femur_R</target>
+          <bone name="Centaur_Thigh_R">
+            <target>Centaur_Thigh_R</target>
+            <bone name="Centaur_Leg_R">
+              <target>Centaur_Leg_R</target>
+              <bone name="Centaur_Shin_R">
+                <target>Centaur_Shin_R</target>
+                <bone name="Centaur_Foot_R">
+                  <target>Centaur_Foot_R</target>
+                  <bone name="Centaur_Hoof_back_R">
+                    <target>Centaur_Hoof_back_R</target>
+                  </bone>
+                </bone>
+              </bone>
+              <bone name="Knee_Stretch_B_R">
+                <target>Knee_Stretch_B_R</target>
+              </bone>
+            </bone>
+            <bone name="Leg_Stretch_R">
+              <target>Leg_Stretch_R</target>
+            </bone>
+          </bone>
+        </bone>
+        <bone name="Centaur_Tail_base">
+          <target>Centaur_Tail_base</target>
+          <bone name="Centaur_Tail">
+            <target>Centaur_Tail</target>
+            <bone name="Centaur_Tail_2">
+              <target>Centaur_Tail_2</target>
+              <bone name="Centaur_Tail_3">
+                <target>Centaur_Tail_3</target>
+                <bone name="Centaur_Tail_4">
+                  <target>Centaur_Tail_4</target>
+                  <bone name="Centaur_Tail_5">
+                    <target>Centaur_Tail_5</target>
+                    <bone name="Centaur_Tail_6">
+                      <target>Centaur_Tail_6</target>
+                      <bone name="Centaur_Tail_7">
+                        <target>Centaur_Tail_7</target>
+                      </bone>
+                    </bone>
+                  </bone>
+                </bone>
+              </bone>
+            </bone>
+          </bone>
+        </bone>
+      </bone>
+      <bone name="Leg_target_L">
+        <target>Leg_target_L</target>
+      </bone>
+      <bone name="Leg_target_R">
+        <target>Leg_target_R</target>
+      </bone>
+      <bone name="Knee_F_L">
+        <target>Knee_F_L</target>
+      </bone>
+      <bone name="Knee_F_R">
+        <target>Knee_F_R</target>
+      </bone>
+      <bone name="Shoulder_Target_R">
+        <target>Shoulder_Target_R</target>
+      </bone>
+      <bone name="Shoulder_Target_L">
+        <target>Shoulder_Target_L</target>
+      </bone>
+      <bone name="Knee_B_L">
+        <target>Knee_B_L</target>
+      </bone>
+      <bone name="Knee_B_R">
+        <target>Knee_B_R</target>
+      </bone>
+    </bone>
+    <bone name="Centaur_elbow_L">
+      <target>Centaur_elbow_L</target>
+    </bone>
+    <bone name="Centaur_elbow_R">
+      <target>Centaur_elbow_R</target>
+    </bone>
+  </skeleton>
+</skeletons>

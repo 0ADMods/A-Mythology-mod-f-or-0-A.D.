@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<variant file="quadraped/base_centaur_mount.xml">
+  <animations>
+    <animation file="quadraped/centaur_idle_ready_bow_a.dae" name="Idle" id="idle1" speed="80"/>
+    <animation file="quadraped/centaur_idle_ready_bow_b.dae" name="Idle" id="idle2" speed="80"/>
+    <animation file="quadraped/centaur_idle_ready_bow_c.dae" name="Idle" id="idle2" speed="80"/>
+    <animation file="quadraped/centaur_idle_ready_bow_d.dae" name="Idle" id="idle3" speed="80"/>
+    <animation file="quadraped/centaur_trot_ready.dae" name="Walk" speed="7"/>
+  </animations>
+</variant>
