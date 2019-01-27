@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_myth_cavalry">
+  <Armour>
+    <Hack>9</Hack>
+    <Pierce>3</Pierce>
+    <Crush>20</Crush>
+  </Armour>
+  <Cost>
+    <Population>2</Population>
+    <BuildTime>30</BuildTime>
+    <Resources>
+      <food>125</food>
+      <glory>65</glory>
+    </Resources>
+  </Cost>
+  <Loot>
+	<glory>13</glory>
+  </Loot>
+  <Health>
+    <Max>400</Max>
+  </Health>
+  <Identity>
+    <GenericName>Centaur</GenericName>
+  </Identity>
+  <Promotion>
+    <RequiredXp>150</RequiredXp>
+  </Promotion>
+  <UnitMotion>
+    <WalkSpeed>18</WalkSpeed>
+    <Run>
+      <Speed>30</Speed>
+    </Run>
+  </UnitMotion>
+</Entity>

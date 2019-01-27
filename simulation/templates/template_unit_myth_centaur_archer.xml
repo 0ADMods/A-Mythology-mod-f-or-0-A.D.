@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_myth_centaur">
+  <Attack>
+    <Ranged>
+      <Hack>0</Hack>
+      <Pierce>32.0</Pierce>
+      <Crush>0</Crush>
+      <Delay>0</Delay>
+      <Gravity>9.81</Gravity>
+      <MaxRange>70.0</MaxRange>
+      <MinRange>0.0</MinRange>
+      <ProjectileSpeed>75.0</ProjectileSpeed>
+      <PrepareTime>500</PrepareTime>
+      <RepeatTime>1000</RepeatTime>
+      <Spread>3.0</Spread>
+      <PreferredClasses datatype="tokens">Organic</PreferredClasses>
+    </Ranged>
+  </Attack>
+  <Identity>
+    <VisibleClasses datatype="tokens">Archer</VisibleClasses>
+    <GenericName>Centaur Archer</GenericName>
+  </Identity>
+</Entity>
