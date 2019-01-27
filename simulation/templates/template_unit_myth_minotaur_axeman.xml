@@ -13,6 +13,6 @@
   </Attack>
   <Identity>
     <VisibleClasses datatype="tokens">Axe</VisibleClasses>
-    <GenericName>Centaur Axeman</GenericName>
+    <GenericName>Minotaur Axeman</GenericName>
   </Identity>
 </Entity>
