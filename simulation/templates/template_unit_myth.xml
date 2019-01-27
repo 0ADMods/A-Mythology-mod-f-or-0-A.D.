@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit">
+  <Armour>
+    <Hack>5</Hack>
+    <Pierce>5</Pierce>
+    <Crush>5</Crush>
+  </Armour>
+  <Identity>
+    <GenericName>Mythological Unit</GenericName>
+    <Classes datatype="tokens">Organic</Classes>
+    <VisibleClasses datatype="tokens">Mythological</VisibleClasses>
+  </Identity>
+  <Loot>
+    <xp>150</xp>
+    <food>0</food>
+    <wood>0</wood>
+    <stone>0</stone>
+    <metal>0</metal>
+	<glory>10</glory>
+  </Loot>
+  <Cost>
+    <Population>1</Population>
+    <BuildTime>30</BuildTime>
+    <Resources>
+      <food>0</food>
+      <wood>0</wood>
+      <stone>0</stone>
+      <metal>0</metal>
+      <glory>50</glory>
+    </Resources>
+  </Cost>
+  <Selectable>
+    <Overlay>
+      <Texture>
+        <MainTexture>arrow/128x128.png</MainTexture>
+        <MainTextureMask>arrow/128x128_mask.png</MainTextureMask>
+      </Texture>
+    </Overlay>
+  </Selectable>
+  <Sound>
+    <SoundGroups>
+      <attack_impact_ranged>attack/impact/arrow_metal.xml</attack_impact_ranged>
+      <attack_ranged>attack/weapon/arrowfly.xml</attack_ranged>
+    </SoundGroups>
+  </Sound>
+</Entity>

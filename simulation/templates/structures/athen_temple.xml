@@ -11,6 +11,12 @@
   <Obstruction>
     <Static width="17.5" depth="27"/>
   </Obstruction>
+  <ProductionQueue>
+    <BatchTimeModifier>0.7</BatchTimeModifier>
+    <Entities datatype="tokens">
+      units/{civ}_centaur_archer_b
+    </Entities>
+  </ProductionQueue>
   <ResourceDropsite>
     <Types>glory</Types>
 	<Sharable>false</Sharable>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_myth">
+  <Footprint>
+    <Circle radius="2.5"/>
+    <Height>5.0</Height>
+  </Footprint>
+  <Identity>
+    <GenericName>Mythological Cavalry</GenericName>
+    <VisibleClasses datatype="tokens">Cavalry</VisibleClasses>
+    <Formations datatype="tokens">
+      special/formations/wedge
+    </Formations>
+  </Identity>
+  <Position>
+    <Anchor>pitch</Anchor>
+  </Position>
+  <Sound>
+    <SoundGroups>
+      <select>voice/{lang}/civ/civ_{gender}_select.xml</select>
+      <order_walk>voice/{lang}/civ/civ_{gender}_walk.xml</order_walk>
+      <order_attack>voice/{lang}/civ/civ_{gender}_attack.xml</order_attack>
+      <order_gather>voice/{lang}/civ/civ_{gender}_gather.xml</order_gather>
+      <order_garrison>voice/{lang}/civ/civ_{gender}_garrison.xml</order_garrison>
+      <walk>actor/mounted/movement/walk.xml</walk>
+      <run>actor/mounted/movement/walk.xml</run>
+      <attack_melee>attack/weapon/sword.xml</attack_melee>
+      <death>actor/fauna/death/death_horse.xml</death>
+      <trained>interface/alarm/alarm_create_cav.xml</trained>
+    </SoundGroups>
+  </Sound>
+  <StatusBars>
+    <HeightOffset>6.5</HeightOffset>
+  </StatusBars>
+  <UnitMotion>
+    <WalkSpeed op="mul">2.25</WalkSpeed>
+    <Run>
+      <Speed op="mul">2.25</Speed>
+    </Run>
+  </UnitMotion>
+  <Vision>
+    <Range>96</Range>
+  </Vision>
+</Entity>
