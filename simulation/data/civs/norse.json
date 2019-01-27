@@ -5,7 +5,12 @@
 	"Emblem": "session/portraits/emblems/emblem_norse.png",
 	"History": "The norse believe in Aesir Gods (Odin, Thor...) just like their forefathers for which they would sacrifice anything even going to Valhala.",
 	"Music":[
-		],
+                        {"File":"Norse peace.ogg", "Type":"peace"},
+			{"File":"Norse peace 2.ogg", "Type":"peace"},
+                        {"File":"Victory 2.ogg", "Type":"victory"},
+                        {"File":"defeat.ogg", "Type":"defeat"},
+                        {"File":"Battle.ogg", "Type":"battle"} 
+                ],
 	"Factions":
 	[
 		{
