@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant file="biped/base_minotaur_2h_axeman.xml">
+      <mesh>skeletal/minotaur.dae</mesh>
+      <props>
+        <prop actor="props/units/weapons/dane_axe.xml" attachpoint="weapon_L"/>
+      </props>
+      <textures>
+        <texture file="skeletal/hele_spartitiate_a.dds" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Idle"/>
+    <variant file="biped/base_minotaur_death.xml"/>
+    <variant file="biped/base_minotaur_run.xml"/>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

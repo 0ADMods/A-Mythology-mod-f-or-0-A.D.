@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<variant name="Base">
+  <animations>
+    <animation file="biped/minotaur_idle_ready_2h.dae" name="Idle" id="idle1" speed="80"/>
+    <animation file="biped/minotaur_idle_ready_2h.dae" name="Idle" id="idle2" speed="80"/>
+    <animation file="biped/minotaur_idle_ready_2h.dae" name="Idle" id="idle3" speed="80"/>
+    <animation file="biped/minotaur_idle_ready_2h.dae" name="Idle" id="idle3" speed="80"/>
+    <animation file="" name="death" id="death1" speed="120"/>
+    <animation file="" name="death" id="death2" speed="120"/>
+    <animation file="biped/minotaur_run.dae" name="Run" speed="12"/>
+    <animation file="biped/minotaur_walk_ready_2h.dae" name="Walk" speed="14"/>
+  </animations>
+</variant>
