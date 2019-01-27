@@ -46,7 +46,7 @@ Player.prototype.Init = function()
 	this.playerID = undefined;
 	this.name = undefined;	// define defaults elsewhere (supporting other languages)
 	this.civ = undefined;
-	this.deity = undefined; // the major god chosen by the player in gamesetup
+	this.deity = undefined; // the major god chosen by the player when the game starts
 	this.color = undefined;
 	this.diplomacyColor = undefined;
 	this.displayDiplomacyColor = false;
@@ -139,7 +139,7 @@ Player.prototype.GetCiv = function()
 
 Player.prototype.SetDeity = function(name)
 {
-	let deityData = Engine.ReadJSON("simulation/data/civs/" + this.civ + ".json").Deities;
+	let deityData = Engine.ReadJSONFile("simulation/data/civs/" + this.civ + ".json").Deities;
 	for (let deity of deityData)
 		if (deity.name == name)
 		{
