@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<variant file="biped/base_minotaur.xml">
+  <animations>
+    <animation file="biped/minotaur_attack_2h_c.dae" event="0.5" name="attack_melee" speed="80"/>
+    <animation file="biped/minotaur_idle_relax_a.dae" name="Idle" id="idle1" speed="80"/>
+    <animation file="biped/minotaur_idle_relax_b.dae" name="Idle" id="idle2" speed="80"/>
+    <animation file="biped/minotaur_idle_relax_c.dae" name="Idle" id="idle3" speed="80"/>
+    <animation file="biped/minotaur_walk_relax.dae" name="Walk" speed="14"/>
+  </animations>
+</variant>

@@ -2,7 +2,7 @@
 <actor version="1">
   <castshadow/>
   <group>
-    <variant file="biped/base_minotaur.xml">
+    <variant file="biped/base_minotaur_unarmed.xml">
       <mesh>skeletal/minotaur.dae</mesh>
       <textures>
         <texture file="skeletal/hele_spartitiate_a.dds" name="baseTex"/>
