@@ -1,7 +1,7 @@
 Music.prototype.resetTracks = function()
 {
 	this.tracks = {
-		"MENU": [],
+		"MENU": ["Menu.ogg"],
 		"PEACE": [],
 		"BATTLE": [],
 		"VICTORY": [],
