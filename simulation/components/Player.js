@@ -83,11 +83,14 @@ Player.prototype.Init = function()
 
 	// Initial resources and trading goods probability in steps of 5
 	let resCodes = Resources.GetCodes();
-	let quotient = Math.floor(20 / resCodes.length);
-	let remainder = 20 % resCodes.length;
+	let tradable = 4;
+	let quotient = Math.floor(20 / tradable);
+	let remainder = 20 % tradable;
 	for (let i in resCodes)
 	{
 		let res = resCodes[i];
+		if (res == "glory")
+			continue;
 		this.resourceCount[res] = 300;
 		this.resourceNames[res] = Resources.GetResource(res).name;
 		this.tradingGoods.push({
@@ -429,8 +432,9 @@ Player.prototype.GetNextTradingGoods = function()
 Player.prototype.GetTradingGoods = function()
 {
 	var tradingGoods = {};
-	for (let resource of this.tradingGoods)
+	for (let resource of this.tradingGoods) {
 		tradingGoods[resource.goods] = resource.proba;
+	}
 
 	return tradingGoods;
 };
@@ -441,6 +445,8 @@ Player.prototype.SetTradingGoods = function(tradingGoods)
 	let sumProba = 0;
 	for (let resource in tradingGoods)
 	{
+		if (resource == "glory")
+			continue;
 		if (resCodes.indexOf(resource) == -1 || tradingGoods[resource] < 0)
 		{
 			error("Invalid trading goods: " + uneval(tradingGoods));
@@ -451,16 +457,19 @@ Player.prototype.SetTradingGoods = function(tradingGoods)
 
 	if (sumProba != 100)
 	{
-		error("Invalid trading goods: " + uneval(tradingGoods));
+		error("Invalid trading goods sum: " + uneval(tradingGoods));
 		return;
 	}
 
 	this.tradingGoods = [];
-	for (let resource in tradingGoods)
+	for (let resource in tradingGoods) {
+		if (resource == "glory")
+			continue;
 		this.tradingGoods.push({
 			"goods": resource,
 			"proba": tradingGoods[resource]
 		});
+	}
 };
 
 Player.prototype.GetState = function()
