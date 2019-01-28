@@ -5,7 +5,7 @@
     <variant file="biped/base_minotaur_unarmed.xml">
       <mesh>skeletal/minotaur.dae</mesh>
       <textures>
-        <texture file="skeletal/hele_spartitiate_a.dds" name="baseTex"/>
+        <texture file="skeletal/minotaur_test.png" name="baseTex"/>
       </textures>
     </variant>
   </group>

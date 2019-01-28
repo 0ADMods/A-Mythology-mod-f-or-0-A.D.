@@ -7,7 +7,7 @@
       <Crush>0.0</Crush>
       <MaxRange>4.5</MaxRange>
       <PrepareTime>500</PrepareTime>
-      <RepeatTime>3000</RepeatTime>
+      <RepeatTime>1800</RepeatTime>
       <PreferredClasses datatype="tokens">Organic</PreferredClasses>
     </Melee>
   </Attack>

@@ -8,7 +8,7 @@
         <prop actor="props/units/weapons/minotaur_axe.xml" attachpoint="weapon_L"/>
       </props>
       <textures>
-        <texture file="skeletal/hele_spartitiate_a.dds" name="baseTex"/>
+        <texture file="skeletal/minotaur_test.png" name="baseTex"/>
       </textures>
     </variant>
   </group>
