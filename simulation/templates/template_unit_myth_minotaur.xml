@@ -4,8 +4,8 @@
     units/myth/minotaur
   </Auras>
   <Armour>
-    <Hack>4</Hack>
-    <Pierce>4</Pierce>
+    <Hack>7</Hack>
+    <Pierce>7</Pierce>
     <Crush>4</Crush>
   </Armour>
   <Cost>
@@ -28,9 +28,9 @@
     <SpecificName>Minotaur</SpecificName>
   </Identity>
   <UnitMotion>
-    <WalkSpeed>3</WalkSpeed>
+    <WalkSpeed>7</WalkSpeed>
     <Run>
-      <Speed>5</Speed>
+      <Speed>12</Speed>
     </Run>
   </UnitMotion>
 </Entity>
