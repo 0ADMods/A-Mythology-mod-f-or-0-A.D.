@@ -5,7 +5,7 @@
     <variant file="biped/base_minotaur_2h_axeman.xml">
       <mesh>skeletal/minotaur.dae</mesh>
       <props>
-        <prop actor="props/units/weapons/dane_axe.xml" attachpoint="weapon_L"/>
+        <prop actor="props/units/weapons/minotaur_axe.xml" attachpoint="weapon_L"/>
       </props>
       <textures>
         <texture file="skeletal/hele_spartitiate_a.dds" name="baseTex"/>

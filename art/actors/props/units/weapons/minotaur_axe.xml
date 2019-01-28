@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant frequency="1" name="Base">
+      <props>
+        <prop actor="props/units/weapons/blades/minotaur_axe_blade.xml" attachpoint="blade"/>
+      </props>
+      <textures>
+        <texture file="props/prop_weap.dds" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Base_a">
+      <mesh>props/weap_minotaur_axe_shaft.dae</mesh>
+    </variant>
+  </group>
+  <material>player_trans.xml</material>
+</actor>
