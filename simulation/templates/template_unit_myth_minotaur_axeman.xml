@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_myth_minotaur">
+  <Attack>
+    <Melee>
+      <Hack>40.0</Hack>
+      <Pierce>0.0</Pierce>
+      <Crush>0.0</Crush>
+      <MaxRange>4.5</MaxRange>
+      <PrepareTime>500</PrepareTime>
+      <RepeatTime>3000</RepeatTime>
+      <PreferredClasses datatype="tokens">Organic</PreferredClasses>
+    </Melee>
+  </Attack>
+  <Identity>
+    <VisibleClasses datatype="tokens">Axe</VisibleClasses>
+    <GenericName>Minotaur Axeman</GenericName>
+  </Identity>
+</Entity>

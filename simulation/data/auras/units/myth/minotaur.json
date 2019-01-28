@@ -1,0 +1,12 @@
+{
+	"type": "range",
+	"radius": 10,
+	"affects": ["Unit"],
+	"affectedPlayers": ["Enemy"],
+	"modifications": [
+	{ "value": "Health/Max", "multiply": 0.8 }
+	],
+	"auraName": "Scare",
+	"auraDescription": "All units in his range have 2% less health.",
+	"overlayIcon": "art/textures/ui/session/auras/health_bonus.png"
+}
