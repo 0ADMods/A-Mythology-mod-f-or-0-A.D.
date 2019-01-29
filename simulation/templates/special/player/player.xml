@@ -37,6 +37,7 @@
       <PyramidSmall>4</PyramidSmall>
       <PyramidLarge>2</PyramidLarge>
       <TempleOfAmun>1</TempleOfAmun>
+	  <Temple>1</Temple>
     </Limits>
     <LimitChangers>
       <WarDog>
@@ -68,14 +69,12 @@
         <wood>1.0</wood>
         <stone>1.0</stone>
         <metal>1.0</metal>
-        <glory>0.0001</glory>
       </Buy>
       <Sell>
         <food>1.0</food>
         <wood>1.0</wood>
         <stone>1.0</stone>
         <metal>1.0</metal>
-        <glory>0.0001</glory>
       </Sell>
     </BarterMultiplier>
     <SharedLosTech>unlock_shared_los</SharedLosTech>
