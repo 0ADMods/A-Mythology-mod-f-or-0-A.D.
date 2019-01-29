@@ -1,0 +1,13 @@
+{
+	"code": "stone",
+	"name": "Stone",
+	"description": "Mine from rocks, stone quarries or ruins.",
+	"order": 3,
+	"subtypes": {
+		"rock": "Rock",
+		"ruins": "Ruins"
+	},
+	"truePrice": 100,
+	"tradable": true,
+	"aiAnalysisInfluenceGroup": "sparse"
+}

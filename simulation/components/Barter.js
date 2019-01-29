@@ -29,9 +29,7 @@ Barter.prototype.RESTORE_TIMER_INTERVAL = 5000;
 Barter.prototype.Init = function()
 {
 	this.priceDifferences = {};
-	for (let resource of Resources.GetCodes()) {
-		if (resource == "glory")
-			continue;
+	for (let resource of Resources.GetTradableCodes()) {
 		this.priceDifferences[resource] = 0;
 	}
 	this.restoreTimer = undefined;
@@ -41,10 +39,8 @@ Barter.prototype.GetPrices = function(playerID)
 {
 	var prices = { "buy": {}, "sell": {} };
 	let multiplier = QueryPlayerIDInterface(playerID).GetBarterMultiplier();
-	for (let resource of Resources.GetCodes())
+	for (let resource of Resources.GetTradableCodes())
 	{
-		if (resource == "glory")
-			continue;
 		let truePrice = Resources.GetResource(resource).truePrice;
 		prices.buy[resource] = truePrice * (100 + this.CONSTANT_DIFFERENCE + this.priceDifferences[resource]) * multiplier.buy[resource] / 100;
 		prices.sell[resource] = truePrice * (100 - this.CONSTANT_DIFFERENCE + this.priceDifferences[resource]) * multiplier.sell[resource] / 100;
@@ -141,10 +137,8 @@ Barter.prototype.ExchangeResources = function(playerID, resourceToSell, resource
 Barter.prototype.ProgressTimeout = function(data)
 {
 	var needRestore = false;
-	for (let resource of Resources.GetCodes())
+	for (let resource of Resources.GetTradableCodes())
 	{
-		if (resource == "glory")
-			continue;
 		// Calculate value to restore, it should be limited to [-DIFFERENCE_RESTORE; DIFFERENCE_RESTORE] interval
 		var differenceRestore = Math.min(this.DIFFERENCE_RESTORE, Math.max(-this.DIFFERENCE_RESTORE, this.priceDifferences[resource]));
 		differenceRestore = -differenceRestore;

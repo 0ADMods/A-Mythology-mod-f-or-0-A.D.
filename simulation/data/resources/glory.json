@@ -7,5 +7,6 @@
 		"praise": "Praise"
 	},
 	"truePrice": 100,
+	"tradable": false,
 	"aiAnalysisInfluenceGroup": "ignore"
 }
