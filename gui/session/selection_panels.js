@@ -86,7 +86,7 @@ g_SelectionPanels.Barter = {
 		// If more than `rowLength` resources, don't display icons.
 		if (unitEntStates.every(state => !state.isBarterMarket))
 			return [];
-		return g_ResourceData.GetCodes().slice(0,4);
+		return g_ResourceData.GetTradableCodes();
 	},
 	"setupButton": function(data)
 	{

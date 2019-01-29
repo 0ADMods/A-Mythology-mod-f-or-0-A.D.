@@ -491,11 +491,11 @@ function diplomacyFormatStanceButtons(i, hidden)
 
 function diplomacyFormatTributeButtons(i, hidden)
 {
-	let resCodes = g_ResourceData.GetCodes();
+	let resCodes = g_ResourceData.GetTradableCodes();
 	let r = 0;
 	for (let resCode of resCodes)
 	{
-		if (resCode == "button" || resCode == "glory")
+		if (resCode == "button")
 			continue;
 		let button = Engine.GetGUIObjectByName("diplomacyPlayer[" + (i - 1) + "]_tribute[" + r + "]");
 		if (!button)
@@ -658,16 +658,13 @@ function openTrade()
 
 	let proba = Engine.GuiInterfaceCall("GetTradingGoods", g_ViewedPlayer);
 	let button = {};
-	let resCodes = g_ResourceData.GetCodes();
+	let resCodes = g_ResourceData.GetTradableCodes();
 	let currTradeSelection = resCodes[0];
 
 	let updateTradeButtons = function()
 	{
 		for (let res in button)
 		{
-			if (res == "glory") {
-				button[res].hidden = true;
-			}
 			button[res].label.caption = proba[res] + "%";
 
 			button[res].sel.hidden = !controlsPlayer(g_ViewedPlayer) || res != currTradeSelection;
@@ -676,14 +673,12 @@ function openTrade()
 		}
 	};
 
-	hideRemaining("tradeResources", resCodes.length-1);
+	hideRemaining("tradeResources", resCodes.length);
 	Engine.GetGUIObjectByName("tradeHelp").hidden = false;
 
 	for (let i = 0; i < resCodes.length; ++i)
 	{
 		let resCode = resCodes[i];
-		if (resCode == "glory")
-			continue;
 
 		let barterResource = Engine.GetGUIObjectByName("barterResource[" + i + "]");
 		if (!barterResource)
@@ -880,7 +875,7 @@ function updateBarterButtons()
 	Engine.GetGUIObjectByName("barterHelp").hidden = !canBarter;
 
 	if (canBarter)
-		g_ResourceData.GetCodes().forEach((resCode, i) => {if (resCode == "glory") return; barterUpdateCommon(resCode, i, "barter", g_ViewedPlayer) });
+		g_ResourceData.GetTradableCodes().forEach((resCode, i) => {barterUpdateCommon(resCode, i, "barter", g_ViewedPlayer) });
 }
 
 function getIdleLandTradersText(traderNumber)
