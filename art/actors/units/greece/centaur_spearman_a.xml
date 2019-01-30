@@ -9,7 +9,7 @@
         <prop actor="props/units/weapons/spear.xml" attachpoint="weapon_R"/>
       </props>
       <textures>
-        <texture file="skeletal/hele_spartitiate_a.dds" name="baseTex"/>
+        <texture file="skeletal/greek_centaur_b.png" name="baseTex"/>
       </textures>
     </variant>
   </group>

@@ -11,7 +11,7 @@
         <prop actor="props/units/helmets/hele_pilos.xml" attachpoint="helmet"/>
       </props>
       <textures>
-        <texture file="skeletal/hele_spartitiate_a.dds" name="baseTex"/>
+        <texture file="skeletal/greek_centaur_b.png" name="baseTex"/>
       </textures>
     </variant>
   </group>
