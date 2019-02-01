@@ -263,7 +263,15 @@ var g_Commands = {
 			cmpUnitAI.ReturnResource(cmd.target, cmd.queued);
 		});
 	},
+    "attack-charge": function(player, cmd, data)
+	{
+		if (g_DebugCommands && !(IsOwnedByEnemyOfPlayer(player, cmd.target) || IsOwnedByNeutralOfPlayer(player, cmd.target)))
+			warn("Invalid command: attack-charge target is not owned by enemy of player "+player+": "+uneval(cmd));
 
+		GetFormationUnitAIs(data.entities, player).forEach(cmpUnitAI => {
+			cmpUnitAI.Charge(cmd.target, cmd.queued);
+		});
+	},
 	"back-to-work": function(player, cmd, data)
 	{
 		for (let ent of data.entities)

@@ -99,8 +99,11 @@ Stamina.prototype.ExecuteRunDegredation = function()
 
 	if (cmpUnitAI.IsRunning()) {
 		this.Reduce(deg);
-		if (this.amount > 0)
+		if (this.stamina > 0)
 			return;
+		
+		// Stop running
+		cmpUnitAI.StopRuning();
 	}
 
 	this.CancelRunningTimer();
@@ -128,7 +131,7 @@ Stamina.prototype.CheckRegenTimer = function()
 
 Stamina.prototype.StartRunTimer = function()
 {
-	if (this.GetRunDegRate() == 0 || !this.amount)
+	if (this.GetRunDegRate() == 0 || !this.stamina)
 	{
 		if (this.runTimer)
 		{
@@ -143,7 +146,7 @@ Stamina.prototype.StartRunTimer = function()
 		return;
 
 	let cmpTimer = Engine.QueryInterface(SYSTEM_ENTITY, IID_Timer);
-	this.runTimer = cmpTimer.SetInterval(this.entity, IID_Stamina, "ExecuteRunDegredation", 1000, 1000, null);
+	this.runTimer = cmpTimer.SetInterval(this.entity, IID_Stamina, "ExecuteRunDegredation", 200, 1000, null);
 
 	if (this.staminaTimer)
 		this.CancelRegenerationTimer();
