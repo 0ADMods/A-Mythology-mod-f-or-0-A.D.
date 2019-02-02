@@ -2,6 +2,9 @@
 <Entity parent="template_unit_myth_minotaur">
   <Attack>
     <Melee>
+	  <Charge>
+	    <DamageMultiplier>2</DamageMultiplier>
+	  </Charge>
       <Hack>40.0</Hack>
       <Pierce>0.0</Pierce>
       <Crush>0.0</Crush>
@@ -14,7 +17,7 @@
   <Stamina>
     <MaxPoints>100</MaxPoints>
 	<RegenRate>5</RegenRate>
-	<RunDegRate>2</RunDegRate>
+	<RunDegRate>20</RunDegRate>
   </Stamina>
   <Identity>
     <VisibleClasses datatype="tokens">Axe</VisibleClasses>

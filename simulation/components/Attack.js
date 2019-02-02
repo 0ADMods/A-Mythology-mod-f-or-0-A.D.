@@ -123,6 +123,13 @@ Attack.prototype.Schema =
 	"<optional>" +
 		"<element name='Melee'>" +
 			"<interleave>" +
+				"<optional>"+
+				  "<element name='Charge'>"+
+				    "<interleave>"+
+				        "<element name='DamageMultiplier'><ref name='nonNegativeDecimal'/></element>"+
+					"</interleave>"+
+				   "</element>"+
+				"</optional>"+
 				DamageTypes.BuildSchema("damage strength") +
 				"<element name='MaxRange' a:help='Maximum attack range (in metres)'><ref name='nonNegativeDecimal'/></element>" +
 				"<element name='PrepareTime' a:help='Time from the start of the attack command until the attack actually occurs (in milliseconds). This value relative to RepeatTime should closely match the \"event\" point in the actor&apos;s attack animation'>" +
@@ -270,6 +277,37 @@ Attack.prototype.GetRestrictedClasses = function(type)
 
 	return [];
 };
+
+Attack.prototype.DealChargeDamage = function(targets)
+{
+	let type = "Melee";
+	if (!this.template[type] || !this.template[type].Charge)
+		return;
+	let attackOwner = Engine.QueryInterface(this.entity, IID_Ownership).GetOwner();
+	let cmpDamage = Engine.QueryInterface(SYSTEM_ENTITY, IID_Damage);
+	let alive = 0;
+	
+	for (let target of targets) {
+		let multiplier  = +this.template[type].Charge.DamageMultiplier * GetDamageBonus(target, this.GetBonusTemplate(type));
+		cmpDamage.CauseDamage({
+			"strengths": this.GetAttackStrengths(type),
+			"target": target,
+			"attacker": this.entity,
+			"multiplier": multiplier,
+			"type": type,
+			"attackerOwner": attackOwner
+		});
+		let cmpTargetHealth = Engine.QueryInterface(target, IID_Health);
+		if (cmpTargetHealth && cmpTargetHealth.GetHitpoints() > 0) {
+			alive++;
+		}
+	}
+	if (alive > 0) {
+		let cmpUnitAI = Engine.QueryInterface(this.entity, IID_UnitAI);
+		if (cmpUnitAI)
+			cmpUnitAI.MovementWasBlocked();
+	}
+}
 
 Attack.prototype.CanAttack = function(target, wantedTypes)
 {
