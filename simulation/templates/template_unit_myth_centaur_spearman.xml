@@ -6,6 +6,9 @@
   </Armour>
   <Attack>
     <Melee>
+	  <Charge>
+	    <DamageMultiplier>1.5</DamageMultiplier>
+	  </Charge>
       <Hack>24.0</Hack>
       <Pierce>20.0</Pierce>
       <Crush>0.0</Crush>
