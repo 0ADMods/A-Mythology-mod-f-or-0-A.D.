@@ -2,6 +2,23 @@ function Attack() {}
 
 var g_AttackTypes = ["Melee", "Ranged", "Capture"];
 
+Attack.prototype.knockBackBonusSchema =
+	"<optional>" +
+		"<element name='KnockBack' a:help='Knock the target back the given number of tiles'>" +
+			"<interleave>" +
+				"<element name='Strength' a:help='Distance'>" +
+					"<data type='positiveInteger'/>" +
+				"</element>" +
+				"<element name='AffectedClasses' a:help='Knockback dealt only to these classes'>" +
+					"<attribute name='datatype'>" +
+						"<value>tokens</value>" +
+					"</attribute>" +
+					"<text/>" +
+				"</element>" +
+			"</interleave>" +
+		"</element>" +
+	"</optional>";
+
 Attack.prototype.bonusesSchema =
 	"<optional>" +
 		"<element name='Bonuses'>" +
@@ -121,6 +138,7 @@ Attack.prototype.Schema =
 				"<element name='RepeatTime' a:help='Time between attacks (in milliseconds). The attack animation will be stretched to match this time'>" + // TODO: it shouldn't be stretched
 					"<data type='positiveInteger'/>" +
 				"</element>" +
+				Attack.prototype.knockBackBonusSchema +
 				Attack.prototype.bonusesSchema +
 				Attack.prototype.preferredClassesSchema +
 				Attack.prototype.restrictedClassesSchema +
@@ -159,6 +177,7 @@ Attack.prototype.Schema =
 				"</element>" +
 				"<element name='Spread' a:help='Standard deviation of the bivariate normal distribution of hits at 100 meters. A disk at 100 meters from the attacker with this radius (2x this radius, 3x this radius) is expected to include the landing points of 39.3% (86.5%, 98.9%) of the rounds.'><ref name='nonNegativeDecimal'/></element>" +
 				"<element name='Delay' a:help='Delay of the damage in milliseconds'><ref name='nonNegativeDecimal'/></element>" +
+				Attack.prototype.knockBackBonusSchema +
 				Attack.prototype.bonusesSchema +
 				Attack.prototype.preferredClassesSchema +
 				Attack.prototype.restrictedClassesSchema +
@@ -189,6 +208,7 @@ Attack.prototype.Schema =
 							"<element name='Shape' a:help='Shape of the splash damage, can be circular or linear'><text/></element>" +
 							"<element name='Range' a:help='Size of the area affected by the splash'><ref name='nonNegativeDecimal'/></element>" +
 							"<element name='FriendlyFire' a:help='Whether the splash damage can hurt non enemy units'><data type='boolean'/></element>" +
+							Attack.prototype.knockBackBonusSchema +
 							DamageTypes.BuildSchema("damage strength") +
 							Attack.prototype.bonusesSchema +
 						"</interleave>" +
@@ -624,7 +644,14 @@ Attack.prototype.PerformAttack = function(type, target)
 			data.isSplash = true;
 			data.splashStrengths = this.GetAttackStrengths(type + ".Splash");
 			data.splashBonus = this.GetBonusTemplate(type + ".Splash");
+
+			if (this.template.Ranged.Splash.KnockBack)
+				data.splashKnockBack = this.template.Ranged.Splash.KnockBack;
 		}
+
+		if (this.template.Ranged.KnockBack)
+			data.knockBack = this.template.Ranged.KnockBack;
+
 		cmpTimer.SetTimeout(SYSTEM_ENTITY, IID_Damage, "MissileHit", timeToTarget * 1000 + +this.template.Ranged.Delay, data);
 	}
 	else if (type == "Capture")
@@ -655,14 +682,19 @@ Attack.prototype.PerformAttack = function(type, target)
 	else
 	{
 		// Melee attack - hurt the target immediately
-		cmpDamage.CauseDamage({
+		let data = {
 			"strengths": this.GetAttackStrengths(type),
 			"target": target,
 			"attacker": this.entity,
 			"multiplier": GetDamageBonus(target, this.GetBonusTemplate(type)),
 			"type": type,
 			"attackerOwner": attackerOwner
-		});
+		};
+
+		if (this.template.Melee.KnockBack)
+			data.knockBack = this.template.Melee.KnockBack;
+
+		cmpDamage.CauseDamage(data);
 	}
 };
 
