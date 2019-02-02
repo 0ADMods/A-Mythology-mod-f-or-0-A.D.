@@ -24,6 +24,11 @@
       <PreferredClasses datatype="tokens">Organic</PreferredClasses>
     </Melee>
   </Attack>
+  <Stamina>
+    <MaxPoints>100</MaxPoints>
+	<RegenRate>5</RegenRate>
+	<RunDegRate>20</RunDegRate>
+  </Stamina>
   <Identity>
     <VisibleClasses datatype="tokens">Spear</VisibleClasses>
     <GenericName>Centaur Spearman</GenericName>
