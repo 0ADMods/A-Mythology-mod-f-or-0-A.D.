@@ -691,7 +691,7 @@ Attack.prototype.PerformAttack = function(type, target)
 			"attackerOwner": attackerOwner
 		};
 
-		if (this.template.Melee.KnockBack)
+		if (this.template.Melee && this.template.Melee.KnockBack)
 			data.knockBack = this.template.Melee.KnockBack;
 
 		cmpDamage.CauseDamage(data);
