@@ -6,6 +6,9 @@
   </Armour>
   <Attack>
     <Melee>
+	  <Charge>
+	    <DamageMultiplier>1.5</DamageMultiplier>
+	  </Charge>
       <Hack>24.0</Hack>
       <Pierce>20.0</Pierce>
       <Crush>0.0</Crush>
@@ -21,6 +24,11 @@
       <PreferredClasses datatype="tokens">Organic</PreferredClasses>
     </Melee>
   </Attack>
+  <Stamina>
+    <MaxPoints>100</MaxPoints>
+	<RegenRate>5</RegenRate>
+	<RunDegRate>20</RunDegRate>
+  </Stamina>
   <Identity>
     <VisibleClasses datatype="tokens">Spear</VisibleClasses>
     <GenericName>Centaur Spearman</GenericName>
