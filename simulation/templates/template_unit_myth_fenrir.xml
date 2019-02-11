@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_myth">
+  <Footprint>
+    <Circle radius="2.5"/>
+    <Height>3.0</Height>
+  </Footprint>
+  <Attack>
+    <Melee>
+	  <Charge>
+	    <DamageMultiplier>2</DamageMultiplier>
+	  </Charge>
+      <Hack>00.0</Hack>
+      <Pierce>65.0</Pierce>
+      <Crush>0.0</Crush>
+      <MaxRange>4.5</MaxRange>
+      <PrepareTime>500</PrepareTime>
+      <RepeatTime>1600</RepeatTime>
+      <PreferredClasses datatype="tokens">Organic</PreferredClasses>
+      <RestrictedClasses datatype="tokens">Structure Ship</RestrictedClasses>
+    </Melee>
+  </Attack>
+  <Armour>
+    <Hack>5</Hack>
+    <Pierce>5</Pierce>
+    <Crush>0</Crush>
+  </Armour>
+  <Cost>
+    <Population>2</Population>
+    <BuildTime>30</BuildTime>
+    <Resources>
+      <food>150</food>
+      <glory>75</glory>
+    </Resources>
+  </Cost>
+  <Loot>
+	<glory>15</glory>
+	<xp>250</xp>
+  </Loot>
+  <Health>
+    <Max>450</Max>
+  </Health>
+  <UnitMotion>
+    <WalkSpeed>10</WalkSpeed>
+    <Run>
+      <Speed>30</Speed>
+    </Run>
+  </UnitMotion>
+  <Stamina>
+    <MaxPoints>100</MaxPoints>
+	  <RegenRate>5</RegenRate>
+	  <RunDegRate>5</RunDegRate>
+  </Stamina>
+  <Identity>
+    <VisibleClasses datatype="tokens">Wolf</VisibleClasses>
+    <GenericName>Fenrir</GenericName>
+    <SpecificName>Fenrisúlfr</SpecificName>
+  </Identity>
+</Entity>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_myth_fenrir">
+  <Identity>
+    <Civ>norse</Civ>
+    <Icon>units/norse_berserker.png</Icon>
+    <SelectionGroupName>units/norse_fenrir</SelectionGroupName>
+  </Identity>
+  <VisualActor>
+    <Actor>units/norse/fenrir.xml</Actor>
+  </VisualActor>
+</Entity>
