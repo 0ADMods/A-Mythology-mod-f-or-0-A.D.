@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant file="quadraped/base_fenrir.xml">
+      <mesh>skeletal/fenrir.dae</mesh>
+      <props>
+      </props>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="fur-brown">
+      <textures><texture file="skeletal/animal_wolf.png" name="baseTex"/></textures>
+    </variant>
+    <variant frequency="4" name="fur-grey">
+      <textures><texture file="skeletal/animal_wolf_grey.png" name="baseTex"/></textures>
+    </variant>
+    <variant frequency="4" name="fur-black">
+      <textures><texture file="skeletal/animal_wolf_black.png" name="baseTex"/></textures>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Idle"/>
+    <variant file="quadraped/base_fenrir_death.xml"/>
+    <variant file="quadraped/base_fenrir_run.xml"/>
+    <variant file="quadraped/base_fenrir_attack.xml" name="Attack_Melee"/>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

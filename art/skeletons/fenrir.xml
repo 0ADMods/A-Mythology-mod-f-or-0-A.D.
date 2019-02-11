@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='utf-8'?>
+<skeletons>
+  <standard_skeleton id="Fenrir_armature" title="Fenrir armature">
+    <bone name="Fenrir_Root">
+      <bone name="Fenrir_Back">
+        <bone name="Fenrir_spine1">
+          <bone name="Fenrir_spine2">
+            <bone name="Fenrir_Neck1">
+              <bone name="Fenrir_Neck2">
+                <bone name="Fenrir_Head">
+                  <bone name="Fenrir_ear1_L">
+                    <bone name="Fenrir_ear2_L" />
+                  </bone>
+                  <bone name="Fenrir_ear1_R">
+                    <bone name="Fenrir_ear2_R" />
+                  </bone>
+                  <bone name="Fenrir_Jaw1">
+                    <bone name="Fenrir_Jaw2" />
+                    <bone name="Fenrir_tongue1" />
+                    <bone name="Fenrir_tongue2" />
+                  </bone>
+                  <bone name="Fenrir_lip_4_R">
+                    <bone name="Fenrir_lip_3_R">
+                      <bone name="Fenrir_lip_2_R">
+                        <bone name="Fenrir_lip_1_R" />
+                      </bone>
+                    </bone>
+                  </bone>
+                  <bone name="Fenrir_lip_4_L">
+                    <bone name="Fenrir_lip_3_L">
+                      <bone name="Fenrir_lip_2_L">
+                        <bone name="Fenrir_lip_1_L" />
+                      </bone>
+                    </bone>
+                  </bone>
+                </bone>
+              </bone>
+            </bone>
+            <bone name="Fenrir_FrontShoulder_L">
+              <bone name="Fenrir_FrontLeg1_L">
+                <bone name="Fenrir_FrontLeg2_L">
+                  <bone name="Fenrir_FrontLeg3_L">
+                    <bone name="Fenrir_FrontToe_L" />
+                  </bone>
+                </bone>
+              </bone>
+            </bone>
+            <bone name="Fenrir_FrontShoulder_R">
+              <bone name="Fenrir_FrontLeg1_R">
+                <bone name="Fenrir_FrontLeg2_R">
+                  <bone name="Fenrir_FrontLeg3_R">
+                    <bone name="Fenrir_FrontToe_R" />
+                  </bone>
+                </bone>
+              </bone>
+            </bone>
+            <bone name="Fenrir_chest" />
+          </bone>
+          <bone name="Fenrir_belly" />
+        </bone>
+        <bone name="Fenrir_BackLeg1_L">
+          <bone name="Fenrir_BackLeg2_L">
+            <bone name="Fenrir_BackLeg3_L">
+              <bone name="Fenrir_BackToe_L" />
+            </bone>
+          </bone>
+        </bone>
+        <bone name="Fenrir_BackLeg1_R">
+          <bone name="Fenrir_BackLeg2_R">
+            <bone name="Fenrir_BackLeg3_R">
+              <bone name="Fenrir_BackToe_R" />
+            </bone>
+          </bone>
+        </bone>
+        <bone name="Fenrir_Tail1">
+          <bone name="Fenrir_Tail2">
+            <bone name="Fenrir_Tail3">
+              <bone name="Fenrir_Tail4">
+                <bone name="Fenrir_Tail5" />
+              </bone>
+            </bone>
+          </bone>
+        </bone>
+      </bone>
+      <bone name="Fenrir_FrontKnee_L" />
+      <bone name="Fenrir_FrontKnee_R" />
+    </bone>
+  </standard_skeleton>
+  <skeleton target="Fenrir_armature" title="Fenrir armature">
+    <identifier>
+      <root>Fenrir_Root</root>
+    </identifier>
+    <bone name="Fenrir_Root">
+      <target>Fenrir_Root</target>
+      <bone name="Fenrir_Back">
+        <target>Fenrir_Back</target>
+        <bone name="Fenrir_spine1">
+          <target>Fenrir_spine1</target>
+          <bone name="Fenrir_spine2">
+            <target>Fenrir_spine2</target>
+            <bone name="Fenrir_Neck1">
+              <target>Fenrir_Neck1</target>
+              <bone name="Fenrir_Neck2">
+                <target>Fenrir_Neck2</target>
+                <bone name="Fenrir_Head">
+                  <target>Fenrir_Head</target>
+                  <bone name="Fenrir_ear1_L">
+                    <target>Fenrir_ear1_L</target>
+                    <bone name="Fenrir_ear2_L">
+                      <target>Fenrir_ear2_L</target>
+                    </bone>
+                  </bone>
+                  <bone name="Fenrir_ear1_R">
+                    <target>Fenrir_ear1_R</target>
+                    <bone name="Fenrir_ear2_R">
+                      <target>Fenrir_ear2_R</target>
+                    </bone>
+                  </bone>
+                  <bone name="Fenrir_Jaw1">
+                    <target>Fenrir_Jaw1</target>
+                    <bone name="Fenrir_Jaw2">
+                      <target>Fenrir_Jaw2</target>
+                    </bone>
+                    <bone name="Fenrir_tongue1">
+                      <target>Fenrir_tongue1</target>
+                    </bone>
+                    <bone name="Fenrir_tongue2">
+                      <target>Fenrir_tongue2</target>
+                    </bone>
+                  </bone>
+                  <bone name="Fenrir_lip_4_R">
+                    <target>Fenrir_lip_4_R</target>
+                    <bone name="Fenrir_lip_3_R">
+                      <target>Fenrir_lip_3_R</target>
+                      <bone name="Fenrir_lip_2_R">
+                        <target>Fenrir_lip_2_R</target>
+                        <bone name="Fenrir_lip_1_R">
+                          <target>Fenrir_lip_1_R</target>
+                        </bone>
+                      </bone>
+                    </bone>
+                  </bone>
+                  <bone name="Fenrir_lip_4_L">
+                    <target>Fenrir_lip_4_L</target>
+                    <bone name="Fenrir_lip_3_L">
+                      <target>Fenrir_lip_3_L</target>
+                      <bone name="Fenrir_lip_2_L">
+                        <target>Fenrir_lip_2_L</target>
+                        <bone name="Fenrir_lip_1_L">
+                          <target>Fenrir_lip_1_L</target>
+                        </bone>
+                      </bone>
+                    </bone>
+                  </bone>
+                </bone>
+              </bone>
+            </bone>
+            <bone name="Fenrir_FrontShoulder_L">
+              <target>Fenrir_FrontShoulder_L</target>
+              <bone name="Fenrir_FrontLeg1_L">
+                <target>Fenrir_FrontLeg1_L</target>
+                <bone name="Fenrir_FrontLeg2_L">
+                  <target>Fenrir_FrontLeg2_L</target>
+                  <bone name="Fenrir_FrontLeg3_L">
+                    <target>Fenrir_FrontLeg3_L</target>
+                    <bone name="Fenrir_FrontToe_L">
+                      <target>Fenrir_FrontToe_L</target>
+                    </bone>
+                  </bone>
+                </bone>
+              </bone>
+            </bone>
+            <bone name="Fenrir_FrontShoulder_R">
+              <target>Fenrir_FrontShoulder_R</target>
+              <bone name="Fenrir_FrontLeg1_R">
+                <target>Fenrir_FrontLeg1_R</target>
+                <bone name="Fenrir_FrontLeg2_R">
+                  <target>Fenrir_FrontLeg2_R</target>
+                  <bone name="Fenrir_FrontLeg3_R">
+                    <target>Fenrir_FrontLeg3_R</target>
+                    <bone name="Fenrir_FrontToe_R">
+                      <target>Fenrir_FrontToe_R</target>
+                    </bone>
+                  </bone>
+                </bone>
+              </bone>
+            </bone>
+            <bone name="Fenrir_chest">
+              <target>Fenrir_chest</target>
+            </bone>
+          </bone>
+          <bone name="Fenrir_belly">
+            <target>Fenrir_belly</target>
+          </bone>
+        </bone>
+        <bone name="Fenrir_BackLeg1_L">
+          <target>Fenrir_BackLeg1_L</target>
+          <bone name="Fenrir_BackLeg2_L">
+            <target>Fenrir_BackLeg2_L</target>
+            <bone name="Fenrir_BackLeg3_L">
+              <target>Fenrir_BackLeg3_L</target>
+              <bone name="Fenrir_BackToe_L">
+                <target>Fenrir_BackToe_L</target>
+              </bone>
+            </bone>
+          </bone>
+        </bone>
+        <bone name="Fenrir_BackLeg1_R">
+          <target>Fenrir_BackLeg1_R</target>
+          <bone name="Fenrir_BackLeg2_R">
+            <target>Fenrir_BackLeg2_R</target>
+            <bone name="Fenrir_BackLeg3_R">
+              <target>Fenrir_BackLeg3_R</target>
+              <bone name="Fenrir_BackToe_R">
+                <target>Fenrir_BackToe_R</target>
+              </bone>
+            </bone>
+          </bone>
+        </bone>
+        <bone name="Fenrir_Tail1">
+          <target>Fenrir_Tail1</target>
+          <bone name="Fenrir_Tail2">
+            <target>Fenrir_Tail2</target>
+            <bone name="Fenrir_Tail3">
+              <target>Fenrir_Tail3</target>
+              <bone name="Fenrir_Tail4">
+                <target>Fenrir_Tail4</target>
+                <bone name="Fenrir_Tail5">
+                  <target>Fenrir_Tail5</target>
+                </bone>
+              </bone>
+            </bone>
+          </bone>
+        </bone>
+      </bone>
+      <bone name="Fenrir_FrontKnee_L">
+        <target>Fenrir_FrontKnee_L</target>
+      </bone>
+      <bone name="Fenrir_FrontKnee_R">
+        <target>Fenrir_FrontKnee_R</target>
+      </bone>
+    </bone>
+  </skeleton>
+</skeletons>
