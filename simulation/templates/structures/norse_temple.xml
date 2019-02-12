@@ -21,6 +21,12 @@
   <Obstruction>
     <Static width="24.5" depth="21"/>
   </Obstruction>
+  <ProductionQueue>
+    <BatchTimeModifier>0.7</BatchTimeModifier>
+    <Entities datatype="tokens">
+      units/{civ}_fenrir
+    </Entities>
+  </ProductionQueue>
   <VisualActor>
     <Actor>structures/norse/temple.xml</Actor>
     <FoundationActor>structures/fndn_5x5.xml</FoundationActor>
