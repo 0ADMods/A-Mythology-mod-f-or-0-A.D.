@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant>
+      <textures>
+        <texture file="props/mino_linothorax_skirt.png" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant file="biped/base_minotaur_2h_axeman_heavy.xml" frequency="1" name="Heavy">
+      <mesh>props/mino_skirt_a.dae</mesh>
+    </variant>
+    <variant file="biped/base_minotaur_2h_axeman_light.xml" frequency="1" name="Medium">
+      <mesh>props/mino_skirt_a.dae</mesh>
+    </variant>
+    <variant file="biped/base_minotaur_2h_axeman_light.xml" frequency="1" name="Light">
+      <mesh>props/mino_skirt_a.dae</mesh>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Idle"/>
+    <variant file="biped/base_minotaur_death.xml"/>
+    <variant file="biped/base_minotaur_run.xml"/>
+  </group>
+  <material>basic_trans.xml</material>
+</actor>

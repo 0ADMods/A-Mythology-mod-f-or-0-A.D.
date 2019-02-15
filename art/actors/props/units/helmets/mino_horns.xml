@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant>
+      <textures>
+        <texture file="props/helmet/mino_horn_01.png" name="baseTex"/>
+        <texture file="props/helmet/mino_horn_01_spec.png" name="specTex"/>		
+        <texture file="props/helmet/mino_horn_01_norm.png" name="normTex"/>	
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Horns-A">
+      <mesh>props/helmet/mino_horns_a.dae</mesh>
+    </variant>
+    <variant frequency="1" name="Horns-B">
+      <mesh>props/helmet/mino_horns_b.dae</mesh>
+    </variant>
+    <variant frequency="1" name="Horns-C">
+      <mesh>props/helmet/mino_horns_c.dae</mesh>
+    </variant>
+  </group>
+  <material>basic_trans_parallax_spec.xml</material>
+</actor>

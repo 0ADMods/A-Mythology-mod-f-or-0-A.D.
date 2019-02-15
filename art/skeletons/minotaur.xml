@@ -8,87 +8,151 @@
             <bone name="Minotaur_shoulder_L">
               <bone name="Minotaur_arm_L">
                 <bone name="Minotaur_forearm_L">
-                  <bone name="Minotaur_hand_L">
-                    <bone name="Minotaur_finger_B_L">
-                      <bone name="Minotaur_fingertip_B_L" />
-                    </bone>
-                    <bone name="Minotaur_shield" />
-                    <bone name="Minotaur_weapon_bow" />
-                    <bone name="Minotaur_ammo" />
-                    <bone name="Minotaur_weapon_L" />
-                    <bone name="Minotaur_finger_A_L">
-                      <bone name="Minotaur_fingertip_A_L" />
-                    </bone>
-                    <bone name="Minotaur_finger_C_L">
-                      <bone name="Minotaur_fingertip_C_L" />
-                    </bone>
-                  </bone>
+                  <bone name="Minotaur_shield" />
+                  <bone name="Minotaur_weapon_bow" />
+                  <bone name="Minotaur_ammo" />
                   <bone name="Minotaur_shield_arm" />
+                  <bone name="Minotaur_Hand_L">
+                    <bone name="Minotaur_Pinky_01_L">
+                      <bone name="Minotaur_Pinky_02_L">
+                        <bone name="Minotaur_Pinky_03_L" />
+                      </bone>
+                    </bone>
+                    <bone name="Minotaur_Finger_13_L">
+                      <bone name="Minotaur_Finger_14_L">
+                        <bone name="Minotaur_Finger_15_L" />
+                      </bone>
+                    </bone>
+                    <bone name="Minotaur_Ring_01_L">
+                      <bone name="Minotaur_Ring_02_L">
+                        <bone name="Minotaur_Ring_03_L" />
+                      </bone>
+                    </bone>
+                    <bone name="Minotaur_Middle_01_L">
+                      <bone name="Minotaur_Middle_02_L">
+                        <bone name="Minotaur_Middle_03_L" />
+                      </bone>
+                    </bone>
+                    <bone name="Minotaur_Index_01_L">
+                      <bone name="Minotaur_Index_02_L">
+                        <bone name="Minotaur_Index_03_L" />
+                      </bone>
+                    </bone>
+                    <bone name="Minotaur_weapon_L" />
+                  </bone>
                 </bone>
               </bone>
             </bone>
             <bone name="Minotaur_neck">
               <bone name="Minotaur_head">
                 <bone name="Minotaur_helmet" />
+                <bone name="Minotaur_Eye_brow_01_R">
+                  <bone name="Minotaur_Eye_brow_02_R" />
+                </bone>
+                <bone name="Minotaur_Upper_Lip_01">
+                  <bone name="Minotaur_Upper_Lip_02">
+                    <bone name="Minotaur_Upper_Lip_03" />
+                  </bone>
+                </bone>
+                <bone name="Minotaur_Bottom_Lip_01">
+                  <bone name="Minotaur_Bottom_Lip_02">
+                    <bone name="Minotaur_Bottom_Lip_03" />
+                  </bone>
+                </bone>
+                <bone name="Minotaur_Eye_brow_01_L">
+                  <bone name="Minotaur_Eye_brow_02_L" />
+                </bone>
               </bone>
-              <bone name="Minotaur_neck_guard" />
             </bone>
             <bone name="Minotaur_shoulder_R">
               <bone name="Minotaur_arm_R">
                 <bone name="Minotaur_forearm_R">
-                  <bone name="Minotaur_hand_R">
+                  <bone name="Minotaur_Hand_R">
                     <bone name="Minotaur_weapon_R" />
                     <bone name="Minotaur_projectile" />
-                    <bone name="Minotaur_finger_B_R">
-                      <bone name="Minotaur_fingertip_B_R" />
+                    <bone name="Minotaur_Pinky_01_R">
+                      <bone name="Minotaur_Pinky_02_R">
+                        <bone name="Minotaur_Pinky_03_R" />
+                      </bone>
                     </bone>
-                    <bone name="Minotaur_finger_A_R">
-                      <bone name="Minotaur_fingertip_A_R" />
+                    <bone name="Minotaur_Finger_13_R">
+                      <bone name="Minotaur_Finger_14_R">
+                        <bone name="Minotaur_Finger_15_R" />
+                      </bone>
                     </bone>
-                    <bone name="Minotaur_finger_C_R">
-                      <bone name="Minotaur_fingertip_C_R" />
+                    <bone name="Minotaur_Ring_01_R">
+                      <bone name="Minotaur_Ring_02_R">
+                        <bone name="Minotaur_Ring_03_R" />
+                      </bone>
+                    </bone>
+                    <bone name="Minotaur_Middle_01_R">
+                      <bone name="Minotaur_Middle_02_R">
+                        <bone name="Minotaur_Middle_03_R" />
+                      </bone>
+                    </bone>
+                    <bone name="Minotaur_Index_01_R">
+                      <bone name="Minotaur_Index_02_R">
+                        <bone name="Minotaur_Index_03_R" />
+                      </bone>
                     </bone>
                   </bone>
                 </bone>
               </bone>
             </bone>
             <bone name="Minotaur_cape" />
-            <bone name="Minotaur_cape1">
-              <bone name="Minotaur_cape2">
-                <bone name="Minotaur_cape3" />
-              </bone>
-            </bone>
           </bone>
         </bone>
       </bone>
       <bone name="Minotaur_Thigh_L">
         <bone name="Minotaur_Leg_L">
           <bone name="Minotaur_Shin_L">
-            <bone name="Minotaur_Foot_L">
-              <bone name="Minotaur_Hoof_back_L" />
+            <bone name="Minotaur_Shin_01_L">
+              <bone name="Minotaur_Foot_L">
+                <bone name="Minotaur_Hoof_L" />
+              </bone>
             </bone>
           </bone>
-          <bone name="Minotaur_Knee_Stretch_B_L" />
         </bone>
-        <bone name="Minotaur_Leg_Stretch_L" />
       </bone>
       <bone name="Minotaur_Thigh_R">
         <bone name="Minotaur_Leg_R">
           <bone name="Minotaur_Shin_R">
-            <bone name="Minotaur_Foot_R">
-              <bone name="Minotaur_Hoof_back_R" />
+            <bone name="Minotaur_Shin_01_R">
+              <bone name="Minotaur_Foot_R">
+                <bone name="Minotaur_Hoof_R" />
+              </bone>
             </bone>
           </bone>
-          <bone name="Minotaur_Knee_Stretch_B_R" />
         </bone>
-        <bone name="Minotaur_Leg_Stretch_R" />
+      </bone>
+      <bone name="Minotaur_Tail_Root">
+        <bone name="Minotaur_Tail_1">
+          <bone name="Minotaur_Tail_2">
+            <bone name="Minotaur_Tail_3">
+              <bone name="Minotaur_Tail_4">
+                <bone name="Minotaur_Tail_5">
+                  <bone name="Minotaur_Tail_6" />
+                </bone>
+              </bone>
+            </bone>
+          </bone>
+        </bone>
+      </bone>
+      <bone name="Minotaur_Skirt_Front_01">
+        <bone name="Minotaur_Skirt_Front_02" />
+      </bone>
+      <bone name="Minotaur_Skirt_Back_01_L">
+        <bone name="Minotaur_Skirt_Back_02_L" />
+      </bone>
+      <bone name="Minotaur_Skirt_Back_01_R">
+        <bone name="Minotaur_Skirt_Back_02_R" />
       </bone>
     </bone>
     <bone name="Minotaur_Knee_L" />
     <bone name="Minotaur_Knee_R" />
     <bone name="Minotaur_elbow_L" />
     <bone name="Minotaur_elbow_R" />
-    <bone name="Minotaur_root" />
+    <bone name="Minotaur_Root" />
   </standard_skeleton>
   <skeleton target="Minotaur_Armature" title="Minotaur Armature">
     <identifier>
@@ -108,41 +172,68 @@
                 <target>Minotaur_arm_L</target>
                 <bone name="Minotaur_forearm_L">
                   <target>Minotaur_forearm_L</target>
-                  <bone name="Minotaur_hand_L">
-                    <target>Minotaur_hand_L</target>
-                    <bone name="Minotaur_finger_B_L">
-                      <target>Minotaur_finger_B_L</target>
-                      <bone name="Minotaur_fingertip_B_L">
-                        <target>Minotaur_fingertip_B_L</target>
+                  <bone name="Minotaur_shield">
+                    <target>Minotaur_shield</target>
+                  </bone>
+                  <bone name="Minotaur_weapon_bow">
+                    <target>Minotaur_weapon_bow</target>
+                  </bone>
+                  <bone name="Minotaur_ammo">
+                    <target>Minotaur_ammo</target>
+                  </bone>
+                  <bone name="Minotaur_shield_arm">
+                    <target>Minotaur_shield_arm</target>
+                  </bone>
+                  <bone name="Minotaur_Hand_L">
+                    <target>Minotaur_Hand_L</target>
+                    <bone name="Minotaur_Pinky_01_L">
+                      <target>Minotaur_Pinky_01_L</target>
+                      <bone name="Minotaur_Pinky_02_L">
+                        <target>Minotaur_Pinky_02_L</target>
+                        <bone name="Minotaur_Pinky_03_L">
+                          <target>Minotaur_Pinky_03_L</target>
+                        </bone>
                       </bone>
                     </bone>
-                    <bone name="Minotaur_shield">
-                      <target>Minotaur_shield</target>
+                    <bone name="Minotaur_Finger_13_L">
+                      <target>Minotaur_Finger_13_L</target>
+                      <bone name="Minotaur_Finger_14_L">
+                        <target>Minotaur_Finger_14_L</target>
+                        <bone name="Minotaur_Finger_15_L">
+                          <target>Minotaur_Finger_15_L</target>
+                        </bone>
+                      </bone>
                     </bone>
-                    <bone name="Minotaur_weapon_bow">
-                      <target>Minotaur_weapon_bow</target>
+                    <bone name="Minotaur_Ring_01_L">
+                      <target>Minotaur_Ring_01_L</target>
+                      <bone name="Minotaur_Ring_02_L">
+                        <target>Minotaur_Ring_02_L</target>
+                        <bone name="Minotaur_Ring_03_L">
+                          <target>Minotaur_Ring_03_L</target>
+                        </bone>
+                      </bone>
                     </bone>
-                    <bone name="Minotaur_ammo">
-                      <target>Minotaur_ammo</target>
+                    <bone name="Minotaur_Middle_01_L">
+                      <target>Minotaur_Middle_01_L</target>
+                      <bone name="Minotaur_Middle_02_L">
+                        <target>Minotaur_Middle_02_L</target>
+                        <bone name="Minotaur_Middle_03_L">
+                          <target>Minotaur_Middle_03_L</target>
+                        </bone>
+                      </bone>
+                    </bone>
+                    <bone name="Minotaur_Index_01_L">
+                      <target>Minotaur_Index_01_L</target>
+                      <bone name="Minotaur_Index_02_L">
+                        <target>Minotaur_Index_02_L</target>
+                        <bone name="Minotaur_Index_03_L">
+                          <target>Minotaur_Index_03_L</target>
+                        </bone>
+                      </bone>
                     </bone>
                     <bone name="Minotaur_weapon_L">
                       <target>Minotaur_weapon_L</target>
                     </bone>
-                    <bone name="Minotaur_finger_A_L">
-                      <target>Minotaur_finger_A_L</target>
-                      <bone name="Minotaur_fingertip_A_L">
-                        <target>Minotaur_fingertip_A_L</target>
-                      </bone>
-                    </bone>
-                    <bone name="Minotaur_finger_C_L">
-                      <target>Minotaur_finger_C_L</target>
-                      <bone name="Minotaur_fingertip_C_L">
-                        <target>Minotaur_fingertip_C_L</target>
-                      </bone>
-                    </bone>
-                  </bone>
-                  <bone name="Minotaur_shield_arm">
-                    <target>Minotaur_shield_arm</target>
                   </bone>
                 </bone>
               </bone>
@@ -154,9 +245,36 @@
                 <bone name="Minotaur_helmet">
                   <target>Minotaur_helmet</target>
                 </bone>
-              </bone>
-              <bone name="Minotaur_neck_guard">
-                <target>Minotaur_neck_guard</target>
+                <bone name="Minotaur_Eye_brow_01_R">
+                  <target>Minotaur_Eye_brow_01_R</target>
+                  <bone name="Minotaur_Eye_brow_02_R">
+                    <target>Minotaur_Eye_brow_02_R</target>
+                  </bone>
+                </bone>
+                <bone name="Minotaur_Upper_Lip_01">
+                  <target>Minotaur_Upper_Lip_01</target>
+                  <bone name="Minotaur_Upper_Lip_02">
+                    <target>Minotaur_Upper_Lip_02</target>
+                    <bone name="Minotaur_Upper_Lip_03">
+                      <target>Minotaur_Upper_Lip_03</target>
+                    </bone>
+                  </bone>
+                </bone>
+                <bone name="Minotaur_Bottom_Lip_01">
+                  <target>Minotaur_Bottom_Lip_01</target>
+                  <bone name="Minotaur_Bottom_Lip_02">
+                    <target>Minotaur_Bottom_Lip_02</target>
+                    <bone name="Minotaur_Bottom_Lip_03">
+                      <target>Minotaur_Bottom_Lip_03</target>
+                    </bone>
+                  </bone>
+                </bone>
+                <bone name="Minotaur_Eye_brow_01_L">
+                  <target>Minotaur_Eye_brow_01_L</target>
+                  <bone name="Minotaur_Eye_brow_02_L">
+                    <target>Minotaur_Eye_brow_02_L</target>
+                  </bone>
+                </bone>
               </bone>
             </bone>
             <bone name="Minotaur_shoulder_R">
@@ -165,30 +283,57 @@
                 <target>Minotaur_arm_R</target>
                 <bone name="Minotaur_forearm_R">
                   <target>Minotaur_forearm_R</target>
-                  <bone name="Minotaur_hand_R">
-                    <target>Minotaur_hand_R</target>
+                  <bone name="Minotaur_Hand_R">
+                    <target>Minotaur_Hand_R</target>
                     <bone name="Minotaur_weapon_R">
                       <target>Minotaur_weapon_R</target>
                     </bone>
                     <bone name="Minotaur_projectile">
                       <target>Minotaur_projectile</target>
                     </bone>
-                    <bone name="Minotaur_finger_B_R">
-                      <target>Minotaur_finger_B_R</target>
-                      <bone name="Minotaur_fingertip_B_R">
-                        <target>Minotaur_fingertip_B_R</target>
+                    <bone name="Minotaur_Pinky_01_R">
+                      <target>Minotaur_Pinky_01_R</target>
+                      <bone name="Minotaur_Pinky_02_R">
+                        <target>Minotaur_Pinky_02_R</target>
+                        <bone name="Minotaur_Pinky_03_R">
+                          <target>Minotaur_Pinky_03_R</target>
+                        </bone>
                       </bone>
                     </bone>
-                    <bone name="Minotaur_finger_A_R">
-                      <target>Minotaur_finger_A_R</target>
-                      <bone name="Minotaur_fingertip_A_R">
-                        <target>Minotaur_fingertip_A_R</target>
+                    <bone name="Minotaur_Finger_13_R">
+                      <target>Minotaur_Finger_13_R</target>
+                      <bone name="Minotaur_Finger_14_R">
+                        <target>Minotaur_Finger_14_R</target>
+                        <bone name="Minotaur_Finger_15_R">
+                          <target>Minotaur_Finger_15_R</target>
+                        </bone>
                       </bone>
                     </bone>
-                    <bone name="Minotaur_finger_C_R">
-                      <target>Minotaur_finger_C_R</target>
-                      <bone name="Minotaur_fingertip_C_R">
-                        <target>Minotaur_fingertip_C_R</target>
+                    <bone name="Minotaur_Ring_01_R">
+                      <target>Minotaur_Ring_01_R</target>
+                      <bone name="Minotaur_Ring_02_R">
+                        <target>Minotaur_Ring_02_R</target>
+                        <bone name="Minotaur_Ring_03_R">
+                          <target>Minotaur_Ring_03_R</target>
+                        </bone>
+                      </bone>
+                    </bone>
+                    <bone name="Minotaur_Middle_01_R">
+                      <target>Minotaur_Middle_01_R</target>
+                      <bone name="Minotaur_Middle_02_R">
+                        <target>Minotaur_Middle_02_R</target>
+                        <bone name="Minotaur_Middle_03_R">
+                          <target>Minotaur_Middle_03_R</target>
+                        </bone>
+                      </bone>
+                    </bone>
+                    <bone name="Minotaur_Index_01_R">
+                      <target>Minotaur_Index_01_R</target>
+                      <bone name="Minotaur_Index_02_R">
+                        <target>Minotaur_Index_02_R</target>
+                        <bone name="Minotaur_Index_03_R">
+                          <target>Minotaur_Index_03_R</target>
+                        </bone>
                       </bone>
                     </bone>
                   </bone>
@@ -197,15 +342,6 @@
             </bone>
             <bone name="Minotaur_cape">
               <target>Minotaur_cape</target>
-            </bone>
-            <bone name="Minotaur_cape1">
-              <target>Minotaur_cape1</target>
-              <bone name="Minotaur_cape2">
-                <target>Minotaur_cape2</target>
-                <bone name="Minotaur_cape3">
-                  <target>Minotaur_cape3</target>
-                </bone>
-              </bone>
             </bone>
           </bone>
         </bone>
@@ -216,19 +352,16 @@
           <target>Minotaur_Leg_L</target>
           <bone name="Minotaur_Shin_L">
             <target>Minotaur_Shin_L</target>
-            <bone name="Minotaur_Foot_L">
-              <target>Minotaur_Foot_L</target>
-              <bone name="Minotaur_Hoof_back_L">
-                <target>Minotaur_Hoof_back_L</target>
+            <bone name="Minotaur_Shin_01_L">
+              <target>Minotaur_Shin_01_L</target>
+              <bone name="Minotaur_Foot_L">
+                <target>Minotaur_Foot_L</target>
+                <bone name="Minotaur_Hoof_L">
+                  <target>Minotaur_Hoof_L</target>
+                </bone>
               </bone>
             </bone>
           </bone>
-          <bone name="Minotaur_Knee_Stretch_B_L">
-            <target>Minotaur_Knee_Stretch_B_L</target>
-          </bone>
-        </bone>
-        <bone name="Minotaur_Leg_Stretch_L">
-          <target>Minotaur_Leg_Stretch_L</target>
         </bone>
       </bone>
       <bone name="Minotaur_Thigh_R">
@@ -237,19 +370,55 @@
           <target>Minotaur_Leg_R</target>
           <bone name="Minotaur_Shin_R">
             <target>Minotaur_Shin_R</target>
-            <bone name="Minotaur_Foot_R">
-              <target>Minotaur_Foot_R</target>
-              <bone name="Minotaur_Hoof_back_R">
-                <target>Minotaur_Hoof_back_R</target>
+            <bone name="Minotaur_Shin_01_R">
+              <target>Minotaur_Shin_01_R</target>
+              <bone name="Minotaur_Foot_R">
+                <target>Minotaur_Foot_R</target>
+                <bone name="Minotaur_Hoof_R">
+                  <target>Minotaur_Hoof_R</target>
+                </bone>
               </bone>
             </bone>
           </bone>
-          <bone name="Minotaur_Knee_Stretch_B_R">
-            <target>Minotaur_Knee_Stretch_B_R</target>
+        </bone>
+      </bone>
+      <bone name="Minotaur_Tail_Root">
+        <target>Minotaur_Tail_Root</target>
+        <bone name="Minotaur_Tail_1">
+          <target>Minotaur_Tail_1</target>
+          <bone name="Minotaur_Tail_2">
+            <target>Minotaur_Tail_2</target>
+            <bone name="Minotaur_Tail_3">
+              <target>Minotaur_Tail_3</target>
+              <bone name="Minotaur_Tail_4">
+                <target>Minotaur_Tail_4</target>
+                <bone name="Minotaur_Tail_5">
+                  <target>Minotaur_Tail_5</target>
+                  <bone name="Minotaur_Tail_6">
+                    <target>Minotaur_Tail_6</target>
+                  </bone>
+                </bone>
+              </bone>
+            </bone>
           </bone>
         </bone>
-        <bone name="Minotaur_Leg_Stretch_R">
-          <target>Minotaur_Leg_Stretch_R</target>
+      </bone>
+      <bone name="Minotaur_Skirt_Front_01">
+        <target>Minotaur_Skirt_Front_01</target>
+        <bone name="Minotaur_Skirt_Front_02">
+          <target>Minotaur_Skirt_Front_02</target>
+        </bone>
+      </bone>
+      <bone name="Minotaur_Skirt_Back_01_L">
+        <target>Minotaur_Skirt_Back_01_L</target>
+        <bone name="Minotaur_Skirt_Back_02_L">
+          <target>Minotaur_Skirt_Back_02_L</target>
+        </bone>
+      </bone>
+      <bone name="Minotaur_Skirt_Back_01_R">
+        <target>Minotaur_Skirt_Back_01_R</target>
+        <bone name="Minotaur_Skirt_Back_02_R">
+          <target>Minotaur_Skirt_Back_02_R</target>
         </bone>
       </bone>
     </bone>
@@ -265,8 +434,8 @@
     <bone name="Minotaur_elbow_R">
       <target>Minotaur_elbow_R</target>
     </bone>
-    <bone name="Minotaur_root">
-      <target>Minotaur_root</target>
+    <bone name="Minotaur_Root">
+      <target>Minotaur_Root</target>
     </bone>
   </skeleton>
 </skeletons>

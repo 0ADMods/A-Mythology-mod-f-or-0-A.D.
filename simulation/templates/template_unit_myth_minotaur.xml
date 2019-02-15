@@ -17,8 +17,8 @@
     </Resources>
   </Cost>
   <Loot>
-	<glory>15</glory>
-	<xp>300</xp>
+	  <glory>15</glory>
+	  <xp>300</xp>
   </Loot>
   <Health>
     <Max>650</Max>
@@ -28,9 +28,9 @@
     <SpecificName>Minotaur</SpecificName>
   </Identity>
   <UnitMotion>
-    <WalkSpeed>7</WalkSpeed>
+    <WalkSpeed>8</WalkSpeed>
     <Run>
-      <Speed>12</Speed>
+      <Speed>23</Speed>
     </Run>
   </UnitMotion>
 </Entity>
