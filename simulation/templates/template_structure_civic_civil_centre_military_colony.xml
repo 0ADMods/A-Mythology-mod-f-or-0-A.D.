@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_structure_civic_civil_centre">
+  <BuildingAI>
+    <DefaultArrowCount>0</DefaultArrowCount>
+  </BuildingAI>
+  <BuildRestrictions>
+    <Territory>own neutral</Territory>
+    <Category>Colony</Category>
+    <Distance>
+      <FromClass>CivilCentre</FromClass>
+      <MinDistance>120</MinDistance>
+    </Distance>
+  </BuildRestrictions>
+  <Cost>
+    <BuildTime>300</BuildTime>
+    <Resources>
+      <wood>200</wood>
+      <stone>200</stone>
+      <metal>200</metal>
+    </Resources>
+  </Cost>
+  <Footprint>
+    <Square width="25.0" depth="25.0"/>
+    <Height>12.0</Height>
+  </Footprint>
+  <Health>
+    <Max>2000</Max>
+    <SpawnEntityOnDeath>decay|rubble/rubble_stone_5x5</SpawnEntityOnDeath>
+  </Health>
+  <Identity>
+    <GenericName>Military Colony</GenericName>
+    <SpecificName>Klēroukhía</SpecificName>
+    <Classes datatype="tokens">Colony</Classes>
+    <Icon>structures/military_settlement.png</Icon>
+    <RequiredTechnology>phase_town</RequiredTechnology>
+  </Identity>
+  <Obstruction>
+    <Static width="23.0" depth="23.0"/>
+  </Obstruction>
+  <ProductionQueue>
+    <Technologies datatype="tokens">
+      -phase_town_{civ}
+      -phase_city_{civ}
+      upgrade_rank_advanced_mercenary
+    </Technologies>
+  </ProductionQueue>
+  <Sound>
+    <SoundGroups>
+      <select>interface/select/building/sel_gymnasium.xml</select>
+      <constructed>interface/complete/building/complete_gymnasium.xml</constructed>
+      <death>attack/destruction/building_collapse_large.xml</death>
+    </SoundGroups>
+  </Sound>
+  <TerritoryDecay>
+    <DecayRate>1</DecayRate>
+  </TerritoryDecay>
+  <TerritoryInfluence>
+    <Radius>80</Radius>
+  </TerritoryInfluence>
+</Entity>
