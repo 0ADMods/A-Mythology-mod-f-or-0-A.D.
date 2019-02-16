@@ -43,4 +43,12 @@
       <attack_ranged>attack/weapon/arrowfly.xml</attack_ranged>
     </SoundGroups>
   </Sound>
+  <Stamina>
+    <MaxPoints>100</MaxPoints>
+	<RegenRate>5</RegenRate>
+	<RunDegRate>20</RunDegRate>
+  </Stamina>
+  <UnitAI>
+    <DefaultStance>defensive</DefaultStance>
+  </UnitAI>
 </Entity>

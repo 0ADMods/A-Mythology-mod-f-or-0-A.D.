@@ -289,14 +289,18 @@ Attack.prototype.DealChargeDamage = function(targets)
 	
 	for (let target of targets) {
 		let multiplier  = +this.template[type].Charge.DamageMultiplier * GetDamageBonus(target, this.GetBonusTemplate(type));
-		cmpDamage.CauseDamage({
+		let data = {
 			"strengths": this.GetAttackStrengths(type),
 			"target": target,
 			"attacker": this.entity,
 			"multiplier": multiplier,
 			"type": type,
 			"attackerOwner": attackOwner
-		});
+		};
+		if (this.template[type].KnockBack)
+			data.knockBack = this.template[type].KnockBack;
+		cmpDamage.CauseDamage(data);
+		
 		let cmpTargetHealth = Engine.QueryInterface(target, IID_Health);
 		if (cmpTargetHealth && cmpTargetHealth.GetHitpoints() > 0) {
 			alive++;

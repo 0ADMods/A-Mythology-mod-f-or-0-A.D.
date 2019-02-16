@@ -71,9 +71,17 @@
       <death>actor/human/death/{gender}_death.xml</death>
     </SoundGroups>
   </Sound>
+  <Stamina>
+    <MaxPoints>100</MaxPoints>
+	<RegenRate>5</RegenRate>
+	<RunDegRate>20</RunDegRate>
+  </Stamina>
   <TrainingRestrictions>
     <Category>Hero</Category>
   </TrainingRestrictions>
+  <UnitAI>
+    <DefaultStance>defensive</DefaultStance>
+  </UnitAI>
   <Vision>
     <Range>88</Range>
   </Vision>

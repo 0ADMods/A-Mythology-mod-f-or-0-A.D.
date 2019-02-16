@@ -5,6 +5,10 @@
 	  <Charge>
 	    <DamageMultiplier>2</DamageMultiplier>
 	  </Charge>
+	  <KnockBack>
+	    <Strength>5</Strength>
+		<AffectedClasses datatype="tokens">Organic</AffectedClasses>
+	  </KnockBack>
       <Hack>40.0</Hack>
       <Pierce>0.0</Pierce>
       <Crush>0.0</Crush>
@@ -23,4 +27,7 @@
     <VisibleClasses datatype="tokens">Axe</VisibleClasses>
     <GenericName>Minotaur Axeman</GenericName>
   </Identity>
+  <UnitAI>
+    <Rage>true</Rage>
+  </UnitAI>
 </Entity>

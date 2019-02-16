@@ -12,6 +12,11 @@ UnitAI.prototype.Schema =
 			"<value>standground</value>" +
 		"</choice>" +
 	"</element>" +
+	"<optional>"+
+	   "<element name='Rage'>"+
+		  "<data type='boolean'/>" +
+	   "</element>"+
+	"</optional>"+
 	"<element name='FormationController'>" +
 		"<data type='boolean'/>" +
 	"</element>" +
@@ -126,6 +131,16 @@ var g_Stances = {
 		"respondFlee": false,
 		"respondChase": false,
 		"respondChaseBeyondVision": false,
+		"respondStandGround": false,
+		"respondHoldGround": false,
+		"selectable": false
+	},
+	"rage": {
+		"targetVisibleEnemies": true,
+		"targetAttackersAlways": true,
+		"respondFlee": false,
+		"respondChase": true,
+		"respondChaseBeyondVision": true,
 		"respondStandGround": false,
 		"respondHoldGround": false,
 		"selectable": false
@@ -266,6 +281,28 @@ UnitAI.prototype.UnitFsmSpec = {
 
 	},
 
+	"Order.Run": function(msg) {		
+		if (this.IsFormationController()) {
+			this.FinishOrder();
+			return;
+		}
+		
+		if (this.IsAnimal() || this.IsTurret())
+		{
+			this.FinishOrder();
+			return;
+		}
+
+		if (this.CanPack())
+		{
+			this.FinishOrder();
+			return;
+		}
+
+		this.SetMoveSpeed(this.GetRunSpeed());
+		this.SetNextState("INDIVIDUAL.RUNNING");
+	},
+	
 	"Order.Walk": function(msg) {
 		// Let players move captured domestic animals around
 		if (this.IsAnimal() && !this.IsDomestic() || this.IsTurret())
@@ -793,29 +830,39 @@ UnitAI.prototype.UnitFsmSpec = {
 
 	// States for the special entity representing a group of units moving in formation:
 	"FORMATIONCONTROLLER": {
+		"Order.Run": function(msg) {
+			this.CallMemberFunction("SetHeldPosition", [msg.data.x, msg.data.z]);
 
+			this.MoveToPoint(this.order.data.x, this.order.data.z);
+			this.SetNextState("WALKING");
+		},
 		"Order.Charge": function(msg) {
-			if (this.IsAnimal() || this.IsTurret()) {
+			var target = msg.data.target;
+			var allowCapture = msg.data.allowCapture;
+			var cmpTargetUnitAI = Engine.QueryInterface(target, IID_UnitAI);
+			if (cmpTargetUnitAI && cmpTargetUnitAI.IsFormationMember())
+				target = cmpTargetUnitAI.GetFormationController();
+
+			var cmpAttack = Engine.QueryInterface(this.entity, IID_Attack);
+			// Check if we are already in range, otherwise walk there
+			if (!this.CheckTargetAttackRange(target, target))
+			{
+				if (this.TargetIsAlive(target) && this.CheckTargetVisible(target))
+				{
+					if (this.MoveToTargetAttackRange(target, target))
+					{
+						this.SetNextState("COMBAT.APPROACHING");
+						return;
+					}
+				}
 				this.FinishOrder();
 				return;
 			}
-
-			if (this.CanPack())
-			{
-				this.FinishOrder();
-				return;
-			}
-
-			let target = msg.data.target;
-				
-			if (this.TargetIsAlive(target) && this.CheckTargetVisible(target))
-			{
-				this.SetMoveSpeed(this.GetRunSpeed());
-				this.CallMemberFunction("Charge", [target]);
+			this.CallMemberFunction("Attack", [target, allowCapture, false]);
+			if (cmpAttack.CanAttackAsFormation())
+				this.SetNextState("COMBAT.ATTACKING");
+			else
 				this.SetNextState("MEMBER");
-			}
-			
-			this.FinishOrder();
 		},
 		"Order.Walk": function(msg) {
 			this.CallMemberFunction("SetHeldPosition", [msg.data.x, msg.data.z]);
@@ -1612,6 +1659,10 @@ UnitAI.prototype.UnitFsmSpec = {
 				{
 					this.isIdle = true;
 					Engine.PostMessage(this.entity, MT_UnitIdleChanged, { "idle": this.isIdle });
+					if (this.rage) {
+						this.rage = false;
+						this.SwitchToStance(this.template.DefaultStance);
+					}
 				}
 			},
 		},
@@ -1790,6 +1841,38 @@ UnitAI.prototype.UnitFsmSpec = {
 				},
 			},
 		},
+		"RUNNING": {
+			"enter": function() {
+				this.SelectAnimation("move");
+				this.chargeDamage = false;
+				let cmpStamina = Engine.QueryInterface(this.entity, IID_Stamina);
+				if (cmpStamina)
+					cmpStamina.StartRunTimer();
+			},
+
+			"HealthChanged": function() {
+				let speed = this.GetRunSpeed();
+				this.SetMoveSpeed(speed);
+			},
+
+			"leave": function() {
+				this.SetMoveSpeed(this.GetWalkSpeed());
+				this.StopTimer();
+				this.chargeDamage = false;
+				let cmpStamina = Engine.QueryInterface(this.entity, IID_Stamina);
+				if (cmpStamina)
+					cmpStamina.CancelRunningTimer();
+			},
+			
+			"MoveCompleted": function() {
+				this.FinishOrder();
+				this.SetMoveSpeed(this.GetWalkSpeed());
+				this.chargeDamage = false;
+				let cmpStamina = Engine.QueryInterface(this.entity, IID_Stamina);
+				if (cmpStamina)
+					cmpStamina.CancelRunningTimer();
+			},
+		},
 		"CHARGING": {
 			"enter": function() {
 				this.SelectAnimation("move");
@@ -1848,21 +1931,26 @@ UnitAI.prototype.UnitFsmSpec = {
 				var speed = this.GetRunSpeed();
 				this.SelectAnimation("move");
 				this.SetMoveSpeed(speed);
+				
+				let cmpStamina = Engine.QueryInterface(this.entity, IID_Stamina);
+				if (cmpStamina)
+					cmpStamina.StartRunTimer();
 			},
-
-			"HealthChanged": function() {
-				var speed = this.GetRunSpeed();
-				this.SetMoveSpeed(speed);
-			},
-
+			
 			"leave": function() {
 				// Reset normal speed
 				this.SetMoveSpeed(this.GetWalkSpeed());
+				let cmpStamina = Engine.QueryInterface(this.entity, IID_Stamina);
+				if (cmpStamina)
+					cmpStamina.CancelRunningTimer();
 			},
 
 			"MoveCompleted": function() {
 				// When we've run far enough, stop fleeing
 				this.FinishOrder();
+				let cmpStamina = Engine.QueryInterface(this.entity, IID_Stamina);
+				if (cmpStamina)
+					cmpStamina.CancelRunningTimer();
 			},
 
 			// TODO: what if we run into more enemies while fleeing?
@@ -2056,6 +2144,11 @@ UnitAI.prototype.UnitFsmSpec = {
 						{
 							let cmpAttack = Engine.QueryInterface(this.entity, IID_Attack);
 							cmpAttack.PerformAttack(this.order.data.attackType, target);
+							if (!this.rage && this.template.Rage) {
+								let cmpTargetIdentity = Engine.QueryInterface(target, IID_Identity);
+								if (cmpTargetIdentity && cmpTargetIdentity.HasClass("Organic"))
+									this.SwitchToStance("rage");
+							}
 						}
 
 						// Check we can still reach the target for the next attack
@@ -3334,7 +3427,7 @@ UnitAI.prototype.Init = function()
 	this.isGarrisoned = false;
 	this.isIdle = false;
 	this.finishedOrder = false; // used to find if all formation members finished the order
-
+	
 	this.heldPosition = undefined;
 
 	// Queue of remembered works
@@ -3348,6 +3441,7 @@ UnitAI.prototype.Init = function()
 
 	this.SetStance(this.template.DefaultStance);
 	this.chargeDamage = false;
+	this.rage = false;
 };
 
 UnitAI.prototype.IsTurret = function()
@@ -3407,7 +3501,8 @@ UnitAI.prototype.IsIdle = function()
 
 UnitAI.prototype.IsRunning = function()
 {
-	return this.IsCharging();
+	let state = this.GetCurrentState().split(".").pop();
+	return state == "CHARGING" || state == "RUNNING";
 }
 
 UnitAI.prototype.IsCharging = function()
@@ -4410,6 +4505,11 @@ UnitAI.prototype.StopRuning = function()
 		this.SetNextState("WALKING");
 }
 
+UnitAI.prototype.SlowFleeing = function()
+{
+	this.SetMoveSpeed(this.GetWalkSpeed());
+}
+
 UnitAI.prototype.MoveToPoint = function(x, z)
 {
 	var cmpUnitMotion = Engine.QueryInterface(this.entity, IID_UnitMotion);
@@ -4909,7 +5009,7 @@ UnitAI.prototype.GetTargetPositions = function()
 		switch (order.type)
 		{
 		case "Walk":
-		case "Charge":
+		case "Run":
 		case "WalkAndFight":
 		case "WalkToPointRange":
 		case "MoveIntoFormation":
@@ -4924,6 +5024,7 @@ UnitAI.prototype.GetTargetPositions = function()
 		case "Flee":
 		case "LeaveFoundation":
 		case "Attack":
+		case "Charge":
 		case "Heal":
 		case "Gather":
 		case "ReturnResource":
@@ -5098,16 +5199,28 @@ UnitAI.prototype.CanPatrol = function()
  */
 UnitAI.prototype.Walk = function(x, z, queued)
 {
+	if (this.rage)
+		return;
 	if (this.expectedRoute && queued)
 		this.expectedRoute.push({ "x": x, "z": z });
 	else
 		this.AddOrder("Walk", { "x": x, "z": z, "force": true }, queued);
 };
+
+UnitAI.prototype.Run = function(x, z, queued = false)
+{
+	if (this.rage)
+		return;
+	this.AddOrder("Run", { "x": x, "z": z, "force": true }, queued);
+}
+
 /**
  * Adds charge attack forced by the player.
  */
 UnitAI.prototype.Charge = function(target, queued = false)
 {
+	if (this.rage)
+		return;
 	this.AddOrder("Charge", {"target": target, "force": true}, queued);
 }
 
@@ -5116,6 +5229,8 @@ UnitAI.prototype.Charge = function(target, queued = false)
  */
 UnitAI.prototype.WalkToPointRange = function(x, z, min, max, queued)
 {
+	if (this.rage)
+		return;
 	this.AddOrder("Walk", { "x": x, "z": z, "min": min, "max": max, "force": true }, queued);
 };
 
@@ -5124,6 +5239,8 @@ UnitAI.prototype.WalkToPointRange = function(x, z, min, max, queued)
  */
 UnitAI.prototype.Stop = function(queued)
 {
+	if (this.rage)
+		return;
 	this.AddOrder("Stop", { "force": true }, queued);
 };
 
@@ -5133,6 +5250,8 @@ UnitAI.prototype.Stop = function(queued)
  */
 UnitAI.prototype.WalkToTarget = function(target, queued)
 {
+	if (this.rage)
+		return;
 	this.AddOrder("WalkToTarget", { "target": target, "force": true }, queued);
 };
 
@@ -5143,11 +5262,15 @@ UnitAI.prototype.WalkToTarget = function(target, queued)
  */
 UnitAI.prototype.WalkAndFight = function(x, z, targetClasses, allowCapture = true, queued = false)
 {
+	if (this.rage)
+		return;
 	this.AddOrder("WalkAndFight", { "x": x, "z": z, "targetClasses": targetClasses, "allowCapture": allowCapture, "force": true }, queued);
 };
 
 UnitAI.prototype.Patrol = function(x, z, targetClasses, allowCapture = true, queued = false)
 {
+	if (this.rage)
+		return;
 	if (!this.CanPatrol())
 	{
 		this.Walk(x, z, queued);
@@ -5162,6 +5285,8 @@ UnitAI.prototype.Patrol = function(x, z, targetClasses, allowCapture = true, que
  */
 UnitAI.prototype.LeaveFoundation = function(target)
 {
+	if (this.rage)
+		return;
 	// If we're already being told to leave a foundation, then
 	// ignore this new request so we don't end up being too indecisive
 	// to ever actually move anywhere
@@ -5177,6 +5302,8 @@ UnitAI.prototype.LeaveFoundation = function(target)
  */
 UnitAI.prototype.Attack = function(target, allowCapture = true, queued = false)
 {
+	if (this.rage)
+		return;
 	if (!this.CanAttack(target))
 	{
 		// We don't want to let healers walk to the target unit so they can be easily killed.
@@ -5195,6 +5322,8 @@ UnitAI.prototype.Attack = function(target, allowCapture = true, queued = false)
  */
 UnitAI.prototype.Garrison = function(target, queued)
 {
+	if (this.rage)
+		return;
 	if (target == this.entity)
 		return;
 	if (!this.CanGarrison(target))
@@ -5229,6 +5358,8 @@ UnitAI.prototype.Autogarrison = function(target)
  */
 UnitAI.prototype.Gather = function(target, queued)
 {
+	if (this.rage)
+		return;
 	this.PerformGather(target, queued, true);
 };
 
@@ -5293,6 +5424,8 @@ UnitAI.prototype.GatherNearPosition = function(x, z, type, template, queued)
  */
 UnitAI.prototype.Heal = function(target, queued)
 {
+	if (this.rage)
+		return;
 	if (!this.CanHeal(target))
 	{
 		this.WalkToTarget(target, queued);
@@ -5307,6 +5440,8 @@ UnitAI.prototype.Heal = function(target, queued)
  */
 UnitAI.prototype.ReturnResource = function(target, queued)
 {
+	if (this.rage)
+		return;
 	if (!this.CanReturnResource(target, true))
 	{
 		this.WalkToTarget(target, queued);
@@ -5535,6 +5670,8 @@ UnitAI.prototype.SetStance = function(stance)
 	if (g_Stances[stance])
 	{
 		this.stance = stance;
+		if (this.stance == "rage")
+			this.rage = true;
 		Engine.PostMessage(this.entity, MT_UnitStanceChanged, { "to": this.stance });
 	}
 	else
@@ -5543,10 +5680,12 @@ UnitAI.prototype.SetStance = function(stance)
 
 UnitAI.prototype.SwitchToStance = function(stance)
 {
-	var cmpPosition = Engine.QueryInterface(this.entity, IID_Position);
+	if (this.stance == "rage" && this.range)
+		return;
+	let cmpPosition = Engine.QueryInterface(this.entity, IID_Position);
 	if (!cmpPosition || !cmpPosition.IsInWorld())
 		return;
-	var pos = cmpPosition.GetPosition();
+	let pos = cmpPosition.GetPosition();
 	this.SetHeldPosition(pos.x, pos.z);
 
 	this.SetStance(stance);
@@ -6086,16 +6225,17 @@ UnitAI.prototype.AttackEntitiesByPreference = function(ents)
 		return false;
 
 	var attackfilter = function(e) {
-		var cmpOwnership = Engine.QueryInterface(e, IID_Ownership);
+		let cmpOwnership = Engine.QueryInterface(e, IID_Ownership);
 		if (cmpOwnership && cmpOwnership.GetOwner() > 0)
 			return true;
-		var cmpUnitAI = Engine.QueryInterface(e, IID_UnitAI);
+		let cmpUnitAI = Engine.QueryInterface(e, IID_UnitAI);
 		return cmpUnitAI && (!cmpUnitAI.IsAnimal() || cmpUnitAI.IsDangerousAnimal());
 	};
-
+	
 	let entsByPreferences = {};
 	let preferences = [];
 	let entsWithoutPref = [];
+	let noOrganic = true;
 	for (let ent of ents)
 	{
 		if (!attackfilter(ent))
@@ -6110,8 +6250,21 @@ UnitAI.prototype.AttackEntitiesByPreference = function(ents)
 		}
 		else
 			entsByPreferences[pref].push(ent);
+		
+		// check if there are no organic units
+		if (this.rage && noOrganic) {
+			let cmpIdentity = Engine.QueryInterface(ent, IID_Identity);
+			if (cmpIdentity && cmpIdentity.HasClass("Organic")) {
+				noOrganic = false;
+			}
+		}
 	}
 
+	if (this.rage && noOrganic) {
+		this.rage = false;
+		this.SwitchToStance(this.template.DefaultStance);
+	}
+	
 	if (preferences.length)
 	{
 		preferences.sort((a, b) => a - b);

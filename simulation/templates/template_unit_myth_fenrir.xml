@@ -9,7 +9,7 @@
 	  <Charge>
 	    <DamageMultiplier>2</DamageMultiplier>
 	  </Charge>
-      <Hack>00.0</Hack>
+      <Hack>0.0</Hack>
       <Pierce>65.0</Pierce>
       <Crush>0.0</Crush>
       <MaxRange>4.5</MaxRange>
@@ -55,12 +55,12 @@
     <GenericName>Fenrir</GenericName>
     <SpecificName>Fenrisúlfr</SpecificName>
   </Identity>
-<Sound>
+  <Sound>
     <SoundGroups>
       <select>voice/norse_fenrir_voice.xml</select>           
       <order_attack>attack/norse_fenrir_attack.xml</order_attack>
       <attack_melee>attack/norse_fenrir_attack.xml</attack_melee>
       <order_walk>voice/norse_fenrir_voice.xml</order_walk>          
-</SoundGroups>
+    </SoundGroups>
   </Sound>
 </Entity>
