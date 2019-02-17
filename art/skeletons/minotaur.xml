@@ -49,11 +49,6 @@
                 <bone name="Minotaur_Eye_brow_01_R">
                   <bone name="Minotaur_Eye_brow_02_R" />
                 </bone>
-                <bone name="Minotaur_Upper_Lip_01">
-                  <bone name="Minotaur_Upper_Lip_02">
-                    <bone name="Minotaur_Upper_Lip_03" />
-                  </bone>
-                </bone>
                 <bone name="Minotaur_Bottom_Lip_01">
                   <bone name="Minotaur_Bottom_Lip_02">
                     <bone name="Minotaur_Bottom_Lip_03" />
@@ -62,6 +57,8 @@
                 <bone name="Minotaur_Eye_brow_01_L">
                   <bone name="Minotaur_Eye_brow_02_L" />
                 </bone>
+                <bone name="Minotaur_Eye_R" />
+                <bone name="Minotaur_Eye_L" />
               </bone>
             </bone>
             <bone name="Minotaur_shoulder_R">
@@ -99,7 +96,6 @@
                 </bone>
               </bone>
             </bone>
-            <bone name="Minotaur_cape" />
           </bone>
         </bone>
       </bone>
@@ -251,15 +247,6 @@
                     <target>Minotaur_Eye_brow_02_R</target>
                   </bone>
                 </bone>
-                <bone name="Minotaur_Upper_Lip_01">
-                  <target>Minotaur_Upper_Lip_01</target>
-                  <bone name="Minotaur_Upper_Lip_02">
-                    <target>Minotaur_Upper_Lip_02</target>
-                    <bone name="Minotaur_Upper_Lip_03">
-                      <target>Minotaur_Upper_Lip_03</target>
-                    </bone>
-                  </bone>
-                </bone>
                 <bone name="Minotaur_Bottom_Lip_01">
                   <target>Minotaur_Bottom_Lip_01</target>
                   <bone name="Minotaur_Bottom_Lip_02">
@@ -274,6 +261,12 @@
                   <bone name="Minotaur_Eye_brow_02_L">
                     <target>Minotaur_Eye_brow_02_L</target>
                   </bone>
+                </bone>
+                <bone name="Minotaur_Eye_R">
+                  <target>Minotaur_Eye_R</target>
+                </bone>
+                <bone name="Minotaur_Eye_L">
+                  <target>Minotaur_Eye_L</target>
                 </bone>
               </bone>
             </bone>
@@ -339,9 +332,6 @@
                   </bone>
                 </bone>
               </bone>
-            </bone>
-            <bone name="Minotaur_cape">
-              <target>Minotaur_cape</target>
             </bone>
           </bone>
         </bone>

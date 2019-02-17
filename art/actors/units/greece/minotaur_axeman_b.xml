@@ -9,9 +9,25 @@
         <prop actor="props/units/mino_skirt_a.xml" attachpoint="root"/>
       </props>
       <textures>
-        <texture file="skeletal/minotaur_hairy.png" name="baseTex"/>
-        <texture file="skeletal/minotaur_hairy_norm.png" name="normTex"/>
-        <texture file="skeletal/minotaur_hairy_spec.png" name="specTex"/>
+        <texture file="skeletal/minotaur_norm.png" name="normTex"/>
+        <texture file="skeletal/minotaur_spec.png" name="specTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Caucasian">
+      <textures>
+        <texture file="skeletal/minotaur_caucasian.png" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="Brown">
+      <textures>
+        <texture file="skeletal/minotaur_brown.png" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="Redish">
+      <textures>
+        <texture file="skeletal/minotaur_redish.png" name="baseTex"/>
       </textures>
     </variant>
   </group>
@@ -24,6 +40,12 @@
     </variant>
     <variant file="biped/base_minotaur_2h_axeman_light.xml" frequency="1" name="Light">
       <mesh>skeletal/minotaur_light.dae</mesh>
+    </variant>
+    <variant file="biped/base_minotaur_2h_axeman_heavy.xml" frequency="1" name="Beast">
+      <mesh>skeletal/minotaur_beast.dae</mesh>
+      <props>
+        <prop actor="" attachpoint="root"/>
+      </props>
     </variant>
   </group>
   <group>

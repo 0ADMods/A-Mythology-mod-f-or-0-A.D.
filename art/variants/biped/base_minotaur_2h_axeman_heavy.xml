@@ -7,6 +7,6 @@
     <animation file="biped/minotaur_attack_2h_d.dae" event="0.5" name="attack_melee" id="attack4" speed="60"/>
     <animation file="biped/minotaur_attack_2h_e.dae" event="0.5" name="attack_melee" id="attack5" speed="60"/>
     <animation file="biped/minotaur_idle_ready_2h_heavy.dae" name="Idle" id="idle1" speed="40"/>
-    <animation file="biped/minotaur_walk_ready_2h_heavy.dae" name="Walk" speed="14"/>
+    <animation file="biped/minotaur_walk_ready_2h_heavy.dae" name="Walk" speed="10"/>
   </animations>
 </variant>
