@@ -121,6 +121,14 @@
       <trained>interface/alarm/alarm_create_infantry.xml</trained>
     </SoundGroups>
   </Sound>
+  <Stamina>
+    <MaxPoints>100</MaxPoints>
+	<RegenRate>5</RegenRate>
+	<RunDegRate>20</RunDegRate>
+  </Stamina>
+  <UnitAI>
+    <DefaultStance>defensive</DefaultStance>
+  </UnitAI>
   <Vision>
     <Range>80</Range>
   </Vision>

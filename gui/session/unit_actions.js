@@ -102,6 +102,55 @@ var g_UnitActions =
 		},
 		"specificness": 11,
 	},
+	"run":
+	{
+		"execute": function(target, action, selection, queued)
+		{
+			Engine.PostNetworkCommand({
+				"type": "run",
+				"entities": selection,
+				"x": target.x,
+				"z": target.z,
+				"queued": queued
+			});
+
+			DrawTargetMarker(target);
+
+			Engine.GuiInterfaceCall("PlaySound", {
+				"name": "order_walk",
+				"entity": selection[0]
+			});
+
+			return true;
+		},
+		"getActionInfo": function(entState, targetState)
+		{
+			return { "possible": true };
+		},
+		"hotkeyActionCheck": function(target, selection)
+		{
+			if (!someUnitAI(selection) ||
+			    !Engine.HotkeyIsPressed("session.move") ||
+			    !getActionInfo("run", target, selection).possible)
+				return false;
+
+			return { "type": "run" };
+		},
+		"clickCheck": function(clicks)
+		{
+			if (clicks != 2)
+				return false;
+			return true;
+		},
+		"actionCheck": function(target, selection)
+		{
+			if (!someUnitAI(selection) || !getActionInfo("run", target, selection).possible)
+				return false;
+
+			return { "type": "run" };
+		},
+		"specificness": 12,
+	},
 	"move":
 	{
 		"execute": function(target, action, selection, queued)
@@ -135,6 +184,12 @@ var g_UnitActions =
 				return false;
 
 			return { "type": "move" };
+		},
+		"clickCheck": function(clicks)
+		{
+			if (clicks != 1)
+				return false;
+			return true;
 		},
 		"actionCheck": function(target, selection)
 		{
@@ -1574,7 +1629,7 @@ function getActionInfo(action, target, selection)
 		}
 
 		return {
-			"possible": ["move", "attack-move", "remove-guard", "patrol"].indexOf(action) != -1
+			"possible": ["move", "run", "attack-move", "remove-guard", "patrol"].indexOf(action) != -1
 		};
 	}
 

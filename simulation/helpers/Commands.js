@@ -272,6 +272,12 @@ var g_Commands = {
 			cmpUnitAI.Charge(cmd.target, cmd.queued);
 		});
 	},
+	"run": function(player, cmd, data)
+	{
+		GetFormationUnitAIs(data.entities, player).forEach(cmpUnitAI => {
+			cmpUnitAI.Run(cmd.x, cmd.z, cmd.queued);
+		});
+	},
 	"back-to-work": function(player, cmd, data)
 	{
 		for (let ent of data.entities)

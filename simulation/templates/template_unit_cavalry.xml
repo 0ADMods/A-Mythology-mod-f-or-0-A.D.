@@ -93,6 +93,11 @@
       <trained>interface/alarm/alarm_create_cav.xml</trained>
     </SoundGroups>
   </Sound>
+  <Stamina>
+    <MaxPoints>100</MaxPoints>
+	<RegenRate>5</RegenRate>
+	<RunDegRate>20</RunDegRate>
+  </Stamina>
   <StatusBars>
     <HeightOffset>6.5</HeightOffset>
   </StatusBars>
@@ -102,6 +107,9 @@
       <Speed op="mul">1.95</Speed>
     </Run>
   </UnitMotion>
+  <UnitAI>
+    <DefaultStance>defensive</DefaultStance>
+  </UnitAI>
   <Vision>
     <Range>92</Range>
   </Vision>

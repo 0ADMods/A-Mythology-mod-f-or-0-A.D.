@@ -19,6 +19,10 @@
           <Multiplier>1.5</Multiplier>
         </BonusCavMelee>
       </Bonuses>
+	  <KnockBack>
+	    <Strength>5</Strength>
+		<AffectedClasses datatype="tokens">Organic</AffectedClasses>
+	  </KnockBack>
       <PrepareTime>500</PrepareTime>
       <RepeatTime>2000</RepeatTime>
       <PreferredClasses datatype="tokens">Organic</PreferredClasses>

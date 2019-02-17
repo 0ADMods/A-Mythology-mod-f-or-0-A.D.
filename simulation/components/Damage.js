@@ -291,6 +291,7 @@ Damage.prototype.CauseDamage = function(data)
 		{
 			let halfSize = size / 2;
 			let mapCenter = new Vector3D(halfSize, 0, halfSize);
+			let pos = new Vector3D(newPos.x, 0, newPos.y);
 
 			if (pos.horizDistanceTo(mapCenter) >= halfSize - edgeSize)
 				inBounds = false;
