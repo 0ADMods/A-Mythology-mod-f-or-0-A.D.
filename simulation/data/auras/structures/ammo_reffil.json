@@ -1,0 +1,11 @@
+{
+	"type": "range",
+	"radius": 20,
+	"affects": ["Ranged"],
+	"modifications": [
+		{ "value": "Attack/Ranged/RefillAmount", "add": 1 }
+	],
+	"auraName": "Refill Ammo",
+	"auraDescription": "Refill ammo of nearby units by 1 over time.",
+	"overlayIcon": "art/textures/ui/session/auras/heal.png"
+}

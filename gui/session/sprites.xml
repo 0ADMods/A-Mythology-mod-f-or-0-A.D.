@@ -474,11 +474,11 @@
 		<image backcolor="orange"/>
 	</sprite>
 
-	<sprite name="experienceBackground">
+	<sprite name="ammoBackground">
 		<image backcolor="darkgray"/>
 	</sprite>
 
-	<sprite name="experienceForeground">
+	<sprite name="ammoForeground">
 		<image backcolor="white"/>
 	</sprite>
 

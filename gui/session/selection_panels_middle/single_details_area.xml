@@ -82,13 +82,12 @@
 		<!-- Big unit icon -->
 		<object size="-8 -8 88 88" type="button" name="iconBorder" sprite="iconBorder" tooltip_style="sessionToolTip">
 			<object size="1 1 100%-1 100%-1" type="image" name="icon" ghost="true"/>
-
-			<!-- Experience bar -->
-			<object size="2 2 6 100%-2" type="image" name="experience" tooltip_style="sessionToolTip">
-				<translatableAttribute id="tooltip">Experience</translatableAttribute>
+			<!-- Ammo bar -->
+			<object size="2 2 6 100%-2" type="image" name="ammo" tooltip_style="sessionToolTip">
+				<translatableAttribute id="tooltip">Ammo</translatableAttribute>
 				<object type="image" sprite="barBorder" ghost="true" size="-1 -1 100%+1 100%+1"/>
-				<object type="image" sprite="experienceBackground" ghost="true"/>
-				<object type="image" sprite="experienceForeground" ghost="true" name="experienceBar"/>
+				<object type="image" sprite="ammoBackground" ghost="true"/>
+				<object type="image" sprite="ammoForeground" ghost="true" name="ammoBar"/>
 				<object type="image" sprite="statsBarShaderVertical" ghost="true"/>
 			</object>
 

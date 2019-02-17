@@ -148,6 +148,9 @@ Attack.prototype.Schema =
 	"<optional>" +
 		"<element name='Ranged'>" +
 			"<interleave>" +
+			    "<optional><element name='Ammo'><data type='nonNegativeInteger'/></element></optional>" +
+				"<optional><element name='RefillTime'><data type='nonNegativeInteger'/></element></optional>" +
+				"<optional><element name='RefillAmount'><data type='nonNegativeInteger'/></element></optional>" +
 				DamageTypes.BuildSchema("damage strength") +
 				"<element name='MaxRange' a:help='Maximum attack range (in metres)'><ref name='nonNegativeDecimal'/></element>" +
 				"<element name='MinRange' a:help='Minimum attack range (in metres)'><ref name='nonNegativeDecimal'/></element>" +
@@ -245,9 +248,59 @@ Attack.prototype.Schema =
 
 Attack.prototype.Init = function()
 {
+	this.ammo = 0;
+	this.refillTime = 0;
+	this.refillAmount = 0;
+	this.ammoReffilTimer = undefined;
+	if (!!this.template["Ranged"] && !!this.template["Ranged"].Ammo)
+		this.ammo = +this.template["Ranged"].Ammo;
+	if (!!this.template["Ranged"] && !!this.template["Ranged"].RefillAmount)
+		this.refillAmount = ApplyValueModificationsToEntity("Attack/Ranged/RefillAmount", +this.template["Ranged"].RefillAmount, this.entity);
+	if (!!this.template["Ranged"] && !!this.template["Ranged"].RefillTime)
+		this.refillTime = +this.template["Ranged"].RefillTime;
 };
 
 Attack.prototype.Serialize = null; // we have no dynamic state to save
+
+
+Attack.prototype.CheckAmmoRefill = function()
+{
+	if (this.ammoReffilTimer != undefined) {
+		if (!this.refillAmount) {
+			let cmpTimer = Engine.QueryInterface(SYSTEM_ENTITY, IID_Timer);
+			cmpTimer.CancelTimer(this.ammoReffilTimer);
+			this.ammoReffilTimer = undefined;
+		}
+		return;
+	}
+	if (!this.refillAmount || !this.refillTime || !this.HasLimitedAmmo()) {
+		return;
+	}
+	if (this.ammo == this.GetMaxAmmo()) {
+		return;
+	}
+	let cmpTimer = Engine.QueryInterface(SYSTEM_ENTITY,IID_Timer);
+	this.ammoReffilTimer = cmpTimer.SetTimeout(this.entity, IID_Attack, "AmmoReffilTimeout", this.refillTime, {});
+}
+Attack.prototype.AmmoReffilTimeout = function(data)
+{
+	let cmpTimer = Engine.QueryInterface(SYSTEM_ENTITY, IID_Timer);
+	if (!this.refillAmount || !this.refillTime || !this.HasLimitedAmmo()) {
+		cmpTimer.CancelTimer(this.ammoReffilTimer);
+		this.ammoReffilTimer = undefined;
+		return;
+	}
+	this.ammo += this.refillAmount;
+	let maxAmmo = this.GetMaxAmmo();
+	if (this.ammo > maxAmmo)
+		this.ammo = maxAmmo;
+	if (this.ammo < maxAmmo) {
+		cmpTimer.SetTimeout(this.entity, IID_Attack, "AmmoReffilTimeout", this.refillTime, {});
+	} else {
+		cmpTimer.CancelTimer(this.ammoReffilTimer);
+		this.ammoReffilTimer = undefined;
+	}
+}
 
 Attack.prototype.GetAttackTypes = function(wantedTypes)
 {
@@ -259,7 +312,24 @@ Attack.prototype.GetAttackTypes = function(wantedTypes)
 	return types.filter(type => wantedTypes.indexOf("!" + type) == -1 &&
 	      (!wantedTypesReal || !wantedTypesReal.length || wantedTypesReal.indexOf(type) != -1));
 };
+Attack.prototype.HasLimitedAmmo = function()
+{
+	if (!this.template["Ranged"])
+		return false;
+	return !!this.template["Ranged"].Ammo && this.template["Ranged"].Ammo > 0;
+}
 
+Attack.prototype.GetAmmoLeft = function()
+{
+	return this.ammo;
+}
+
+Attack.prototype.GetMaxAmmo = function()
+{
+	if (!this.template["Ranged"] || !this.template["Ranged"].Ammo)
+		return 0;
+	return this.template["Ranged"].Ammo;
+}
 Attack.prototype.GetPreferredClasses = function(type)
 {
 	if (this.template[type] && this.template[type].PreferredClasses &&
@@ -357,6 +427,9 @@ Attack.prototype.CanAttack = function(target, wantedTypes)
 		if (type == "Capture" && (!cmpCapturable || !cmpCapturable.CanCapture(entityOwner)))
 			continue;
 
+		if (type == "Ranged" && !!this.template["Ranged"].Ammo && this.GetAmmoLeft() == 0)
+			continue;
+		
 		if (heightDiff > this.GetRange(type).max)
 			continue;
 
@@ -437,6 +510,11 @@ Attack.prototype.GetBestAttackAgainst = function(target, allowCapture)
 	let types = this.GetAttackTypes().filter(type => !this.GetRestrictedClasses(type).some(isTargetClass));
 
 	// check if the target is capturable
+	let rangeIndex = types.indexOf("Ranged");
+	if (rangeIndex != -1 && !!this.template["Ranged"].Ammo && !this.ammo)
+	{
+		types.splice(rangeIndex, 1);
+	}
 	let captureIndex = types.indexOf("Capture");
 	if (captureIndex != -1)
 	{
@@ -549,6 +627,18 @@ Attack.prototype.PerformAttack = function(type, target)
 	// If this is a ranged attack, then launch a projectile
 	if (type == "Ranged")
 	{
+		if (!!this.template["Ranged"].Ammo) {
+			if (this.ammo > 0) {
+				this.ammo--;
+				if (this.refillAmount)
+					this.CheckAmmoRefill();
+			}
+			else {
+				warn(this.entity + " performs attack with no ammo");
+				return;
+			}
+		}
+		
 		let cmpTimer = Engine.QueryInterface(SYSTEM_ENTITY, IID_Timer);
 		let turnLength = cmpTimer.GetLatestTurnLength()/1000;
 		// In the future this could be extended:
@@ -741,9 +831,19 @@ Attack.prototype.OnValueModification = function(msg)
 	if (!cmpUnitAI)
 		return;
 
+	let checkRefillTimer = false;
+	if (!!this.template["Ranged"] && !!this.template["Ranged"].Ammo) {
+		let oldRefillAmount = this.refillAmount;
+		this.refillAmount = ApplyValueModificationsToEntity("Attack/Ranged/RefillAmount", +this.template["Ranged"].RefillAmount, this.entity);
+		if (oldRefillAmount != this.refillAmount)
+			checkRefillTimer = true;
+	}
 	if (this.GetAttackTypes().some(type =>
 	      msg.valueNames.indexOf("Attack/" + type + "/MaxRange") != -1))
 		cmpUnitAI.UpdateRangeQueries();
+		
+	if (checkRefillTimer)
+		this.CheckAmmoRefill();
 };
 
 Attack.prototype.GetRangeOverlays = function()

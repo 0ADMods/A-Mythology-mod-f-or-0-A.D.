@@ -184,26 +184,21 @@ function displaySingle(entState)
 		Engine.GetGUIObjectByName("capture").tooltip = showSmallCapture ? captureText : "";
 	}
 
-	// Experience
-	Engine.GetGUIObjectByName("experience").hidden = !entState.promotion;
-	if (entState.promotion)
+	// Ammo
+	Engine.GetGUIObjectByName("ammo").hidden = true;
+	if (!!entState.attack && !!entState.attack["Ranged"] && !!entState.attack["Ranged"].ammoMax)
 	{
-		let experienceBar = Engine.GetGUIObjectByName("experienceBar");
-		let experienceSize = experienceBar.size;
-		experienceSize.rtop = 100 - (100 * Math.max(0, Math.min(1, 1.0 * +entState.promotion.curr / +entState.promotion.req)));
-		experienceBar.size = experienceSize;
+		Engine.GetGUIObjectByName("ammo").hidden = false;
+		let ammoBar = Engine.GetGUIObjectByName("ammoBar");
+		let ammoSize = ammoBar.size;
+		ammoSize.rtop = 100 - (100 * Math.max(0, Math.min(1, 1.0 * +entState.attack["Ranged"].ammoLeft / +entState.attack["Ranged"].ammoMax)));
+		ammoBar.size = ammoSize;
 
-		if (entState.promotion.curr < entState.promotion.req)
-			Engine.GetGUIObjectByName("experience").tooltip = sprintf(translate("%(experience)s %(current)s / %(required)s"), {
-				"experience": "[font=\"sans-bold-13\"]" + translate("Experience:") + "[/font]",
-				"current": Math.floor(entState.promotion.curr),
-				"required": entState.promotion.req
-			});
-		else
-			Engine.GetGUIObjectByName("experience").tooltip = sprintf(translate("%(experience)s %(current)s"), {
-				"experience": "[font=\"sans-bold-13\"]" + translate("Experience:") + "[/font]",
-				"current": Math.floor(entState.promotion.curr)
-			});
+		Engine.GetGUIObjectByName("ammo").tooltip = sprintf(translate("%(ammo)s %(current)s / %(max)s"), {
+			"ammo": "[font=\"sans-bold-13\"]" + translate("Ammo:") + "[/font]",
+			"current": entState.attack["Ranged"].ammoLeft,
+			"max": entState.attack["Ranged"].ammoMax
+		});
 	}
 
 	// Resource stats
