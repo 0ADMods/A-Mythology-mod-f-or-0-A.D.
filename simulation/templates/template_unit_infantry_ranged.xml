@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_infantry">
+  <Armour>
+    <Hack>1</Hack>
+    <Pierce>1</Pierce>
+    <Crush>10</Crush>
+  </Armour>
+  <Attack>
+    <Ranged>
+      <Ammo>20</Ammo>
+	  <RefillAmount>0</RefillAmount>
+	  <RefillTime>1000</RefillTime>
+      <Hack>0</Hack>
+      <Pierce>1.5</Pierce>
+      <Crush>0</Crush>
+      <MaxRange>10.0</MaxRange>
+      <MinRange>0.0</MinRange>
+      <ProjectileSpeed>75.0</ProjectileSpeed>
+      <Gravity>9.81</Gravity>
+      <PrepareTime>750</PrepareTime>
+      <RepeatTime>1250</RepeatTime>
+      <Spread>3.0</Spread>
+      <Delay>0</Delay>
+      <PreferredClasses datatype="tokens">Human</PreferredClasses>
+    </Ranged>
+  </Attack>
+  <Health>
+    <Max>50</Max>
+  </Health>
+  <Identity>
+    <GenericName>Ranged</GenericName>
+    <VisibleClasses datatype="tokens">Ranged</VisibleClasses>
+    <Formations datatype="tokens">
+      special/formations/skirmish
+    </Formations>
+  </Identity>
+</Entity>

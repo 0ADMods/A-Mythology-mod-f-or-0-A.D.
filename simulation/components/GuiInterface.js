@@ -417,6 +417,12 @@ GuiInterface.prototype.GetEntityState = function(player, ent)
 				continue;
 			}
 
+			if (cmpAttack.HasLimitedAmmo())
+			{
+				ret.attack[type].ammoLeft = cmpAttack.GetAmmoLeft();
+				ret.attack[type].ammoMax = cmpAttack.GetMaxAmmo();
+			}
+			
 			ret.attack[type].elevationBonus = range.elevationBonus;
 
 			if (cmpUnitAI && cmpPosition && cmpPosition.IsInWorld())

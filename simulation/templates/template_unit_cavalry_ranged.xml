@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_cavalry">
+  <Attack>
+    <Ranged>
+      <Ammo>20</Ammo>
+	  <RefillAmount>0</RefillAmount>
+	  <RefillTime>1000</RefillTime>
+      <Hack>0</Hack>
+      <Pierce>9.0</Pierce>
+      <Crush>0</Crush>
+      <MaxRange>16.0</MaxRange>
+      <MinRange>0.0</MinRange>
+      <ProjectileSpeed>75.0</ProjectileSpeed>
+      <Gravity>9.81</Gravity>
+      <PrepareTime>1000</PrepareTime>
+      <RepeatTime>1500</RepeatTime>
+      <Spread>3.0</Spread>
+      <Delay>0</Delay>
+      <PreferredClasses datatype="tokens">Human</PreferredClasses>
+    </Ranged>
+  </Attack>
+  <Health>
+    <Max>100</Max>
+  </Health>
+  <Identity>
+    <GenericName>Ranged Cavalry</GenericName>
+    <VisibleClasses datatype="tokens">Ranged</VisibleClasses>
+    <Formations datatype="tokens">
+      special/formations/skirmish
+    </Formations>
+  </Identity>
+</Entity>
