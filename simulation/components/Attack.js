@@ -148,7 +148,10 @@ Attack.prototype.Schema =
 	"<optional>" +
 		"<element name='Ranged'>" +
 			"<interleave>" +
-			    "<optional><element name='Ammo'><data type='nonNegativeInteger'/></element></optional>" +
+				"<optional><element name='MaxAmmo'><data type='nonNegativeInteger'/></element></optional>" +
+				"<optional><element name='FullStack'><data type='nonNegativeInteger'/></element></optional>" +
+				"<optional><element name='AimTime'><data type='nonNegativeInteger'/></element></optional>" +
+				"<optional><element name='ReloadTime'><data type='nonNegativeInteger'/></element></optional>" +
 				"<optional><element name='RefillTime'><data type='nonNegativeInteger'/></element></optional>" +
 				"<optional><element name='RefillAmount'><data type='nonNegativeInteger'/></element></optional>" +
 				DamageTypes.BuildSchema("damage strength") +
@@ -248,20 +251,22 @@ Attack.prototype.Schema =
 
 Attack.prototype.Init = function()
 {
-	this.ammo = 0;
+	this.maxAmmo = 0;
+	if (!!this.template["Ranged"] && !!this.template["Ranged"].MaxAmmo)
+		this.maxAmmo = ApplyValueModificationsToEntity("Attack/Ranged/MaxAmmo", +this.template["Ranged"].MaxAmmo, this.entity);
+	this.ammo = this.maxAmmo;
+	this.fullStack  = 0;
+	if (!!this.template["Ranged"] && !!this.template["Ranged"].FullStack)
+		this.fullStack = +this.template["Ranged"].FullStack;
+	this.stack = this.fullStack;
 	this.refillTime = 0;
 	this.refillAmount = 0;
 	this.ammoReffilTimer = undefined;
-	if (!!this.template["Ranged"] && !!this.template["Ranged"].Ammo)
-		this.ammo = +this.template["Ranged"].Ammo;
 	if (!!this.template["Ranged"] && !!this.template["Ranged"].RefillAmount)
 		this.refillAmount = ApplyValueModificationsToEntity("Attack/Ranged/RefillAmount", +this.template["Ranged"].RefillAmount, this.entity);
 	if (!!this.template["Ranged"] && !!this.template["Ranged"].RefillTime)
 		this.refillTime = +this.template["Ranged"].RefillTime;
 };
-
-Attack.prototype.Serialize = null; // we have no dynamic state to save
-
 
 Attack.prototype.CheckAmmoRefill = function()
 {
@@ -322,6 +327,46 @@ Attack.prototype.HasLimitedAmmo = function()
 Attack.prototype.GetAmmoLeft = function()
 {
 	return this.ammo;
+}
+
+Attack.prototype.HasToReload = function()
+{
+	return this.fullStack && !this.stack;
+}
+
+Attack.prototype.HasAttack = function(type)
+{
+	return !!this.template[type];
+}
+
+Attack.prototype.CanReload = function()
+{
+	// our stack is full
+	if (this.stack == this.fullStack)
+		return false;
+	// this means infinite ammo
+	if (!this.maxAmmo)
+		return true;
+	// we have needed ammo to reload
+	return (this.ammo - this.stack) > 0;
+}
+
+Attack.prototype.Reloaded = function()
+{
+	let missing = this.fullStack -  this.stack;
+	if (this.maxAmmo)
+		missing = Math.min(missing, this.ammo);
+	this.stack += missing;
+}
+
+Attack.prototype.HasAmmoLeft = function()
+{
+	return !this.maxAmmo || this.ammo;
+}
+
+Attack.prototype.IsReadyAimCycle = function(type)
+{
+	return type == "Ranged" && this.fullStack;
 }
 
 Attack.prototype.GetMaxAmmo = function()
@@ -427,7 +472,7 @@ Attack.prototype.CanAttack = function(target, wantedTypes)
 		if (type == "Capture" && (!cmpCapturable || !cmpCapturable.CanCapture(entityOwner)))
 			continue;
 
-		if (type == "Ranged" && !!this.template["Ranged"].Ammo && this.GetAmmoLeft() == 0)
+		if (type == "Ranged" && this.MaxAmmo && !this.ammo)
 			continue;
 		
 		if (heightDiff > this.GetRange(type).max)
@@ -509,12 +554,12 @@ Attack.prototype.GetBestAttackAgainst = function(target, allowCapture)
 
 	let types = this.GetAttackTypes().filter(type => !this.GetRestrictedClasses(type).some(isTargetClass));
 
-	// check if the target is capturable
-	let rangeIndex = types.indexOf("Ranged");
-	if (rangeIndex != -1 && !!this.template["Ranged"].Ammo && !this.ammo)
-	{
-		types.splice(rangeIndex, 1);
+	if (this.maxAmmo && !this.ammo) {
+		let rangedIndex = types.indexOf("Ranged");
+		if (rangedIndex != -1)
+			types.splice(rangedIndex, 1);
 	}
+	
 	let captureIndex = types.indexOf("Capture");
 	if (captureIndex != -1)
 	{
@@ -544,6 +589,12 @@ Attack.prototype.CompareEntitiesByPreference = function(a, b)
 	if (bPreference === null) return -1;
 	return aPreference - bPreference;
 };
+Attack.prototype.GetReloadTimer = function()
+{
+	let reload = +(this.template["Ranged"].ReloadTime || 0);
+	reload = ApplyValueModificationsToEntity("Attack/Ranged/ReloadTime", reload, this.entity);
+	return reload;
+}
 
 Attack.prototype.GetTimers = function(type)
 {
@@ -553,7 +604,13 @@ Attack.prototype.GetTimers = function(type)
 	let repeat = +(this.template[type].RepeatTime || 1000);
 	repeat = ApplyValueModificationsToEntity("Attack/" + type + "/RepeatTime", repeat, this.entity);
 
-	return { "prepare": prepare, "repeat": repeat };
+	let reload = +(this.template[type].ReloadTime || 0);
+	reload = ApplyValueModificationsToEntity("Attack/" + type + "/ReloadTime", reload, this.entity);
+	
+	let aim = +(this.template[type].AimTime || 0);
+	aim = ApplyValueModificationsToEntity("Attack/" + type + "/AimTime", reload, this.entity);
+	
+	return { "prepare": prepare, "repeat": repeat, "reload": reload, "aim": aim};
 };
 
 Attack.prototype.GetAttackStrengths = function(type)
@@ -627,16 +684,22 @@ Attack.prototype.PerformAttack = function(type, target)
 	// If this is a ranged attack, then launch a projectile
 	if (type == "Ranged")
 	{
-		if (!!this.template["Ranged"].Ammo) {
-			if (this.ammo > 0) {
-				this.ammo--;
-				if (this.refillAmount)
-					this.CheckAmmoRefill();
-			}
-			else {
-				warn(this.entity + " performs attack with no ammo");
+		// Check against stack
+		if (this.fullStack) {
+			if (!this.stack) {
+				warn("Trying to perform ranged attack with empty stack.Check UnitAI");
 				return;
 			}
+			this.stack--;
+		}
+		if (this.maxAmmo) {
+			if (!this.ammo) {
+				warn("Trying to perform ranged attack without ammo. Check UnitAI");
+				return;
+			}
+			this.ammo--;
+			if (this.refillAmount)
+				this.CheckAmmoRefill();
 		}
 		
 		let cmpTimer = Engine.QueryInterface(SYSTEM_ENTITY, IID_Timer);
