@@ -1,0 +1,11 @@
+<variant name="ready">
+  <animations>
+    <animation file="biped/rider/cavalry/idle_ready.dae" name="idle" speed="80"/>
+    <animation file="biped/rider/cavalry/trot.dae" name="Walk" speed="7"/>
+    <animation file="biped/rider/cavalry/trot.dae" name="Run" speed="7"/>
+	<animation file="biped/rider/cavalry/attack_cut_long.dae" name="attack_melee" event="0.5" id="attack1" speed="60"/>
+    <animation file="biped/rider/cavalry/attack_cut.dae" name="attack_melee" event="0.5" id="attack2" speed="60"/>
+    <animation file="biped/rider/cavalry/attack_cut.dae" name="attack_melee" event="0.5" id="attack3" speed="60"/>
+    <animation file="biped/rider/cavalry/attack_cut_c.dae" name="attack_melee" event="0.5" id="attack4" speed="60"/>
+  </animations>
+</variant>

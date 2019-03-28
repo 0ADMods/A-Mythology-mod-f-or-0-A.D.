@@ -1,0 +1,10 @@
+<variant name="loose">
+  <animations>
+    <animation event="0.35" file="biped/archer/bow_losse_a.dae" load="0" name="loose" speed="80"/>
+  </animations>
+  <props>
+    <prop actor="" attachpoint="weapon_R"/>
+    <prop actor="" attachpoint="loaded-projectile"/>
+    <prop actor="props/units/weapons/arrow_front.xml" attachpoint="projectile"/>
+  </props>
+</variant>

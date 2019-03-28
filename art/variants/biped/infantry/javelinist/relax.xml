@@ -1,0 +1,8 @@
+<variant name="relax">
+  <animations>
+    <animation file="biped/new/fem_idle_relax.dae" name="Idle" id="idle1" speed="30"/>
+    <animation file="biped/new/fem_walk_relax.dae" name="Walk" id="walk1" speed="20"/>
+    <animation file="biped/new/bow_jog_relax.dae" name="Run" id="run3" speed="6"/>
+	<animation file="biped/new/promotion.dae" name="promotion" speed="80"/>
+  </animations>
+</variant>

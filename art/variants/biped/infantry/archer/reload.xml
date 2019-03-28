@@ -1,0 +1,10 @@
+<variant name="reload">
+  <animations>
+    <animation event="0.45" file="biped/archer/bow_reload_a.dae" load="0.75" name="reload" speed="80"/>
+  </animations>
+  <props>
+    <prop actor="" attachpoint="weapon_R"/>
+    <prop actor="" attachpoint="projectile"/>
+    <prop actor="props/units/weapons/arrow_back.xml" attachpoint="loaded-projectile"/>
+  </props>
+</variant>

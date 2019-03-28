@@ -1,0 +1,7 @@
+<variant name="ready">
+  <animations>
+    <animation file="biped/rider/cavalry/idle_relax.dae" name="idle" speed="80"/>
+    <animation file="biped/rider/cavalry/trot.dae" name="Walk" speed="7"/>
+    <animation file="biped/rider/cavalry/gallop_archer.dae" name="Run" speed="7"/>
+  </animations>
+</variant>
