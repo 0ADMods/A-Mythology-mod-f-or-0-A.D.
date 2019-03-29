@@ -2029,7 +2029,7 @@ UnitAI.prototype.UnitFsmSpec = {
 
 				"leave": function() {
 					// Show carried resources when walking.
-					this.SetDefaultAnimationVariant();
+				//	this.SetDefaultAnimationVariant();
 
 					this.StopTimer();
 				},
@@ -2540,7 +2540,7 @@ UnitAI.prototype.UnitFsmSpec = {
 					// Reset normal speed in case it was changed
 					this.SetMoveSpeed(this.GetWalkSpeed());
 					// Show carried resources when walking.
-					this.SetDefaultAnimationVariant();
+				//	this.SetDefaultAnimationVariant();
 
 					this.StopTimer();
 				},
@@ -4762,7 +4762,10 @@ UnitAI.prototype.SetCombatVariant = function()
 
 UnitAI.prototype.SetAttackVariant = function(attack)
 {
-	this.SetAnimationVariant("attack_" + attack);
+	if (attack == "ranged")
+		this.SetAnimationVariant("attack_" + attack);
+	else
+		this.SetAnimationVariant("ready");
 }
 /*
  * Reset the animation variant to default behavior

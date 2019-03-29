@@ -29,7 +29,7 @@
   </group>
   <group>
     <variant name="ready" file="biped/infantry/archer/hip/ready.xml"/>
-    <variant name="relax" file="biped/infantry/archer/hip/relax.xml" frequency="1"/>
+    <variant name="relax" file="biped/infantry/archer/hip/relax.xml" frequency="1">
      <props>
         <prop actor="" attachpoint="weapon_R"/>
       </props>
