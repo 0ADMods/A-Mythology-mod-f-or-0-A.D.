@@ -2,7 +2,7 @@
 <actor version="1">
   <castshadow/>
   <group>
-    <variant file="biped/base_swordsman_2hand_relax.xml">
+    <variant name="Base">
       <mesh>skeletal/new/m_tunic_long.dae</mesh>
       <props>
         <prop actor="props/units/helmets/norse_helmet_c.xml" attachpoint="helmet"/>
@@ -92,7 +92,8 @@
     </variant>
   </group>
   <group>
-    <variant frequency="1" name="Idle"/>
+	<variant file="biped/infantry/axeman/2hand/ready.xml" name="ready"/>
+	<variant file="biped/infantry/axeman/2hand/relax.xml" name="relax" frequency="1" />
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/death_infantry.xml">
       <props>

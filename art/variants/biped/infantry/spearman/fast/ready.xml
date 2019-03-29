@@ -1,0 +1,9 @@
+<variant name="ready">
+  <animations>
+    <animation file="biped/new/spear_shieldsmall_idle_ready.dae" name="Idle" id="idle1" speed="30"/>
+    <animation file="biped/new/spear_shieldsmall_walk_ready.dae" name="Walk" id="walk1" speed="30"/>
+    <animation file="biped/new/spear_run_ready.dae" name="Run" id="run1" speed="4"/>
+    <animation event="0.5" file="biped/new/spear_shieldsmall_attack_a.dae" name="Attack_melee" id="attack1" speed="30"/>
+    <animation event="0.5" file="biped/new/sword_shield_attack_b.dae" name="Attack_melee" id="attack2" speed="30"/>
+   </animations>
+</variant>

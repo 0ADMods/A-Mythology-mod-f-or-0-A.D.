@@ -472,9 +472,9 @@ Attack.prototype.CanAttack = function(target, wantedTypes)
 		if (type == "Capture" && (!cmpCapturable || !cmpCapturable.CanCapture(entityOwner)))
 			continue;
 
-		if (type == "Ranged" && this.MaxAmmo && !this.ammo)
+		if (type == "Ranged" && this.maxAmmo && !this.ammo)
 			continue;
-		
+				
 		if (heightDiff > this.GetRange(type).max)
 			continue;
 
@@ -650,6 +650,9 @@ Attack.prototype.GetSplashDamage = function(type)
 
 Attack.prototype.GetRange = function(type)
 {
+	if (!this.template[type]) {
+		return { "max": 0, "min": 0, "elevationBonus": 0 };
+	}
 	let max = +this.template[type].MaxRange;
 	max = ApplyValueModificationsToEntity("Attack/" + type + "/MaxRange", max, this.entity);
 
@@ -687,14 +690,14 @@ Attack.prototype.PerformAttack = function(type, target)
 		// Check against stack
 		if (this.fullStack) {
 			if (!this.stack) {
-				warn("Trying to perform ranged attack with empty stack.Check UnitAI");
+				warn(this.entity + ": Trying to perform ranged attack with empty stack.Check UnitAI");
 				return;
 			}
 			this.stack--;
 		}
 		if (this.maxAmmo) {
 			if (!this.ammo) {
-				warn("Trying to perform ranged attack without ammo. Check UnitAI");
+				warn(this.entity + ": Trying to perform ranged attack without ammo. Check UnitAI");
 				return;
 			}
 			this.ammo--;

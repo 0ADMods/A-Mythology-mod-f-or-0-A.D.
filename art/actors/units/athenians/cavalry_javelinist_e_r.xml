@@ -17,10 +17,11 @@
     </variant>
   </group>
   <group>
-    <variant file="biped/attack_ranged_cavalry_javelin.xml" name="ready"/>
   </group>
   <group>
-   <variant name="ready" file="biped/cavalry/javelinist/ready.xml"><props>
+    <variant name="attack_ranged" file="biped/attack_ranged_cavalry_javelin.xml"/>
+   <variant name="ready" file="biped/cavalry/javelinist/ready.xml">
+   <props>
         <prop actor="props/units/weapons/jav_loaded.xml" attachpoint="weapon_R"/>
       </props>
 	</variant>

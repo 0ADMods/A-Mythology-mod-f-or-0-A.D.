@@ -28,10 +28,18 @@
         <prop actor="" attachpoint="weapon_R"/>
       </props>
     </variant>
+	<variant name="attack_ranged" file="biped/attack_ranged_archer.xml"/>
+	<!--
 	<variant file="biped/infantry/archer/loose.xml"/>
 	<variant file="biped/infantry/archer/aim.xml"/>
 	<variant file="biped/infantry/archer/reload.xml"/>
 	<variant file="biped/infantry/archer/aiming.xml"/>
+	-->
+	<variant file="biped/carry_food.xml"/>
+    <variant file="biped/carry_meat.xml"/>
+    <variant file="biped/carry_wood.xml"/>
+    <variant file="biped/carry_stone.xml"/>
+    <variant file="biped/carry_metal.xml"/>
     <variant file="biped/gather_tree.xml"/>
     <variant file="biped/gather_grain.xml"/>
     <variant file="biped/gather_fruit.xml"/>

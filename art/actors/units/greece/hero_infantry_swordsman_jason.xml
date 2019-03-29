@@ -16,7 +16,8 @@
     </variant>
   </group>
   <group>
-    <variant frequency="1" name="Idle"/>
+	<variant file="biped/infantry/swordsman/shieldarm/ready.xml" name="ready"/>
+	<variant file="biped/infantry/swordsman/shieldarm/relax.xml" name="relax" frequency="1" />
     <variant file="biped/attack_capture.xml"/>
     <variant file="biped/attack_slaughter.xml"/>
     <variant file="biped/gather_praise.xml"/>

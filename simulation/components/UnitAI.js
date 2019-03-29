@@ -1669,7 +1669,7 @@ UnitAI.prototype.UnitFsmSpec = {
 			},
 
 			"leave": function() {
-				var cmpRangeManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_RangeManager);
+				let cmpRangeManager = Engine.QueryInterface(SYSTEM_ENTITY, IID_RangeManager);
 				if (this.losRangeQuery)
 					cmpRangeManager.DisableActiveQuery(this.losRangeQuery);
 				if (this.losHealRangeQuery)
@@ -2352,6 +2352,7 @@ UnitAI.prototype.UnitFsmSpec = {
 					this.resyncAnimation = (prepare + delayAttack != this.attackTimers.prepare) ? true : false;
 
 					this.setAnimation = true;
+					this.resyncAnimationNextTime = false;
 				},
 
 				"leave": function() {
@@ -2386,6 +2387,8 @@ UnitAI.prototype.UnitFsmSpec = {
 					if (this.CanAttack(target))
 					{
 						// Set ready animation
+						if (this.resyncAnimationNextTime)
+							this.resyncAnimation = true;
 						let t = this.order.data.attackType.toLowerCase();
 						if (this.setAnimation) {
 							let animationName = "attack_" + t;
@@ -2395,11 +2398,11 @@ UnitAI.prototype.UnitFsmSpec = {
 									animationName = cmpFormation.GetFormationAnimation(this.entity, animationName);
 							}
 							this.SelectAnimation(animationName);
-							// not stance based but nice
-							this.SetCombatVariant();
+							this.SetAttackVariant(t);
 							this.SetAnimationSync(0, this.attackTimers.repeat);
 							this.setAnimation = false;
 							this.resyncAnimation = false;
+							this.resyncAnimationNextTime = true;
 						}
 						
 						// If we are hunting, first update the target position of the gather order so we know where will be the killed animal
@@ -2442,6 +2445,7 @@ UnitAI.prototype.UnitFsmSpec = {
 							{
 								this.SetAnimationSync(this.attackTimers.repeat, this.attackTimers.repeat);
 								this.resyncAnimation = false;
+								this.resyncAnimationNextTime = false;
 							}
 							return;
 						}
@@ -2461,7 +2465,6 @@ UnitAI.prototype.UnitFsmSpec = {
 							}
 						}
 					}
-
 					// if we're targetting a formation, find a new member of that formation
 					let cmpTargetFormation = Engine.QueryInterface(this.order.data.formationTarget || INVALID_ENTITY, IID_Formation);
 					// if there is no target, it means previously searching for the target inside the target formation failed, so don't repeat the search
@@ -2487,8 +2490,9 @@ UnitAI.prototype.UnitFsmSpec = {
 						// Attempt to immediately re-enter the timer function, to avoid wasting the attack.
 						// Packable units may have switched to PACKING state, thus canceling the timer and having order.data.attackType undefined.
 						if (this.orderQueue.length > 0 && this.orderQueue[0].data && this.orderQueue[0].data.attackType &&
-						    this.orderQueue[0].data.attackType == this.oldAttackType)
+						    this.orderQueue[0].data.attackType == this.oldAttackType) {
 							this.TimerHandler(msg.data, msg.lateness);
+							}
 						return;
 					}
 
@@ -4725,15 +4729,15 @@ UnitAI.prototype.SetAnimationVariantBasedOnStance = function(stance)
 {
 	if (stance == "standground")
 		this.SetAnimationVariant("hold_ground");
-	if (stance == "violent")
+	else if (stance == "violent")
 		this.SetAnimationVariant("violent");
-	if (stance == "aggressive")
+	else if (stance == "aggressive")
 		this.SetAnimationVariant("ready");
-	if (stance == "defensive")
+	else if (stance == "defensive")
 		this.SetAnimationVariant("alert");
-	if (stance == "passive")
+	else if (stance == "passive")
 		this.SetAnimationVariant("relax");
-	if (stance == "rage")
+	else if (stance == "rage")
 		this.SetAnimationVariant("rage");
 	
 	this.ready = g_Stances[stance].keepReady;
@@ -4744,18 +4748,22 @@ UnitAI.prototype.SetCombatVariant = function()
 	let stance = this.stance;
 	if (stance == "standground")
 		this.SetAnimationVariant("ready");
-	if (stance == "violent")
+	else if (stance == "violent")
 		this.SetAnimationVariant("ready");
-	if (stance == "aggressive")
+	else if (stance == "aggressive")
 		this.SetAnimationVariant("ready");
-	if (stance == "defensive")
+	else if (stance == "defensive")
 		this.SetAnimationVariant("ready");
-	if (stance == "passive")
+	else if (stance == "passive")
 		this.SetAnimationVariant("ready");
-	if (stance == "rage")
+	else if (stance == "rage")
 		this.SetAnimationVariant("ready");
 }
 
+UnitAI.prototype.SetAttackVariant = function(attack)
+{
+	this.SetAnimationVariant("attack_" + attack);
+}
 /*
  * Reset the animation variant to default behavior
  * Default behavior is to pick a resource-carrying variant if resources are being carried.

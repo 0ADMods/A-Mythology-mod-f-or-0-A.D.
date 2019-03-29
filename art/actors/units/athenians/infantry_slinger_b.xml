@@ -15,9 +15,6 @@
       </textures>
     </variant>
   </group>
-  <group>
-	<variant name="ready" file="biped/attack_ranged_slinger.xml"/>
- </group>
  <group>
     <variant name="Idle" frequency="1"/>
     <variant file="biped/attack_capture.xml"/>
@@ -30,6 +27,12 @@
         <prop actor="" attachpoint="weapon_R"/>
       </props>
     </variant>
+	<variant name="attack_ranged" file="biped/attack_ranged_slinger.xml"/>
+	<variant file="biped/carry_food.xml"/>
+    <variant file="biped/carry_meat.xml"/>
+    <variant file="biped/carry_wood.xml"/>
+    <variant file="biped/carry_stone.xml"/>
+    <variant file="biped/carry_metal.xml"/>
     <variant file="biped/gather_tree.xml"/>
     <variant file="biped/gather_grain.xml"/>
     <variant file="biped/gather_fruit.xml"/>

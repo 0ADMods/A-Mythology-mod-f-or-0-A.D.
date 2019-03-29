@@ -1,0 +1,13 @@
+<variant name="ready">
+  <animations>
+    <animation file="quadraped/centaur_idle_ready_bow_a.dae" name="Idle" id="idle1" speed="80"/>
+    <animation file="quadraped/centaur_idle_ready_bow_b.dae" name="Idle" id="idle2" speed="80"/>
+    <animation file="quadraped/centaur_idle_ready_bow_c.dae" name="Idle" id="idle2" speed="80"/>
+    <animation file="quadraped/centaur_idle_ready_bow_d.dae" name="Idle" id="idle3" speed="80"/>
+    <animation file="quadraped/centaur_walk_ready_bow.dae" name="Walk" speed="7"/>
+	<animation file="quadraped/centaur_death_a.dae" name="death"  id="death1" speed="120"/>
+    <animation file="quadraped/centaur_death_b.dae" name="death"  id="death2" speed="120"/>
+    <animation file="quadraped/centaur_promotion.dae" name="promotion" speed="120"/>
+    <animation file="quadraped/centaur_gallop.dae" name="Run" speed="7"/>
+  </animations>
+</variant>
