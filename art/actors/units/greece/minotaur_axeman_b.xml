@@ -2,11 +2,11 @@
 <actor version="1">
   <castshadow/>
   <group>
-    <variant>
+    <variant file="biped/base_minotaur_2h_axeman_heavy.xml">
+	  <mesh>skeletal/minotaur_beast.dae</mesh>
       <props>
         <prop actor="props/units/weapons/mino_axe.xml" attachpoint="weapon_R"/>
         <prop actor="props/units/helmets/mino_horns.xml" attachpoint="horns"/>
-        <prop actor="props/units/mino_skirt_a.xml" attachpoint="root"/>
       </props>
       <textures>
         <texture file="skeletal/minotaur_norm.png" name="normTex"/>
@@ -29,23 +29,6 @@
       <textures>
         <texture file="skeletal/minotaur_redish.png" name="baseTex"/>
       </textures>
-    </variant>
-  </group>
-  <group>
-    <variant file="biped/base_minotaur_2h_axeman_heavy.xml" frequency="1" name="Heavy">
-      <mesh>skeletal/minotaur_heavy.dae</mesh>
-    </variant>
-    <variant file="biped/base_minotaur_2h_axeman_light.xml" frequency="1" name="Medium">
-      <mesh>skeletal/minotaur_medium.dae</mesh>
-    </variant>
-    <variant file="biped/base_minotaur_2h_axeman_light.xml" frequency="1" name="Light">
-      <mesh>skeletal/minotaur_light.dae</mesh>
-    </variant>
-    <variant file="biped/base_minotaur_2h_axeman_heavy.xml" frequency="1" name="Beast">
-      <mesh>skeletal/minotaur_beast.dae</mesh>
-      <props>
-        <prop actor="" attachpoint="root"/>
-      </props>
     </variant>
   </group>
   <group>

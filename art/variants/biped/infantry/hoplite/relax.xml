@@ -1,0 +1,13 @@
+<variant name="relax">
+  <animations>
+    <animation file="biped/new/hoplite_idle_relax.dae" name="phalanx_idle" speed="30"/>
+    <animation file="biped/new/hoplite_idle_relax.dae" name="phalanx_back_idle" speed="30"/>
+    <animation file="biped/new/hoplite_walk_relax.dae" name="phalanx_walk" id="phalwalk1" speed="30"/>
+    <animation file="biped/new/hoplite_run_relax.dae" name="phalanx_run" id="phalrun1" speed="15"/>
+    <animation file="biped/new/hoplite_idle_relax.dae" name="Idle" speed="30"/>
+    <animation file="biped/new/hoplite_walk_relax.dae" name="Walk" speed="30"/>
+    <animation file="biped/new/hoplite_run_relax.dae" name="Run"  speed="15"/>
+    <animation event="0.5" file="biped/new/hoplite_attack_a.dae" name="phalanx_attack" id="phalattack1" speed="30"/>
+    <animation event="0.5" file="biped/new/hoplite_attack_a.dae" name="attack_melee" id="attack1" speed="30"/>
+  </animations>
+</variant>

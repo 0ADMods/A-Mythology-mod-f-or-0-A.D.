@@ -7,7 +7,7 @@
   </Armour>
   <Attack>
     <Ranged>
-      <Ammo>20</Ammo>
+      <MaxAmmo>20</MaxAmmo>
 	  <RefillAmount>0</RefillAmount>
 	  <RefillTime>1000</RefillTime>
       <Hack>0</Hack>

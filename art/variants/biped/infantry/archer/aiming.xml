@@ -1,0 +1,9 @@
+<variant name="aiming">
+  <animations>
+    <animation event="0.35" file="biped/archer/bow_aiming_a.dae" load="0" name="aiming" speed="80"/>
+  </animations>
+  <props>
+    <prop actor="props/units/weapons/arrow_front.xml" attachpoint="projectile"/>
+    <prop actor="" attachpoint="loaded-projectile"/>
+  </props>
+</variant>

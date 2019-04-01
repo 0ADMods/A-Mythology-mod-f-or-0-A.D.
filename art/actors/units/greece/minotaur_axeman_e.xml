@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant file="biped/base_minotaur_2h_axeman_light.xml" frequency="1" name="Medium">
+      <mesh>skeletal/minotaur_medium.dae</mesh>
+      <props>
+        <prop actor="props/units/weapons/mino_axe.xml" attachpoint="weapon_R"/>
+        <prop actor="props/units/helmets/mino_horns.xml" attachpoint="horns"/>
+        <prop actor="props/units/mino_skirt_a.xml" attachpoint="root"/>
+      </props>
+      <textures>
+        <texture file="skeletal/minotaur_norm.png" name="normTex"/>
+        <texture file="skeletal/minotaur_spec.png" name="specTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Caucasian">
+      <textures>
+        <texture file="skeletal/minotaur_caucasian.png" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="Brown">
+      <textures>
+        <texture file="skeletal/minotaur_brown.png" name="baseTex"/>
+      </textures>
+    </variant>
+    <variant frequency="1" name="Redish">
+      <textures>
+        <texture file="skeletal/minotaur_redish.png" name="baseTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="Idle"/>
+    <variant file="biped/base_minotaur_death.xml"/>
+    <variant file="biped/base_minotaur_run.xml"/>
+  </group>
+  <material>player_trans_parallax_spec.xml</material>
+</actor>

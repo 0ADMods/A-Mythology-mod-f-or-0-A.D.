@@ -17,10 +17,11 @@
     </variant>
   </group>
   <group>
-    <variant frequency="1" name="Idle"/>
+    <variant name="attack_ranged" file="quadraped/centaur_attack_ranged_archer_back.xml"/>
+    <variant name="ready" file="quadraped/centaur/archer/ready.xml"/>
+    <variant name="relax" file="quadraped/centaur/archer/relax.xml" frequency="1"/>
     <variant file="quadraped/base_centaur_death.xml"/>
     <variant file="quadraped/base_centaur_run.xml"/>
-    <variant file="quadraped/centaur_attack_ranged_archer_back.xml"/>
   </group>
   <material>player_trans.xml</material>
 </actor>

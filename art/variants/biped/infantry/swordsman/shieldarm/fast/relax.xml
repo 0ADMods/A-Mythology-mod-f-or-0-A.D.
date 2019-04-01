@@ -1,0 +1,7 @@
+<variant name="relax">
+  <animations>
+    <animation file="biped/new/fem_idle_relax.dae" name="idle" speed="100"/>
+    <animation file="biped/new/sword_shield_walk_relax.dae" name="Walk" speed="30"/>
+    <animation file="biped/new/bow_jog_relax.dae" name="Run" speed="8"/>  
+  </animations>
+</variant>

@@ -2,7 +2,7 @@
 <actor version="1">
   <castshadow/>
   <group>
-    <variant file="quadraped/base_centaur_spearman.xml">
+    <variant name="Base">
       <mesh>skeletal/centaur.dae</mesh>
       <props>
         <prop actor="props/units/heads/new/head_hele_b.xml" attachpoint="head"/>
@@ -16,7 +16,8 @@
     </variant>
   </group>
   <group>
-    <variant frequency="1" name="Idle"/>
+    <variant name="ready" file="quadraped/centaur/spearman/ready.xml"/>
+    <variant name="relax" file="quadraped/centaur/spearman/relax.xml" frequency="1"/>
     <variant file="quadraped/base_centaur_death.xml"/>
     <variant file="quadraped/base_centaur_run.xml"/>
   </group>
