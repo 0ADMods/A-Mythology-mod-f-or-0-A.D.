@@ -3,18 +3,20 @@
   <Attack>
     <Ranged>
       <MaxAmmo>20</MaxAmmo>
-	  <RefillAmount>0</RefillAmount>
-	  <RefillTime>1000</RefillTime>
+      <RefillAmount>0</RefillAmount>
+      <RefillTime>1000</RefillTime>
       <Hack>0.0</Hack>
       <Pierce>60.0</Pierce>
       <Crush>0.0</Crush>
       <MaxRange>36.0</MaxRange>
       <MinRange>0.0</MinRange>
-      <ProjectileSpeed>62.5</ProjectileSpeed>
-      <Gravity>9.81</Gravity>
+      <Projectile>
+        <Speed>62.5</Speed>
+        <Gravity>9.81</Gravity>
+        <Spread>0.5</Spread>
+      </Projectile>
       <PrepareTime>750</PrepareTime>
       <RepeatTime>1250</RepeatTime>
-      <Spread>0.5</Spread>
       <Delay>0</Delay>
       <PreferredClasses datatype="tokens">Human</PreferredClasses>
     </Ranged>
@@ -35,8 +37,6 @@
   </Identity>
   <UnitMotion>
     <WalkSpeed op="mul">1.05</WalkSpeed>
-    <Run>
-      <Speed op="mul">1.05</Speed>
-    </Run>
+    <RunMultiplier op="mul">1.05</RunMultiplier>
   </UnitMotion>
 </Entity>

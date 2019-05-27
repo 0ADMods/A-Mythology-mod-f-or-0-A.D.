@@ -175,39 +175,42 @@ Attack.prototype.Schema =
 				"<element name='RepeatTime' a:help='Time between attacks (in milliseconds). The attack animation will be stretched to match this time'>" +
 					"<data type='positiveInteger'/>" +
 				"</element>" +
-				"<element name='ProjectileSpeed' a:help='Speed of projectiles (in metres per second)'>" +
-					"<ref name='positiveDecimal'/>" +
-				"</element>" +
-				"<element name='Gravity' a:help='The gravity affecting the projectile. This affects the shape of the flight curve.'>" +
-					"<ref name='nonNegativeDecimal'/>" +
-				"</element>" +
-				"<element name='Spread' a:help='Standard deviation of the bivariate normal distribution of hits at 100 meters. A disk at 100 meters from the attacker with this radius (2x this radius, 3x this radius) is expected to include the landing points of 39.3% (86.5%, 98.9%) of the rounds.'><ref name='nonNegativeDecimal'/></element>" +
 				"<element name='Delay' a:help='Delay of the damage in milliseconds'><ref name='nonNegativeDecimal'/></element>" +
 				Attack.prototype.knockBackBonusSchema +
 				Attack.prototype.bonusesSchema +
 				Attack.prototype.preferredClassesSchema +
 				Attack.prototype.restrictedClassesSchema +
-				"<optional>" +
-					"<element name='Projectile'>" +
-						"<interleave>" +
-							"<oneOrMore>" +
-								"<choice>" +
-									"<element name='ActorName' a:help='actor of the projectile animation'>" +
-										"<text/>" +
-									"</element>" +
-									"<interleave>" +
-										"<element name='ImpactActorName' a:help='actor of the projectile impact animation'>" +
-											"<text/>" +
-										"</element>" +
-										"<element name='ImpactAnimationLifetime' a:help='length of the projectile impact animation'>" +
-											"<ref name='positiveDecimal'/>" +
-										"</element>" +
-									"</interleave>" +
-								"</choice>" +
-							"</oneOrMore>" +
-						"</interleave>" +
-					"</element>" +
-				"</optional>" +
+				"<element name='Projectile'>" +
+					"<interleave>" +
+						"<element name='Speed' a:help='Speed of projectiles (in meters per second).'>" +
+							"<ref name='positiveDecimal'/>" +
+						"</element>" +
+						"<element name='Spread' a:help='Standard deviation of the bivariate normal distribution of hits at 100 meters. A disk at 100 meters from the attacker with this radius (2x this radius, 3x this radius) is expected to include the landing points of 39.3% (86.5%, 98.9%) of the rounds.'><ref name='nonNegativeDecimal'/></element>" +
+						"<element name='Gravity' a:help='The gravity affecting the projectile. This affects the shape of the flight curve.'>" +
+							"<ref name='nonNegativeDecimal'/>" +
+						"</element>" +
+						"<optional>" +
+							"<element name='LaunchPoint' a:help='Delta from the unit position where to launch the projectile.'>" +
+								"<attribute name='y'>" +
+									"<data type='decimal'/>" +
+								"</attribute>" +
+							"</element>" +
+						"</optional>" +
+						"<optional>" +
+							"<element name='ActorName' a:help='actor of the projectile animation.'>" +
+								"<text/>" +
+							"</element>" +
+						"</optional>" +
+						"<optional>" +
+							"<element name='ImpactActorName' a:help='actor of the projectile impact animation'>" +
+								"<text/>" +
+							"</element>" +
+							"<element name='ImpactAnimationLifetime' a:help='length of the projectile impact animation.'>" +
+								"<ref name='positiveDecimal'/>" +
+							"</element>" +
+						"</optional>" +
+					"</interleave>" +
+				"</element>" +
 				"<optional>" +
 					"<element name='Splash'>" +
 						"<interleave>" +
@@ -711,8 +714,8 @@ Attack.prototype.PerformAttack = function(type, target)
 		//  * Obstacles like trees could reduce the probability of the target being hit
 		//  * Obstacles like walls should block projectiles entirely
 
-		let horizSpeed = +this.template[type].ProjectileSpeed;
-		let gravity = +this.template[type].Gravity;
+		let horizSpeed = +this.template[type].Projectile.Speed;
+		let gravity = +this.template[type].Projectile.Gravity;
 		//horizSpeed /= 2; gravity /= 2; // slow it down for testing
 
 		let cmpPosition = Engine.QueryInterface(this.entity, IID_Position);
@@ -752,17 +755,14 @@ Attack.prototype.PerformAttack = function(type, target)
 		let actorName = "";
 		let impactActorName = "";
 		let impactAnimationLifetime = 0;
-		if (this.template.Ranged.Projectile)
-		{
-			actorName = this.template.Ranged.Projectile.ActorName || "";
-			impactActorName = this.template.Ranged.Projectile.ImpactActorName || "";
-			impactAnimationLifetime = this.template.Ranged.Projectile.ImpactAnimationLifetime || 0;
-		}
 
-		let launchPoint = selfPosition.clone();
-		// TODO: remove this when all the ranged unit templates are updated with Projectile/Launchpoint
-		launchPoint.y += 3;
-		
+		actorName = this.template[type].Projectile.ActorName || "";
+		impactActorName = this.template[type].Projectile.ImpactActorName || "";
+		impactAnimationLifetime = this.template[type].Projectile.ImpactAnimationLifetime || 0;
+
+		let deltaLaunchPoint = new Vector3D(0, this.template[type].Projectile.LaunchPoint["@y"], 0.0);
+		let launchPoint = Vector3D.add(selfPosition, deltaLaunchPoint);
+
 		let cmpVisual = Engine.QueryInterface(this.entity, IID_Visual);
 		if (cmpVisual)
 		{

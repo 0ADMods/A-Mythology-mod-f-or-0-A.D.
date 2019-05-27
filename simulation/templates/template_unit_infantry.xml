@@ -70,7 +70,7 @@
     <wood>0</wood>
     <stone>0</stone>
     <metal>0</metal>
-	<glory>2</glory>
+    <glory>2</glory>
   </Loot>
   <Promotion>
     <RequiredXp>100</RequiredXp>
@@ -123,8 +123,8 @@
   </Sound>
   <Stamina>
     <MaxPoints>100</MaxPoints>
-	<RegenRate>5</RegenRate>
-	<RunDegRate>20</RunDegRate>
+    <RegenRate>5</RegenRate>
+    <RunDegRate>20</RunDegRate>
   </Stamina>
   <UnitAI>
     <DefaultStance>defensive</DefaultStance>

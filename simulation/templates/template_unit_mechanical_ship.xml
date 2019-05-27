@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Entity parent="template_unit_mechanical">
+<Entity parent="template_unit">
   <Armour>
     <Hack>5</Hack>
     <Pierce>10</Pierce>
@@ -27,21 +27,30 @@
     <MaxSpawnDistance>10</MaxSpawnDistance>
   </Footprint>
   <Health>
+    <Unhealable>true</Unhealable>
     <Max>200</Max>
   </Health>
   <Identity>
     <GenericName>Ship</GenericName>
     <Formations disable=""/>
-    <VisibleClasses datatype="tokens">Ship</VisibleClasses>
+    <VisibleClasses datatype="tokens">Mechanical Ship</VisibleClasses>
   </Identity>
   <Loot>
     <glory>2</glory>
+    <xp>60</xp>
+    <food>0</food>
+    <wood>50</wood>
+    <stone>0</stone>
+    <metal>25</metal>
   </Loot>
   <Position>
     <Floating>true</Floating>
     <FloatDepth>0.0</FloatDepth>
     <TurnRate>3.0</TurnRate>
   </Position>
+  <Repairable>
+    <RepairTimeRatio>4.0</RepairTimeRatio>
+  </Repairable>
   <ResourceGatherer>
     <MaxDistance>4.0</MaxDistance>
     <BaseSpeed>1.0</BaseSpeed>

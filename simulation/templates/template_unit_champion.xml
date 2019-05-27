@@ -20,7 +20,7 @@
     <wood>10</wood>
     <stone>0</stone>
     <metal>20</metal>
-	<glory>5</glory>
+    <glory>5</glory>
   </Loot>
   <Sound>
     <SoundGroups>
@@ -30,8 +30,8 @@
   </Sound>
   <Stamina>
     <MaxPoints>100</MaxPoints>
-	<RegenRate>5</RegenRate>
-	<RunDegRate>20</RunDegRate>
+    <RegenRate>5</RegenRate>
+    <RunDegRate>20</RunDegRate>
   </Stamina>
   <UnitAI>
     <DefaultStance>defensive</DefaultStance>

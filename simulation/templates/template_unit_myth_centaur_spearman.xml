@@ -6,9 +6,9 @@
   </Armour>
   <Attack>
     <Melee>
-	  <Charge>
-	    <DamageMultiplier>1.5</DamageMultiplier>
-	  </Charge>
+      <Charge>
+        <DamageMultiplier>1.5</DamageMultiplier>
+      </Charge>
       <Hack>24.0</Hack>
       <Pierce>20.0</Pierce>
       <Crush>0.0</Crush>
@@ -19,10 +19,10 @@
           <Multiplier>1.5</Multiplier>
         </BonusCavMelee>
       </Bonuses>
-	  <KnockBack>
-	    <Strength>5</Strength>
-		<AffectedClasses datatype="tokens">Organic</AffectedClasses>
-	  </KnockBack>
+      <KnockBack>
+        <Strength>5</Strength>
+        <AffectedClasses datatype="tokens">Organic</AffectedClasses>
+      </KnockBack>
       <PrepareTime>500</PrepareTime>
       <RepeatTime>2000</RepeatTime>
       <PreferredClasses datatype="tokens">Organic</PreferredClasses>
@@ -30,8 +30,8 @@
   </Attack>
   <Stamina>
     <MaxPoints>100</MaxPoints>
-	<RegenRate>5</RegenRate>
-	<RunDegRate>20</RunDegRate>
+    <RegenRate>5</RegenRate>
+    <RunDegRate>20</RunDegRate>
   </Stamina>
   <Identity>
     <VisibleClasses datatype="tokens">Spear</VisibleClasses>

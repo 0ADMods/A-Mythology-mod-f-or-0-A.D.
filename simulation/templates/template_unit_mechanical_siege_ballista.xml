@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Entity parent="template_unit_mechanical_siege">
+<Entity parent="template_unit_siege">
   <Attack>
     <Ranged>
       <Ammo>20</Ammo>
-	  <RefillAmount>0</RefillAmount>
-	  <RefillTime>1000</RefillTime>
+      <RefillAmount>0</RefillAmount>
+      <RefillTime>1000</RefillTime>
       <Hack>0.0</Hack>
       <Pierce>150.0</Pierce>
       <Crush>25.0</Crush>
       <MaxRange>80.0</MaxRange>
       <MinRange>26.0</MinRange>
       <Spread>2.0</Spread>
-      <ProjectileSpeed>150.0</ProjectileSpeed>
-      <Gravity>9.81</Gravity>
+      <Projectile>
+        <Speed>150.0</Speed>
+        <Gravity>9.81</Gravity>
+      </Projectile>
       <PrepareTime>3000</PrepareTime>
       <RepeatTime>4000</RepeatTime>
       <Delay>0</Delay>
@@ -78,9 +80,7 @@
   </UnitAI>
   <UnitMotion>
     <WalkSpeed op="mul">0.9</WalkSpeed>
-    <Run>
-      <Speed op="mul">0.9</Speed>
-    </Run>
+    <RunMultiplier op="mul">0.9</RunMultiplier>
   </UnitMotion>
   <Vision>
     <Range>120</Range>

@@ -2,13 +2,13 @@
 <Entity parent="template_unit_myth_minotaur">
   <Attack>
     <Melee>
-	  <Charge>
-	    <DamageMultiplier>2</DamageMultiplier>
-	  </Charge>
-	  <KnockBack>
-	    <Strength>5</Strength>
-		<AffectedClasses datatype="tokens">Organic</AffectedClasses>
-	  </KnockBack>
+      <Charge>
+        <DamageMultiplier>2</DamageMultiplier>
+      </Charge>
+      <KnockBack>
+        <Strength>5</Strength>
+        <AffectedClasses datatype="tokens">Organic</AffectedClasses>
+      </KnockBack>
       <Hack>40.0</Hack>
       <Pierce>0.0</Pierce>
       <Crush>0.0</Crush>
@@ -20,8 +20,8 @@
   </Attack>
   <Stamina>
     <MaxPoints>100</MaxPoints>
-	<RegenRate>4</RegenRate>
-	<RunDegRate>10</RunDegRate>
+    <RegenRate>4</RegenRate>
+    <RunDegRate>10</RunDegRate>
   </Stamina>
   <Identity>
     <VisibleClasses datatype="tokens">Axe</VisibleClasses>

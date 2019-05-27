@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Entity parent="template_unit_mechanical_siege">
+<Entity parent="template_unit_siege">
   <Attack>
     <Ranged>
       <Ammo>20</Ammo>
-	  <RefillAmount>0</RefillAmount>
-	  <RefillTime>1000</RefillTime>
+      <RefillAmount>0</RefillAmount>
+      <RefillTime>1000</RefillTime>
       <Hack>0.0</Hack>
       <Pierce>10.0</Pierce>
       <Crush>100.0</Crush>
       <MaxRange>80.0</MaxRange>
       <MinRange>26.0</MinRange>
-      <ProjectileSpeed>37.5</ProjectileSpeed>
-      <Gravity>9.81</Gravity>
+      <Projectile>
+        <Speed>37.5</Speed>
+        <Gravity>9.81</Gravity>
+        <Spread>4.0</Spread>
+      </Projectile>
       <PrepareTime>4000</PrepareTime>
       <RepeatTime>5000</RepeatTime>
-      <Spread>4.0</Spread>
       <Delay>0</Delay>
       <Projectile>
         <ImpactActorName>props/units/weapons/rock_explosion.xml</ImpactActorName>
@@ -81,9 +83,7 @@
   </UnitAI>
   <UnitMotion>
     <WalkSpeed op="mul">0.8</WalkSpeed>
-    <Run>
-      <Speed op="mul">0.8</Speed>
-    </Run>
+    <RunMultiplier op="mul">0.8</RunMultiplier>
   </UnitMotion>
   <Vision>
     <Range>120</Range>
