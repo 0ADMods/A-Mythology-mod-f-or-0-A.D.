@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Entity parent="template_unit_mechanical">
+<Entity parent="template_unit">
   <Armour>
     <Hack>1</Hack>
     <Pierce>50</Pierce>
@@ -13,17 +13,33 @@
   <Cost>
     <Population>3</Population>
   </Cost>
+  <Decay>
+    <DelayTime>0.0</DelayTime>
+    <SinkRate>0.0</SinkRate>
+    <SinkAccel>2.0</SinkAccel>
+  </Decay>
+  <Health>
+    <Unhealable>true</Unhealable>
+  </Health>
   <Identity>
-    <VisibleClasses datatype="tokens">Siege</VisibleClasses>
+    <VisibleClasses datatype="tokens">Mechanical Siege</VisibleClasses>
     <GenericName>Siege</GenericName>
     <RequiredTechnology>phase_city</RequiredTechnology>
   </Identity>
   <Loot>
     <glory>2</glory>
+    <xp>60</xp>
+    <food>0</food>
+    <wood>50</wood>
+    <stone>0</stone>
+    <metal>25</metal>
   </Loot>
   <Position>
     <Anchor>pitch-roll</Anchor>
   </Position>
+  <Repairable>
+    <RepairTimeRatio>4.0</RepairTimeRatio>
+  </Repairable>
   <Sound>
     <SoundGroups>
       <select>attack/siege/siege_select.xml</select>
@@ -41,5 +57,6 @@
   </UnitAI>
   <UnitMotion>
     <PassabilityClass>large</PassabilityClass>
+    <RunMultiplier>1</RunMultiplier>
   </UnitMotion>
 </Entity>

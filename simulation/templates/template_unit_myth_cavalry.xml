@@ -33,9 +33,7 @@
   </StatusBars>
   <UnitMotion>
     <WalkSpeed op="mul">2.25</WalkSpeed>
-    <Run>
-      <Speed op="mul">2.25</Speed>
-    </Run>
+    <RunMultiplier op="mul">2.25</RunMultiplier>
   </UnitMotion>
   <Vision>
     <Range>96</Range>

@@ -48,7 +48,7 @@
     <wood>5</wood>
     <stone>0</stone>
     <metal>0</metal>
-	<glory>3</glory>
+    <glory>3</glory>
   </Loot>
   <Position>
     <Anchor>pitch</Anchor>
@@ -95,17 +95,15 @@
   </Sound>
   <Stamina>
     <MaxPoints>100</MaxPoints>
-	<RegenRate>5</RegenRate>
-	<RunDegRate>20</RunDegRate>
+    <RegenRate>5</RegenRate>
+    <RunDegRate>20</RunDegRate>
   </Stamina>
   <StatusBars>
     <HeightOffset>6.5</HeightOffset>
   </StatusBars>
   <UnitMotion>
     <WalkSpeed op="mul">1.95</WalkSpeed>
-    <Run>
-      <Speed op="mul">1.95</Speed>
-    </Run>
+    <RunMultiplier op="mul">1.95</RunMultiplier>
   </UnitMotion>
   <UnitAI>
     <DefaultStance>defensive</DefaultStance>

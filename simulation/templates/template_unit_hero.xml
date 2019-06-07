@@ -39,7 +39,7 @@
     <wood>0</wood>
     <stone>0</stone>
     <metal>25</metal>
-	<glory>10</glory>
+    <glory>10</glory>
   </Loot>
   <Minimap>
     <Type>hero</Type>
@@ -73,8 +73,8 @@
   </Sound>
   <Stamina>
     <MaxPoints>100</MaxPoints>
-	<RegenRate>5</RegenRate>
-	<RunDegRate>20</RunDegRate>
+    <RegenRate>5</RegenRate>
+    <RunDegRate>20</RunDegRate>
   </Stamina>
   <TrainingRestrictions>
     <Category>Hero</Category>

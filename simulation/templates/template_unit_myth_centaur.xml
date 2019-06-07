@@ -14,8 +14,8 @@
     </Resources>
   </Cost>
   <Loot>
-	<glory>13</glory>
-	<xp>250</xp>
+    <glory>13</glory>
+    <xp>250</xp>
   </Loot>
   <Health>
     <Max>400</Max>
@@ -28,8 +28,6 @@
   </Promotion>
   <UnitMotion>
     <WalkSpeed>18</WalkSpeed>
-    <Run>
-      <Speed>30</Speed>
-    </Run>
+    <RunMultiplier>2</RunMultiplier>
   </UnitMotion>
 </Entity>
