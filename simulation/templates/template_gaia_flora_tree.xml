@@ -5,7 +5,7 @@
     <Height>15.0</Height>
   </Footprint>
  <Auras datatype="tokens">
-    structures/rough_ground
+    structures/rough_ground  structures/tree_cover
   </Auras> <Identity>
     <GenericName>Tree</GenericName>
     <Tooltip>Chop down to accumulate Wood.</Tooltip>
