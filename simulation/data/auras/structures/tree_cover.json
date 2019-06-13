@@ -1,0 +1,10 @@
+{
+	"type": "range",
+	"radius": 10,
+	"affects": ["Soldier"], 
+"affectedPlayers": ["Enemy", "Neutral"],	"modifications": [
+	{"value": "Armour/Pierce", "add": 2 } 	],
+	"auraName": "Tree Cover",
+	"auraDescription": "Units gain 2 pierce armor near trees.",
+	"overlayIcon": "art/textures/ui/session/auras/attack_bonus.png"
+}
