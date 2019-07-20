@@ -1,0 +1,11 @@
+{
+	"type": "range",
+	"radius": 10,
+	"affects": ["Cavalry", "Siege"], 
+"affectedPlayers": ["Enemy", "Neutral"],	"modifications": [
+	{ "value": "UnitMotion/WalkSpeed", "multiply": 0.6 }
+	],
+	"auraName": "Rough Ground",
+	"auraDescription": "Cavalry and machines nearby move 40% slower.",
+	"overlayIcon": "art/textures/ui/session/auras/attack_bonus.png"
+}
