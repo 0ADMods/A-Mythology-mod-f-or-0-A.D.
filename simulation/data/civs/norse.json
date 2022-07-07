@@ -4,44 +4,46 @@
 	"Name": "Norse",
 	"Emblem": "session/portraits/emblems/emblem_norse.png",
 	"History": "The norse believe in Aesir Gods (Odin, Thor...) just like their forefathers for which they would sacrifice anything even going to Valhala.",
-	"Music":[
-                        {"File":"Norse peace.ogg", "Type":"peace"},
-			{"File":"Norse peace 2.ogg", "Type":"peace"},
-                        {"File":"Victory 2.ogg", "Type":"victory"},
-                        {"File":"defeat.ogg", "Type":"defeat"},
-                        {"File":"Battle.ogg", "Type":"battle"} 
-                ],
-	"Factions":
-	[
+	"Music": [
+		{
+			"File": "Norse peace.ogg",
+			"Type": "peace"
+		},
+		{
+			"File": "Norse peace 2.ogg",
+			"Type": "peace"
+		},
+		{
+			"File": "Victory 2.ogg",
+			"Type": "victory"
+		},
+		{
+			"File": "defeat.ogg",
+			"Type": "defeat"
+		},
+		{
+			"File": "Battle.ogg",
+			"Type": "battle"
+		}
+	],
+	"Factions": [
 		{
 			"Name": "Norse",
 			"Description": "N/A",
-			"Technologies":
-			[
-			],
-			"Heroes":
-			[
-			] 
-		} 
+			"Technologies": [],
+			"Heroes": []
+		}
 	],
-	"CivBonuses":
-	[
-	],
-	"TeamBonuses":
-	[
-	],
-	"Structures":
-	[
-	],
-	"WallSets":
-	[
+	"CivBonuses": [],
+	"TeamBonuses": [],
+	"Structures": [],
+	"WallSets": [
 		"other/wallset_palisade",
 		"structures/norse_wallset_stone"
 	],
-	"StartEntities":
-	[
+	"StartEntities": [
 		{
-			"Template": "structures/norse_civil_centre" 
+			"Template": "structures/norse_civil_centre"
 		},
 		{
 			"Template": "units/norse_support_female_citizen",
@@ -49,18 +51,17 @@
 		},
 		{
 			"Template": "units/norse_infantry_spearman_b",
-			"Count": 2 
+			"Count": 2
 		},
 		{
 			"Template": "units/norse_infantry_archer_b",
-			"Count": 2 
+			"Count": 2
 		},
 		{
-			"Template": "units/norse_infantry_swordsman_b" 
+			"Template": "units/norse_infantry_swordsman_b"
 		}
 	],
-	"Formations":
-	[
+	"Formations": [
 		"special/formations/null",
 		"special/formations/box",
 		"special/formations/column_closed",
@@ -73,38 +74,89 @@
 		"special/formations/battle_line",
 		"special/formations/shieldwall"
 	],
-	"Deities":
-	[
+	"Deities": [
 		{
 			"name": "Odin",
 			"description": "Norse god of war",
-			"godPowers": [{"name": "Not sure", "description": "not sure about this one", "power": "either a power ability or temporary aura or something"}],
-			"Bonuses": [{"name": "Mighty warriors/Sovereign of Asgard", "description": "Increased health for calvary units +10% or increased glory rate +10%", "tech": "path/to/pairedtech"}],
-			"mythUnits": ["Jörmungandr"],
+			"godPowers": [
+				{
+					"name": "Not sure",
+					"description": "not sure about this one",
+					"power": "either a power ability or temporary aura or something"
+				}
+			],
+			"Bonuses": [
+				{
+					"name": "Mighty warriors/Sovereign of Asgard",
+					"description": "Increased health for calvary units +10% or increased glory rate +10%",
+					"tech": "path/to/pairedtech"
+				}
+			],
+			"mythUnits": [
+				"Jörmungandr"
+			],
 			"hero": "Bödvar Bjarki"
 		},
 		{
 			"name": "Thor",
 			"description": "Norse god of lightning",
-			"godPowers": [{"name": "Lightning", "description": "Bolts of lightning struct to the chosen target", "power": "either a power ability or temporary aura or something"}],
-			"Bonuses": [{"name": "Mighty Gatherers/Master Smith", "description": "Increased resource gather rate +5% or armor increase +10% for all units and damage increase for heroes +10%", "tech/aura": "path/to/pairedtech"}],
-			"mythUnits": ["Hildisvíni"],
+			"godPowers": [
+				{
+					"name": "Lightning",
+					"description": "Bolts of lightning struct to the chosen target",
+					"power": "either a power ability or temporary aura or something"
+				}
+			],
+			"Bonuses": [
+				{
+					"name": "Mighty Gatherers/Master Smith",
+					"description": "Increased resource gather rate +5% or armor increase +10% for all units and damage increase for heroes +10%",
+					"tech/aura": "path/to/pairedtech"
+				}
+			],
+			"mythUnits": [
+				"Hildisvíni"
+			],
 			"hero": "Sigurd"
 		},
 		{
 			"name": "Loki",
 			"description": "Norse god of trickery",
-			"godPowers": [{"name": "Not sure", "description": "not sure about this one", "power": "either a power ability or temporary aura or something"}],
-			"Bonuses": [{"name": "Forced march/Speedy traders", "description": "Faster movement speed for all cavalry +10% or faster movement speed for trade caravans +10%", "tech": "path/to/pairedtech"}],
-			"mythUnits": ["Nidhogg", "Draugyr"],
+			"godPowers": [
+				{
+					"name": "Not sure",
+					"description": "not sure about this one",
+					"power": "either a power ability or temporary aura or something"
+				}
+			],
+			"Bonuses": [
+				{
+					"name": "Forced march/Speedy traders",
+					"description": "Faster movement speed for all cavalry +10% or faster movement speed for trade caravans +10%",
+					"tech": "path/to/pairedtech"
+				}
+			],
+			"mythUnits": [
+				"Nidhogg",
+				"Draugyr"
+			],
 			"hero": "Starkad"
 		}
 	],
-	"AINames":
-	[
+	"AINames": [
+		"Bergen",
+		"Bornholm",
+		"Faeros",
+		"Gotland",
+		"Hafrsfjord",
+		"Halogaland",
+		"Helluland",
+		"Markland",
+		"Oslo",
+		"Skara",
+		"Skiringsaal"
 	],
-	"SkirmishReplacements":
-	{
+	"SkirmishReplacements": {
 		"skirmish/units/default_cavalry": "units/norse_infantry_swordsman_b",
 		"skirmish/units/default_infantry_ranged_b": "units/norse_infantry_archer_b",
 		"skirmish/structures/default_corral": "structures/norse_farmstead",
