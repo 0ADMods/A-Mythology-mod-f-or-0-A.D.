@@ -1,9 +1,9 @@
 {
 	"name": "A-Mythology-mod-f-or-0-A.D.",
 	"label": "A Mythology mod for 0 A.D.",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"url": "https://github.com/0ADMods/A-Mythology-mod-f-or-0-A.D.",
 	"description": "Adds semi-historical mythology content like civilizations and maps.",
-	"dependencies": ["0ad=0.0.24"],
+	"dependencies": ["0ad=0.0.26"],
 	"type": "Factions"
 }
