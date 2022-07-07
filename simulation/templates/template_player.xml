@@ -15,40 +15,34 @@
   </BattleDetection>
   <EntityLimits>
     <Limits>
+      <Animal>50</Animal>
       <CivilCentre>1</CivilCentre>
-      <DefenseTower>30</DefenseTower>
-      <Fortress>10</Fortress>
-      <Wonder>1</Wonder>
+      <Gladiator>0</Gladiator>
       <Hero>1</Hero>
-      <Apadana>1</Apadana>
-      <Embassy>2</Embassy>
-      <Monument>5</Monument>
-      <Pillar>0</Pillar>
-      <WarDog>0</WarDog>
-      <Theater>1</Theater>
-      <Council>1</Council>
+      <Juggernaut>1</Juggernaut>
       <Library>1</Library>
       <Lighthouse>1</Lighthouse>
-      <Juggernaut>1</Juggernaut>
-      <UniqueBuilding>1</UniqueBuilding>
-      <Hall>2</Hall>
-      <Stoa>2</Stoa>
-      <Kennel>5</Kennel>
-      <PyramidSmall>4</PyramidSmall>
+      <Monument>5</Monument>
+      <Palace>2</Palace>
+      <Pillar>0</Pillar>
       <PyramidLarge>2</PyramidLarge>
       <TempleOfAmun>1</TempleOfAmun>
-	  <Temple>1</Temple>
+      <TempleOfVesta>1</TempleOfVesta>
+      <Theater>1</Theater>
+      <Yakhchal>5</Yakhchal>
+      <WarDog>20</WarDog>
+      <Wonder>1</Wonder>
     </Limits>
     <LimitChangers>
-      <WarDog>
-        <Kennel>10</Kennel>
-      </WarDog>
-      <Pillar>
-        <Ashoka>5</Ashoka>
-      </Pillar>
+      <Gladiator>
+        <Amphitheater>15</Amphitheater>
+      </Gladiator>
       <Juggernaut>
         <PtolemyIV>4</PtolemyIV>
       </Juggernaut>
+      <Pillar>
+        <Ashoka>5</Ashoka>
+      </Pillar>
     </LimitChangers>
     <LimitRemovers>
       <CivilCentre>
@@ -57,8 +51,6 @@
     </LimitRemovers>
   </EntityLimits>
   <Identity>
-    <Civ/>
-    <GenericName>Player</GenericName>
     <Classes datatype="tokens">Player</Classes>
     <Undeletable>true</Undeletable>
   </Identity>
@@ -69,17 +61,31 @@
         <wood>1.0</wood>
         <stone>1.0</stone>
         <metal>1.0</metal>
+        <glory>1000</glory>
       </Buy>
       <Sell>
         <food>1.0</food>
         <wood>1.0</wood>
         <stone>1.0</stone>
         <metal>1.0</metal>
+        <glory>0.001</glory>
       </Sell>
     </BarterMultiplier>
     <SharedLosTech>unlock_shared_los</SharedLosTech>
     <SharedDropsitesTech>unlock_shared_dropsites</SharedDropsitesTech>
     <SpyCostMultiplier>1.0</SpyCostMultiplier>
+    <Formations datatype="tokens">
+      special/formations/null
+      special/formations/box
+      special/formations/column_closed
+      special/formations/line_closed
+      special/formations/column_open
+      special/formations/line_open
+      special/formations/flank
+      special/formations/battle_line
+      special/formations/skirmish
+      special/formations/wedge
+    </Formations>
   </Player>
   <ResourceTrickle>
     <Rates>
@@ -87,10 +93,40 @@
       <wood>0.0</wood>
       <stone>0.0</stone>
       <metal>0.0</metal>
-      <glory>0.0</glory>
     </Rates>
     <Interval>1000</Interval>
   </ResourceTrickle>
-  <StatisticsTracker/>
+  <Sound>
+    <SoundGroups>
+      <defeated>interface/alarm/alarm_defeated.xml</defeated>
+      <defeated_ally>interface/alarm/alarm_defeated_ally.xml</defeated_ally>
+      <defeated_enemy>interface/alarm/alarm_defeated_enemy.xml</defeated_enemy>
+      <no_idle_unit>interface/alarm/alarm_no_idle_unit.xml</no_idle_unit>
+    </SoundGroups>
+  </Sound>
+  <StatisticsTracker>
+    <!-- The summary screen and lobby rankings expect these classes, but additional classes may be added. -->
+    <UnitClasses datatype="tokens">
+      Cavalry
+      Champion
+      Domestic
+      FemaleCitizen
+      Hero
+      Infantry
+      Ship
+      Siege
+      Trader
+      Worker
+    </UnitClasses>
+    <StructureClasses datatype="tokens">
+      Economic
+      CivCentre
+      Fortress
+      House
+      Military
+      Outpost
+      Wonder
+    </StructureClasses>
+  </StatisticsTracker>
   <TechnologyManager/>
 </Entity>
